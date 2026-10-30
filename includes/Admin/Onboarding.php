@@ -449,7 +449,10 @@ final class Onboarding {
 						$gateways
 							/* translators: %s: list of payment methods. */
 							? sprintf( __( 'Payments: %s', 'wahou-commerce' ), implode( ', ', $gateways ) )
-							: __( 'Payments: none yet – connect one from the dashboard before launch', 'wahou-commerce' ),
+							: array(
+								'text' => __( 'Payments: none yet – connect one from the dashboard before launch', 'wahou-commerce' ),
+								'warn' => true,
+							),
 						/* translators: %d: number of pages. */
 						sprintf( _n( '%d store page ready', '%d store pages ready', count( $pages ), 'wahou-commerce' ), count( $pages ) ),
 						$demo ? sprintf(

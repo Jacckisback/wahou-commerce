@@ -325,7 +325,11 @@
 			list.textContent = '';
 			( result.summary || [] ).forEach( function ( line ) {
 				var li = document.createElement( 'li' );
-				li.textContent = line;
+				// A line is a string, or { text, warn } for items still to do.
+				li.textContent = 'object' === typeof line && line ? line.text : line;
+				if ( line && line.warn ) {
+					li.classList.add( 'is-warning' );
+				}
 				list.appendChild( li );
 			} );
 		}

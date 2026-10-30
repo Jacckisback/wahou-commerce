@@ -1119,6 +1119,12 @@ a {
 	font-weight: 800;
 }
 
+.wahou-ob-summary li.is-warning::before {
+	content: "!";
+	background: color-mix(in srgb, #f59e0b 18%, transparent);
+	color: #b45309;
+}
+
 .wahou-ob-done__actions {
 	display: flex;
 	flex-wrap: wrap;
