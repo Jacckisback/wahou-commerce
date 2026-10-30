@@ -1,0 +1,78 @@
+<wpml-config>
+	<custom-types>
+		<custom-type translate="1">wahou_product</custom-type>
+		<custom-type translate="0">wahou_coupon</custom-type>
+		<custom-type translate="0">wahou_offer</custom-type>
+	</custom-types>
+	<taxonomies>
+		<taxonomy translate="1">wahou_product_cat</taxonomy>
+		<taxonomy translate="1">wahou_product_tag</taxonomy>
+	</taxonomies>
+	<custom-fields>
+		<!-- Shared by every translation (prices, stock, logistics, files). -->
+		<custom-field action="copy">_wahou_kind</custom-field>
+		<custom-field action="copy">_wahou_type</custom-field>
+		<custom-field action="copy">_wahou_price</custom-field>
+		<custom-field action="copy">_wahou_sale_price</custom-field>
+		<custom-field action="copy">_wahou_sale_from</custom-field>
+		<custom-field action="copy">_wahou_sale_to</custom-field>
+		<custom-field action="copy">_wahou_sku</custom-field>
+		<custom-field action="copy">_wahou_gtin</custom-field>
+		<custom-field action="copy">_wahou_mpn</custom-field>
+		<custom-field action="copy">_wahou_manage_stock</custom-field>
+		<custom-field action="copy">_wahou_stock</custom-field>
+		<custom-field action="copy">_wahou_backorders</custom-field>
+		<custom-field action="copy">_wahou_low_stock</custom-field>
+		<custom-field action="copy">_wahou_weight</custom-field>
+		<custom-field action="copy">_wahou_length</custom-field>
+		<custom-field action="copy">_wahou_width</custom-field>
+		<custom-field action="copy">_wahou_height</custom-field>
+		<custom-field action="copy">_wahou_tax_class</custom-field>
+		<custom-field action="copy">_wahou_files</custom-field>
+		<custom-field action="copy">_wahou_download_limit</custom-field>
+		<custom-field action="copy">_wahou_download_expiry</custom-field>
+		<custom-field action="copy">_wahou_sold_individually</custom-field>
+		<custom-field action="copy">_wahou_bundle_pricing</custom-field>
+		<custom-field action="copy">_wahou_bundle_discount</custom-field>
+		<custom-field action="copy">_wahou_fbt_discount</custom-field>
+		<custom-field action="copy">_wahou_gallery</custom-field>
+		<!-- Copied once, then translated. -->
+		<custom-field action="copy-once">_wahou_variants</custom-field>
+		<custom-field action="copy-once">_wahou_attributes</custom-field>
+		<custom-field action="copy-once">_wahou_bundle_items</custom-field>
+		<custom-field action="copy-once">_wahou_upsells</custom-field>
+		<custom-field action="copy-once">_wahou_cross_sells</custom-field>
+		<custom-field action="copy-once">_wahou_fbt</custom-field>
+		<custom-field action="translate">_wahou_brand</custom-field>
+		<custom-field action="translate">_wahou_badge</custom-field>
+		<custom-field action="translate">_wahou_highlights</custom-field>
+		<custom-field action="translate">_wahou_faq</custom-field>
+		<custom-field action="translate">_wahou_seo_title</custom-field>
+		<custom-field action="translate">_wahou_seo_description</custom-field>
+		<!-- Specific to each post. -->
+		<custom-field action="ignore">_wahou_price_history</custom-field>
+		<custom-field action="ignore">_wahou_rating_avg</custom-field>
+		<custom-field action="ignore">_wahou_rating_count</custom-field>
+		<custom-field action="ignore">_wahou_total_sales</custom-field>
+		<custom-field action="ignore">_wahou_imported_from</custom-field>
+	</custom-fields>
+	<admin-texts>
+		<key name="wahou_settings">
+			<key name="store_name" />
+			<key name="store_address" />
+			<key name="store_legal_extra" />
+			<key name="thankyou_message" />
+			<key name="pay_button_label" />
+			<key name="bank_instructions" />
+			<key name="tax_exempt_mention" />
+			<key name="email_from_name" />
+			<key name="email_footer" />
+			<key name="seo_llms_intro" />
+			<key name="recovery_steps">
+				<key name="*">
+					<key name="subject" />
+				</key>
+			</key>
+		</key>
+	</admin-texts>
+</wpml-config>

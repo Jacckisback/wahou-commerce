@@ -74,7 +74,9 @@ final class Mailer {
 			$headers[] = 'Reply-To: ' . sanitize_email( (string) $opts['reply_to'] );
 		}
 		if ( ! empty( $vars['unsubscribe_url'] ) ) {
+			// RFC 8058 one-click unsubscribe (the link handler unsubscribes on POST).
 			$headers[] = 'List-Unsubscribe: <' . esc_url_raw( (string) $vars['unsubscribe_url'] ) . '>';
+			$headers[] = 'List-Unsubscribe-Post: List-Unsubscribe=One-Click';
 		}
 		foreach ( (array) ( $opts['headers'] ?? array() ) as $header ) {
 			$headers[] = (string) $header;
