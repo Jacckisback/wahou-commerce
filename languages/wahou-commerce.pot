@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-30T22:11:51+00:00\n"
+"POT-Creation-Date: 2026-10-30T22:28:42+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wahou-commerce\n"
@@ -63,18 +63,18 @@ msgstr[1] ""
 
 #: includes/Admin/Admin.php:75
 #: includes/Admin/Dashboard.php:329
-#: includes/Products/PostTypes.php:50
+#: includes/Products/PostTypes.php:81
 msgid "Add product"
 msgstr ""
 
 #: includes/Admin/Admin.php:76
-#: includes/Products/PostTypes.php:94
+#: includes/Products/PostTypes.php:125
 #: templates/parts/catalog-toolbar.php:25
 msgid "Product categories"
 msgstr ""
 
 #: includes/Admin/Admin.php:76
-#: includes/Products/PostTypes.php:96
+#: includes/Products/PostTypes.php:127
 #: includes/Seo/Geo.php:215
 #: includes/Seo/Geo.php:500
 msgid "Categories"
@@ -93,7 +93,7 @@ msgstr ""
 
 #: includes/Admin/Admin.php:81
 #: includes/Admin/Admin.php:224
-#: includes/Admin/SettingsPage.php:1034
+#: includes/Admin/SettingsPage.php:1037
 #: includes/Frontend/Blocks.php:208
 msgid "Settings"
 msgstr ""
@@ -102,7 +102,7 @@ msgstr ""
 #: includes/Admin/Admin.php:225
 #: includes/Admin/Onboarding.php:132
 #: includes/Admin/Onboarding.php:1056
-#: includes/Admin/SettingsPage.php:1035
+#: includes/Admin/SettingsPage.php:1038
 msgid "Setup wizard"
 msgstr ""
 
@@ -229,8 +229,8 @@ msgstr ""
 #: includes/Frontend/Blocks.php:67
 #: includes/Privacy/Privacy.php:113
 #: includes/Privacy/Privacy.php:195
-#: includes/Products/PostTypes.php:46
-#: includes/Products/PostTypes.php:48
+#: includes/Products/PostTypes.php:77
+#: includes/Products/PostTypes.php:79
 #: includes/Seo/Geo.php:192
 #: templates/parts/archive-page.php:25
 msgid "Products"
@@ -459,7 +459,7 @@ msgstr ""
 
 #: includes/Admin/CouponEditor.php:263
 #: includes/Admin/Fields.php:146
-#: includes/Admin/SettingsPage.php:1933
+#: includes/Admin/SettingsPage.php:1936
 msgid "Copy"
 msgstr ""
 
@@ -496,7 +496,7 @@ msgid "Reminder"
 msgstr ""
 
 #: includes/Admin/CouponEditor.php:383
-#: includes/Admin/SettingsPage.php:860
+#: includes/Admin/SettingsPage.php:863
 msgid "Never"
 msgstr ""
 
@@ -819,10 +819,10 @@ msgstr ""
 
 #: includes/Admin/Fields.php:103
 #: includes/Admin/Fields.php:488
-#: includes/Admin/ProductEditor.php:545
-#: includes/Admin/ProductEditor.php:629
-#: includes/Admin/ProductEditor.php:723
-#: includes/Admin/SettingsPage.php:1826
+#: includes/Admin/ProductEditor.php:546
+#: includes/Admin/ProductEditor.php:630
+#: includes/Admin/ProductEditor.php:724
+#: includes/Admin/SettingsPage.php:1829
 #: templates/cart/page.php:132
 #: templates/cart/summary.php:93
 #: templates/cart/summary.php:97
@@ -879,7 +879,7 @@ msgstr ""
 
 #: includes/Admin/Fields.php:116
 #: includes/Admin/OfferEditor.php:283
-#: includes/Admin/ProductEditor.php:1283
+#: includes/Admin/ProductEditor.php:1285
 msgid "Type"
 msgstr ""
 
@@ -898,7 +898,7 @@ msgstr ""
 
 #: includes/Admin/Fields.php:121
 #: includes/Admin/ProductEditor.php:236
-#: includes/Admin/SettingsPage.php:109
+#: includes/Admin/SettingsPage.php:112
 msgid "Optional"
 msgstr ""
 
@@ -939,7 +939,7 @@ msgid "No country selected: this zone is never used."
 msgstr ""
 
 #: includes/Admin/Fields.php:131
-#: includes/Admin/SettingsPage.php:1580
+#: includes/Admin/SettingsPage.php:1583
 msgid "Connect & test"
 msgstr ""
 
@@ -951,24 +951,24 @@ msgstr ""
 #: includes/Admin/Fields.php:133
 #: includes/Admin/Onboarding.php:1027
 #: includes/Admin/Onboarding.php:1604
-#: includes/Admin/SettingsPage.php:1368
+#: includes/Admin/SettingsPage.php:1371
 msgid "Connected"
 msgstr ""
 
 #: includes/Admin/Fields.php:134
-#: includes/Admin/SettingsPage.php:1368
+#: includes/Admin/SettingsPage.php:1371
 msgid "Connected · test mode"
 msgstr ""
 
 #: includes/Admin/Fields.php:135
 #: includes/Admin/Onboarding.php:1028
 #: includes/Admin/Onboarding.php:1604
-#: includes/Admin/SettingsPage.php:1370
+#: includes/Admin/SettingsPage.php:1373
 msgid "Not connected"
 msgstr ""
 
 #: includes/Admin/Fields.php:136
-#: includes/Admin/SettingsPage.php:1581
+#: includes/Admin/SettingsPage.php:1584
 msgid "Disconnect"
 msgstr ""
 
@@ -993,13 +993,13 @@ msgid "Something went wrong. Please try again."
 msgstr ""
 
 #: includes/Admin/Fields.php:141
-#: includes/Admin/SettingsPage.php:1480
+#: includes/Admin/SettingsPage.php:1483
 #: templates/account/dashboard.php:37
 msgid "Account"
 msgstr ""
 
 #: includes/Admin/Fields.php:142
-#: includes/Admin/SettingsPage.php:1471
+#: includes/Admin/SettingsPage.php:1474
 msgid "Webhook"
 msgstr ""
 
@@ -1008,7 +1008,7 @@ msgid "Apple Pay / Google Pay domain"
 msgstr ""
 
 #: includes/Admin/Fields.php:144
-#: includes/Admin/SettingsPage.php:1064
+#: includes/Admin/SettingsPage.php:1067
 msgid "You have unsaved changes."
 msgstr ""
 
@@ -1017,12 +1017,12 @@ msgid "Copied!"
 msgstr ""
 
 #: includes/Admin/Fields.php:147
-#: includes/Admin/SettingsPage.php:1681
+#: includes/Admin/SettingsPage.php:1684
 msgid "Move up"
 msgstr ""
 
 #: includes/Admin/Fields.php:148
-#: includes/Admin/SettingsPage.php:1682
+#: includes/Admin/SettingsPage.php:1685
 msgid "Move down"
 msgstr ""
 
@@ -1044,7 +1044,7 @@ msgid "Add to gallery"
 msgstr ""
 
 #: includes/Admin/Fields.php:153
-#: includes/Admin/ProductEditor.php:792
+#: includes/Admin/ProductEditor.php:793
 msgid "Remove image"
 msgstr ""
 
@@ -1080,7 +1080,7 @@ msgstr ""
 #: includes/Admin/Onboarding.php:1272
 #: includes/Admin/Onboarding.php:1283
 #: includes/Admin/Onboarding.php:1293
-#: includes/Admin/ProductEditor.php:1281
+#: includes/Admin/ProductEditor.php:1283
 #: includes/Seo/Geo.php:478
 #: includes/Seo/Geo.php:531
 msgid "Price"
@@ -1098,12 +1098,12 @@ msgid "SKU"
 msgstr ""
 
 #: includes/Admin/Fields.php:164
-#: includes/Admin/ProductEditor.php:1282
+#: includes/Admin/ProductEditor.php:1284
 msgid "Stock"
 msgstr ""
 
 #: includes/Admin/Fields.php:165
-#: includes/Admin/ProductEditor.php:1277
+#: includes/Admin/ProductEditor.php:1279
 msgid "Image"
 msgstr ""
 
@@ -1130,7 +1130,7 @@ msgid "Uploading… %d%"
 msgstr ""
 
 #: includes/Admin/Fields.php:171
-#: includes/Admin/ProductEditor.php:1243
+#: includes/Admin/ProductEditor.php:1245
 msgid "The upload failed."
 msgstr ""
 
@@ -1144,7 +1144,7 @@ msgid "File URL (https://…)"
 msgstr ""
 
 #: includes/Admin/Fields.php:174
-#: includes/Admin/ProductEditor.php:626
+#: includes/Admin/ProductEditor.php:627
 msgid "Private file"
 msgstr ""
 
@@ -1186,10 +1186,10 @@ msgid "Product #%d"
 msgstr ""
 
 #: includes/Admin/Fields.php:611
-#: includes/Admin/ProductEditor.php:1205
-#: includes/Admin/ProductEditor.php:1403
-#: includes/Admin/SettingsPage.php:2033
-#: includes/Admin/SettingsPage.php:2437
+#: includes/Admin/ProductEditor.php:1206
+#: includes/Admin/ProductEditor.php:1405
+#: includes/Admin/SettingsPage.php:2036
+#: includes/Admin/SettingsPage.php:2440
 msgid "You are not allowed to do this."
 msgstr ""
 
@@ -1283,7 +1283,7 @@ msgstr ""
 #: includes/Admin/OfferEditor.php:284
 #: includes/Admin/OrdersPage.php:407
 #: includes/Frontend/Blocks.php:209
-#: includes/Products/PostTypes.php:47
+#: includes/Products/PostTypes.php:78
 msgid "Product"
 msgstr ""
 
@@ -1368,7 +1368,7 @@ msgid "No product"
 msgstr ""
 
 #: includes/Admin/OfferEditor.php:327
-#: includes/Admin/SettingsPage.php:1593
+#: includes/Admin/SettingsPage.php:1596
 msgid "Active"
 msgstr ""
 
@@ -1673,7 +1673,7 @@ msgid "Taxes"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1006
-#: includes/Admin/SettingsPage.php:96
+#: includes/Admin/SettingsPage.php:99
 msgid "Payments"
 msgstr ""
 
@@ -1682,7 +1682,7 @@ msgstr ""
 #: includes/Admin/OrdersPage.php:739
 #: includes/Admin/OrdersPage.php:1212
 #: includes/Admin/ProductEditor.php:75
-#: includes/Admin/SettingsPage.php:98
+#: includes/Admin/SettingsPage.php:101
 #: includes/Invoices/Invoices.php:152
 #: templates/cart/summary.php:150
 #: templates/checkout/order-details.php:77
@@ -1691,7 +1691,7 @@ msgid "Shipping"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1008
-#: includes/Admin/SettingsPage.php:100
+#: includes/Admin/SettingsPage.php:103
 msgid "Design"
 msgstr ""
 
@@ -1794,7 +1794,7 @@ msgid "The best of both worlds"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1105
-#: includes/Admin/SettingsPage.php:139
+#: includes/Admin/SettingsPage.php:142
 msgid "Store name"
 msgstr ""
 
@@ -1812,7 +1812,7 @@ msgstr ""
 
 #: includes/Admin/Onboarding.php:1118
 #: includes/Admin/OrdersPage.php:1209
-#: includes/Admin/SettingsPage.php:182
+#: includes/Admin/SettingsPage.php:185
 msgid "Currency"
 msgstr ""
 
@@ -1869,7 +1869,7 @@ msgid "Printed on invoices. Required for B2B reverse charge."
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1167
-#: includes/Admin/SettingsPage.php:621
+#: includes/Admin/SettingsPage.php:624
 msgid "My prices include VAT"
 msgstr ""
 
@@ -1886,7 +1886,7 @@ msgid "Turn on when your sales to consumers in other EU countries exceed €10,0
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1172
-#: includes/Admin/SettingsPage.php:627
+#: includes/Admin/SettingsPage.php:630
 msgid "Same price for every EU customer"
 msgstr ""
 
@@ -1926,12 +1926,12 @@ msgid "Cards, Apple Pay, Google Pay, Link, SEPA and more."
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1202
-#: includes/Admin/SettingsPage.php:1450
+#: includes/Admin/SettingsPage.php:1453
 msgid "Publishable key"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1203
-#: includes/Admin/SettingsPage.php:1467
+#: includes/Admin/SettingsPage.php:1470
 msgid "Secret key"
 msgstr ""
 
@@ -1940,18 +1940,18 @@ msgid "PayPal, Pay Later and cards through PayPal."
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1221
-#: includes/Admin/SettingsPage.php:1536
+#: includes/Admin/SettingsPage.php:1539
 msgid "Client ID"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1222
-#: includes/Admin/SettingsPage.php:1552
+#: includes/Admin/SettingsPage.php:1555
 msgid "Secret"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1237
-#: includes/Admin/SettingsPage.php:1591
-#: includes/Admin/SettingsPage.php:1658
+#: includes/Admin/SettingsPage.php:1594
+#: includes/Admin/SettingsPage.php:1661
 #: includes/Gateways/BankTransfer.php:29
 msgid "Bank transfer"
 msgstr ""
@@ -1961,12 +1961,12 @@ msgid "For B2B and large orders. You confirm reception manually."
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1241
-#: includes/Admin/SettingsPage.php:1596
+#: includes/Admin/SettingsPage.php:1599
 msgid "Accept bank transfers"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1244
-#: includes/Admin/SettingsPage.php:1616
+#: includes/Admin/SettingsPage.php:1619
 #: includes/Gateways/BankTransfer.php:100
 msgid "Account holder"
 msgstr ""
@@ -2026,17 +2026,17 @@ msgid "Button style"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1327
-#: includes/Admin/SettingsPage.php:833
+#: includes/Admin/SettingsPage.php:836
 msgid "Rounded"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1328
-#: includes/Admin/SettingsPage.php:834
+#: includes/Admin/SettingsPage.php:837
 msgid "Pill"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1329
-#: includes/Admin/SettingsPage.php:835
+#: includes/Admin/SettingsPage.php:838
 msgid "Square"
 msgstr ""
 
@@ -2070,7 +2070,7 @@ msgid "Your best product"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1347
-#: includes/Admin/SettingsPage.php:1913
+#: includes/Admin/SettingsPage.php:1916
 #: includes/Frontend/Frontend.php:184
 #: includes/Frontend/Render.php:871
 #: templates/parts/add-to-cart.php:87
@@ -2093,7 +2093,7 @@ msgid "These details appear on invoices and in your terms of sale."
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1366
-#: includes/Admin/SettingsPage.php:144
+#: includes/Admin/SettingsPage.php:147
 msgid "Legal name"
 msgstr ""
 
@@ -2110,7 +2110,7 @@ msgid "e.g. SIRET, NIF, company number"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1370
-#: includes/Admin/SettingsPage.php:155
+#: includes/Admin/SettingsPage.php:158
 msgid "Business address"
 msgstr ""
 
@@ -2183,18 +2183,18 @@ msgid "days"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1592
-#: includes/Admin/SettingsPage.php:1435
+#: includes/Admin/SettingsPage.php:1438
 msgid "Test"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1593
-#: includes/Admin/SettingsPage.php:1522
+#: includes/Admin/SettingsPage.php:1525
 msgid "Sandbox"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1594
-#: includes/Admin/SettingsPage.php:1436
-#: includes/Admin/SettingsPage.php:1523
+#: includes/Admin/SettingsPage.php:1439
+#: includes/Admin/SettingsPage.php:1526
 msgid "Live"
 msgstr ""
 
@@ -2203,10 +2203,10 @@ msgid "Change keys"
 msgstr ""
 
 #: includes/Admin/Onboarding.php:1623
-#: includes/Admin/SettingsPage.php:1430
-#: includes/Admin/SettingsPage.php:1439
-#: includes/Admin/SettingsPage.php:1517
-#: includes/Admin/SettingsPage.php:1526
+#: includes/Admin/SettingsPage.php:1433
+#: includes/Admin/SettingsPage.php:1442
+#: includes/Admin/SettingsPage.php:1520
+#: includes/Admin/SettingsPage.php:1529
 msgid "Mode"
 msgstr ""
 
@@ -2293,7 +2293,7 @@ msgid "Upsell of %s"
 msgstr ""
 
 #: includes/Admin/OrdersListTable.php:202
-#: includes/Admin/SettingsPage.php:1324
+#: includes/Admin/SettingsPage.php:1327
 msgid "View"
 msgstr ""
 
@@ -2447,7 +2447,7 @@ msgid "Unit price"
 msgstr ""
 
 #: includes/Admin/OrdersPage.php:410
-#: includes/Admin/SettingsPage.php:600
+#: includes/Admin/SettingsPage.php:603
 #: templates/invoice.php:169
 #: templates/invoice.php:203
 msgid "VAT"
@@ -2461,7 +2461,7 @@ msgstr ""
 
 #: includes/Admin/OrdersPage.php:430
 #: includes/Admin/ProductEditor.php:100
-#: includes/Admin/ProductEditor.php:1330
+#: includes/Admin/ProductEditor.php:1332
 msgid "Digital"
 msgstr ""
 
@@ -2946,7 +2946,7 @@ msgid "Transaction ID"
 msgstr ""
 
 #: includes/Admin/OrdersPage.php:1229
-#: includes/Products/PostTypes.php:160
+#: includes/Products/PostTypes.php:191
 msgid "Coupon"
 msgstr ""
 
@@ -2960,7 +2960,7 @@ msgid "Product gallery"
 msgstr ""
 
 #: includes/Admin/ProductEditor.php:73
-#: includes/Admin/SettingsPage.php:92
+#: includes/Admin/SettingsPage.php:95
 msgid "General"
 msgstr ""
 
@@ -2996,7 +2996,7 @@ msgid "SEO"
 msgstr ""
 
 #: includes/Admin/ProductEditor.php:95
-#: includes/Admin/ProductEditor.php:1329
+#: includes/Admin/ProductEditor.php:1331
 msgid "Physical"
 msgstr ""
 
@@ -3009,7 +3009,7 @@ msgid "Instant download (e-book, course, file…)"
 msgstr ""
 
 #: includes/Admin/ProductEditor.php:105
-#: includes/Admin/ProductEditor.php:1331
+#: includes/Admin/ProductEditor.php:1333
 #: includes/Seo/Geo.php:645
 msgid "Service"
 msgstr ""
@@ -3099,7 +3099,7 @@ msgid "Manufacturer part number (MPN)"
 msgstr ""
 
 #: includes/Admin/ProductEditor.php:300
-#: includes/Admin/SettingsPage.php:816
+#: includes/Admin/SettingsPage.php:819
 #: includes/Seo/Geo.php:482
 #: templates/parts/product-details.php:29
 msgid "Brand"
@@ -3126,7 +3126,7 @@ msgid "Updated automatically with every order and refund."
 msgstr ""
 
 #: includes/Admin/ProductEditor.php:350
-#: includes/Admin/SettingsPage.php:307
+#: includes/Admin/SettingsPage.php:310
 msgid "Low stock threshold"
 msgstr ""
 
@@ -3154,7 +3154,7 @@ msgstr ""
 
 #. translators: %d: units left.
 #: includes/Admin/ProductEditor.php:373
-#: includes/Admin/ProductEditor.php:1315
+#: includes/Admin/ProductEditor.php:1317
 #: includes/Frontend/Render.php:207
 #: includes/Frontend/Render.php:210
 #: includes/Seo/Seo.php:131
@@ -3162,12 +3162,12 @@ msgid "In stock"
 msgstr ""
 
 #: includes/Admin/ProductEditor.php:374
-#: includes/Admin/ProductEditor.php:1316
+#: includes/Admin/ProductEditor.php:1318
 msgid "Low stock"
 msgstr ""
 
 #: includes/Admin/ProductEditor.php:375
-#: includes/Admin/ProductEditor.php:1317
+#: includes/Admin/ProductEditor.php:1319
 #: includes/Frontend/Frontend.php:186
 #: includes/Frontend/Render.php:199
 #: includes/Frontend/Render.php:866
@@ -3207,23 +3207,23 @@ msgstr ""
 msgid "Used in your Google product feed and by carriers. Shipping costs are set per zone in Settings › Shipping."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:451
+#: includes/Admin/ProductEditor.php:452
 msgid "1. Add your options (e.g. Size: S, M, L). 2. Click \"Generate variants\". 3. Set a specific price, stock or image only where needed – empty fields use the product values."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:454
+#: includes/Admin/ProductEditor.php:455
 msgid "+ Add an option"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:455
+#: includes/Admin/ProductEditor.php:456
 msgid "Generate variants"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:458
+#: includes/Admin/ProductEditor.php:459
 msgid "Same price for all variants"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:460
+#: includes/Admin/ProductEditor.php:461
 #: templates/cart/drawer.php:170
 #: templates/cart/summary.php:111
 #: templates/cart/summary.php:117
@@ -3231,136 +3231,136 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:463
+#: includes/Admin/ProductEditor.php:464
 msgid "JavaScript is required to edit variants."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:480
+#: includes/Admin/ProductEditor.php:481
 msgid "Sell several products together. Stock is taken from each product of the bundle."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:487
+#: includes/Admin/ProductEditor.php:488
 msgid "+ Add a product"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:491
-#: includes/Admin/ProductEditor.php:499
+#: includes/Admin/ProductEditor.php:492
+#: includes/Admin/ProductEditor.php:500
 msgid "Bundle price"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:496
+#: includes/Admin/ProductEditor.php:497
 msgid "Fixed price (General tab)"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:497
+#: includes/Admin/ProductEditor.php:498
 msgid "Sum of the products minus a discount"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:504
+#: includes/Admin/ProductEditor.php:505
 #: templates/cart/drawer.php:99
 msgid "Bundle discount"
 msgstr ""
 
 #. translators: %s: total price of the bundled products.
-#: includes/Admin/ProductEditor.php:518
+#: includes/Admin/ProductEditor.php:519
 #, php-format
 msgid "Products bought separately: %s."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:542
+#: includes/Admin/ProductEditor.php:543
 #: includes/Frontend/Render.php:220
 msgid "Quantity"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:553
+#: includes/Admin/ProductEditor.php:554
 msgid "Files added to a physical product are delivered as a bonus (e.g. the PDF version of a printed book)."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:561
+#: includes/Admin/ProductEditor.php:562
 msgid "File missing!"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:571
+#: includes/Admin/ProductEditor.php:572
 msgid "Upload a file"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:572
+#: includes/Admin/ProductEditor.php:573
 msgid "Add a file URL"
 msgstr ""
 
 #. translators: %s: maximum upload size.
-#: includes/Admin/ProductEditor.php:577
+#: includes/Admin/ProductEditor.php:578
 #, php-format
 msgid "Files are stored in a private folder and delivered through personal, expiring links – never through a public URL. Maximum upload size on your server: %s. For heavier files (videos), add the URL of your file host instead."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:583
+#: includes/Admin/ProductEditor.php:584
 msgid "Download limit"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:592
+#: includes/Admin/ProductEditor.php:593
 msgid "Per file and per order. 0 = unlimited."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:596
+#: includes/Admin/ProductEditor.php:597
 msgid "Links expire after (days)"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:605
+#: includes/Admin/ProductEditor.php:606
 msgid "0 = never. Customers can always get new links from their account."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:621
+#: includes/Admin/ProductEditor.php:622
 msgid "Name shown to the customer"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:621
+#: includes/Admin/ProductEditor.php:622
 msgid "File name"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:623
+#: includes/Admin/ProductEditor.php:624
 msgid "File URL"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:636
+#: includes/Admin/ProductEditor.php:637
 msgid "Upsells"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:638
+#: includes/Admin/ProductEditor.php:639
 msgid "Premium alternatives shown on this product page (\"You may also like\")."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:641
+#: includes/Admin/ProductEditor.php:642
 msgid "Cross-sells"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:643
+#: includes/Admin/ProductEditor.php:644
 msgid "Complementary products suggested in the cart (\"Complete your order\")."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:647
+#: includes/Admin/ProductEditor.php:648
 #: templates/parts/fbt.php:31
 msgid "Frequently bought together"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:649
+#: includes/Admin/ProductEditor.php:650
 msgid "Offered as a one-click pack on the product page."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:653
+#: includes/Admin/ProductEditor.php:654
 msgid "Pack discount"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:665
+#: includes/Admin/ProductEditor.php:666
 msgid "On the added products."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:670
+#: includes/Admin/ProductEditor.php:671
 #: includes/Seo/Geo.php:511
 msgid "Key benefits"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:677
+#: includes/Admin/ProductEditor.php:678
 msgid ""
 "One benefit per line, e.g.\n"
 "350 ready-to-use prompts\n"
@@ -3368,100 +3368,100 @@ msgid ""
 "Lifetime updates"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:680
+#: includes/Admin/ProductEditor.php:681
 msgid "Shown as a check list next to the buy button and reused in your llms.txt and product feed: write concrete facts."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:687
+#: includes/Admin/ProductEditor.php:688
 msgid "Answer the questions buyers ask before purchasing. Shown on the product page and marked up for search and answer engines."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:695
+#: includes/Admin/ProductEditor.php:696
 msgid "+ Add a question"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:708
+#: includes/Admin/ProductEditor.php:709
 msgid "Question, e.g. \"Is it suitable for beginners?\""
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:709
+#: includes/Admin/ProductEditor.php:710
 msgid "Question"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:718
 #: includes/Admin/ProductEditor.php:719
+#: includes/Admin/ProductEditor.php:720
 msgid "Answer"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:734
+#: includes/Admin/ProductEditor.php:735
 msgid "SEO title"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:752
+#: includes/Admin/ProductEditor.php:753
 msgid "Meta description"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:767
+#: includes/Admin/ProductEditor.php:768
 msgid "Leave empty to use the short description automatically."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:770
+#: includes/Admin/ProductEditor.php:771
 msgid "Google preview"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:796
+#: includes/Admin/ProductEditor.php:797
 msgid "Add images"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:797
+#: includes/Admin/ProductEditor.php:798
 msgid "Drag to reorder. The main image is set in the \"Main product image\" box."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:1208
+#: includes/Admin/ProductEditor.php:1209
 msgid "No file received."
 msgstr ""
 
 #. translators: %s: file extension.
-#: includes/Admin/ProductEditor.php:1215
+#: includes/Admin/ProductEditor.php:1216
 #, php-format
 msgid "Files of type .%s are not allowed."
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:1284
+#: includes/Admin/ProductEditor.php:1286
 msgid "Sales"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:1318
+#: includes/Admin/ProductEditor.php:1320
 msgid "Backorder"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:1335
+#: includes/Admin/ProductEditor.php:1337
 msgid "options"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:1336
+#: includes/Admin/ProductEditor.php:1338
 msgid "bundle"
 msgstr ""
 
-#: includes/Admin/ProductEditor.php:1391
+#: includes/Admin/ProductEditor.php:1393
 msgid "Duplicate"
 msgstr ""
 
 #. translators: %s: product name.
-#: includes/Admin/ProductEditor.php:1412
+#: includes/Admin/ProductEditor.php:1414
 #, php-format
 msgid "%s (copy)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:93
+#: includes/Admin/SettingsPage.php:96
 msgid "Pages"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:94
+#: includes/Admin/SettingsPage.php:97
 msgid "Catalog & product page"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:95
+#: includes/Admin/SettingsPage.php:98
 #: includes/Frontend/Blocks.php:175
 #: includes/Frontend/Frontend.php:176
 #: includes/Support/Pages.php:97
@@ -3470,1320 +3470,1320 @@ msgstr ""
 msgid "Checkout"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:97
+#: includes/Admin/SettingsPage.php:100
 msgid "Tax"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:99
+#: includes/Admin/SettingsPage.php:102
 msgid "Emails & recovery"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:101
+#: includes/Admin/SettingsPage.php:104
 msgid "SEO & GEO"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:102
+#: includes/Admin/SettingsPage.php:105
 msgid "Performance"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:103
+#: includes/Admin/SettingsPage.php:106
 msgid "Advanced"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:110
+#: includes/Admin/SettingsPage.php:113
 msgid "Required"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:111
+#: includes/Admin/SettingsPage.php:114
 msgid "Hidden"
 msgstr ""
 
 #. translators: %s: example URL.
-#: includes/Admin/SettingsPage.php:125
+#: includes/Admin/SettingsPage.php:128
 #, php-format
 msgid "Example: %s"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:134
+#: includes/Admin/SettingsPage.php:137
 msgid "Your business"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:135
+#: includes/Admin/SettingsPage.php:138
 msgid "Printed on invoices and emails, and used in structured data."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:145
+#: includes/Admin/SettingsPage.php:148
 msgid "Company name, or your full name if you are a sole trader."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:149
+#: includes/Admin/SettingsPage.php:152
 msgid "Store email"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:151
+#: includes/Admin/SettingsPage.php:154
 msgid "Receives new order notifications and customer replies."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:160
+#: includes/Admin/SettingsPage.php:163
 msgid "Country of establishment"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:161
+#: includes/Admin/SettingsPage.php:164
 msgid "Determines your domestic VAT rates."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:165
+#: includes/Admin/SettingsPage.php:168
 msgid "VAT number"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:170
+#: includes/Admin/SettingsPage.php:173
 msgid "Other legal mentions"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:172
+#: includes/Admin/SettingsPage.php:175
 msgid "Registration number (SIRET, NIF/CIF…), trade register, share capital… Printed at the bottom of invoices."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:178
+#: includes/Admin/SettingsPage.php:181
 msgid "Currency & units"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:184
+#: includes/Admin/SettingsPage.php:187
 msgid "Prices are displayed in the format of each visitor's language (1 234,50 € / €1,234.50)."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:188
+#: includes/Admin/SettingsPage.php:191
 msgid "Weight unit"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:198
+#: includes/Admin/SettingsPage.php:201
 msgid "Dimension unit"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:209
+#: includes/Admin/SettingsPage.php:212
 msgid "Order & invoice numbering"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:210
+#: includes/Admin/SettingsPage.php:213
 msgid "Invoice and credit note numbers are sequential and never reused, as EU invoicing rules require."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:214
+#: includes/Admin/SettingsPage.php:217
 msgid "Order number prefix"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:215
+#: includes/Admin/SettingsPage.php:218
 msgid "e.g. WC-"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:220
+#: includes/Admin/SettingsPage.php:223
 msgid "Invoice prefix"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:222
+#: includes/Admin/SettingsPage.php:225
 msgid "Use <code>{YYYY}</code> for the year, e.g. <code>F-{YYYY}-</code> gives F-2026-000124."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:226
+#: includes/Admin/SettingsPage.php:229
 msgid "Credit note prefix"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:231
+#: includes/Admin/SettingsPage.php:234
 msgid "Invoice number offset"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:234
+#: includes/Admin/SettingsPage.php:237
 msgid "Added to the internal sequence. Coming from another tool whose last invoice was 1000? Enter 1000 and the next one will be 1001."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:240
+#: includes/Admin/SettingsPage.php:243
 msgid "Product URLs"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:241
+#: includes/Admin/SettingsPage.php:244
 msgid "Short, readable URLs in your language rank better. Changing them later breaks existing links."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:245
+#: includes/Admin/SettingsPage.php:248
 msgid "Product base"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:246
-#: includes/Admin/SettingsPage.php:247
-#: includes/Products/PostTypes.php:31
+#: includes/Admin/SettingsPage.php:249
+#: includes/Admin/SettingsPage.php:250
+#: includes/Products/PostTypes.php:60
 msgctxt "URL slug"
 msgid "product"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:251
+#: includes/Admin/SettingsPage.php:254
 msgid "Category base"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:252
-#: includes/Admin/SettingsPage.php:253
-#: includes/Products/PostTypes.php:36
+#: includes/Admin/SettingsPage.php:255
+#: includes/Admin/SettingsPage.php:256
+#: includes/Products/PostTypes.php:54
 msgctxt "URL slug"
 msgid "product-category"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:270
+#: includes/Admin/SettingsPage.php:273
 msgid "Store pages"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:271
+#: includes/Admin/SettingsPage.php:274
 msgid "Each page contains a Wahou block. Missing pages can be created in one click; you can then edit their text like any page."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:282
+#: includes/Admin/SettingsPage.php:285
 msgid "Catalog"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:286
+#: includes/Admin/SettingsPage.php:289
 msgid "Products per page"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:292
+#: includes/Admin/SettingsPage.php:295
 msgid "Columns on desktop"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:299
+#: includes/Admin/SettingsPage.php:302
 msgid "Mobile always shows 2 columns for easy thumb scrolling."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:303
+#: includes/Admin/SettingsPage.php:306
 msgid "Show low stock messages (\"Only 3 left\")"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:310
+#: includes/Admin/SettingsPage.php:313
 msgid "Also used for low stock email alerts. Each product can override it."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:314
+#: includes/Admin/SettingsPage.php:317
 msgid "Free shipping progress bar in the cart"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:315
+#: includes/Admin/SettingsPage.php:318
 msgid "\"Only 12,10 € left for free delivery\" – one of the most effective ways to raise the average order value."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:321
+#: includes/Admin/SettingsPage.php:324
 #: includes/Seo/Geo.php:502
 msgid "Product page"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:325
+#: includes/Admin/SettingsPage.php:328
 msgid "Sticky \"Add to cart\" bar on mobile"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:329
+#: includes/Admin/SettingsPage.php:332
 msgid "\"Buy now\" button that goes straight to checkout"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:333
+#: includes/Admin/SettingsPage.php:336
 msgid "Reassurance badges (secure payment, returns, delivery)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:337
+#: includes/Admin/SettingsPage.php:340
 msgid "Show the reference price on discounted products"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:338
+#: includes/Admin/SettingsPage.php:341
 msgid "In the EU, any announced price reduction must refer to the lowest price applied in the previous 30 days (Omnibus rule, art. 6a of Directive 98/6/EC). Wahou records your price history automatically."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:342
+#: includes/Admin/SettingsPage.php:345
 msgid "After \"Add to cart\""
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:344
+#: includes/Admin/SettingsPage.php:347
 msgid "Open the slide-in cart"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:345
+#: includes/Admin/SettingsPage.php:348
 msgid "Go to the cart page"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:352
+#: includes/Admin/SettingsPage.php:355
 msgid "Reviews"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:356
+#: includes/Admin/SettingsPage.php:359
 msgid "Enable product reviews"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:357
+#: includes/Admin/SettingsPage.php:360
 msgid "Star ratings appear in Google results and reassure buyers."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:361
+#: includes/Admin/SettingsPage.php:364
 msgid "Only verified buyers can leave a review"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:368
+#: includes/Admin/SettingsPage.php:371
 msgid "Delivery estimate"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:372
+#: includes/Admin/SettingsPage.php:375
 msgid "Show an estimated delivery date on product pages"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:376
+#: includes/Admin/SettingsPage.php:379
 msgid "Order cut-off time"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:377
+#: includes/Admin/SettingsPage.php:380
 msgid "Orders placed before this time (store time zone) ship the same business day."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:382
+#: includes/Admin/SettingsPage.php:385
 msgid "Preparation time (business days)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:389
+#: includes/Admin/SettingsPage.php:392
 msgid "Shipping days"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:400
+#: includes/Admin/SettingsPage.php:403
 msgid "Customer accounts"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:404
+#: includes/Admin/SettingsPage.php:407
 msgid "Allow guest checkout"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:405
+#: includes/Admin/SettingsPage.php:408
 msgid "Recommended: forcing account creation is one of the main causes of abandoned checkouts."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:409
+#: includes/Admin/SettingsPage.php:412
 msgid "Create the customer account automatically after purchase"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:410
+#: includes/Admin/SettingsPage.php:413
 msgid "No password to invent: customers log in with a secure link sent by email."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:416
+#: includes/Admin/SettingsPage.php:419
 msgid "Checkout fields"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:420
+#: includes/Admin/SettingsPage.php:423
 msgid "Phone number"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:422
+#: includes/Admin/SettingsPage.php:425
 msgid "Only asked when the order is shipped. Carriers use it for delivery updates."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:426
+#: includes/Admin/SettingsPage.php:429
 msgid "Company name"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:431
+#: includes/Admin/SettingsPage.php:434
 msgid "Allow order notes"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:435
+#: includes/Admin/SettingsPage.php:438
 msgid "Countries allowed for digital products"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:436
+#: includes/Admin/SettingsPage.php:439
 msgid "Leave empty to sell worldwide. Physical products are limited to your shipping zones."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:442
+#: includes/Admin/SettingsPage.php:445
 msgid "Legal & compliance"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:446
+#: includes/Admin/SettingsPage.php:449
 msgid "Require acceptance of the terms and conditions of sale"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:447
+#: includes/Admin/SettingsPage.php:450
 msgid "Shown only when a terms page is selected in the Pages tab."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:451
+#: includes/Admin/SettingsPage.php:454
 msgid "Ask for consent to immediate access for digital products"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:452
+#: includes/Admin/SettingsPage.php:455
 msgid "EU consumers have 14 days to withdraw from a purchase, except for digital content delivered immediately when they expressly agree and acknowledge that they lose this right (art. 16(m) Directive 2011/83/EU). This checkbox collects that consent and stores it with the order."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:456
+#: includes/Admin/SettingsPage.php:459
 msgid "Pay button label"
 msgstr ""
 
 #. translators: %s: amount placeholder kept as is.
-#: includes/Admin/SettingsPage.php:458
+#: includes/Admin/SettingsPage.php:461
 #, php-format
 msgid "Pay %s"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:460
+#: includes/Admin/SettingsPage.php:463
 #, php-format
 msgid "<code>%s</code> is replaced by the amount. EU law requires a label that makes the obligation to pay obvious (\"Pay\", \"Order with obligation to pay\"…)."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:466
+#: includes/Admin/SettingsPage.php:469
 msgid "Fraud protection"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:470
+#: includes/Admin/SettingsPage.php:473
 msgid "Invisible anti-bot field"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:474
+#: includes/Admin/SettingsPage.php:477
 msgid "Maximum checkout attempts per visitor (15 minutes)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:477
+#: includes/Admin/SettingsPage.php:480
 msgid "Protects your payment account against card-testing attacks. 0 disables the limit."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:483
+#: includes/Admin/SettingsPage.php:486
 msgid "Order bumps & upsells"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:487
+#: includes/Admin/SettingsPage.php:490
 msgid "Order bumps at checkout"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:491
+#: includes/Admin/SettingsPage.php:494
 msgid "One-click offers after payment"
 msgstr ""
 
 #. translators: %s: link to the offers screen.
-#: includes/Admin/SettingsPage.php:494
+#: includes/Admin/SettingsPage.php:497
 #, php-format
 msgid "Create your offers in %s."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:495
-#: includes/Products/PostTypes.php:185
-#: includes/Products/PostTypes.php:187
+#: includes/Admin/SettingsPage.php:498
+#: includes/Products/PostTypes.php:216
+#: includes/Products/PostTypes.php:218
 msgid "Offers & funnels"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:502
+#: includes/Admin/SettingsPage.php:505
 msgid "Order confirmation page"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:506
+#: includes/Admin/SettingsPage.php:509
 msgid "Custom message"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:508
+#: includes/Admin/SettingsPage.php:511
 msgid "Shown above the order summary. Simple HTML allowed."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:518
+#: includes/Admin/SettingsPage.php:521
 msgid "Payment methods"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:519
+#: includes/Admin/SettingsPage.php:522
 msgid "Paste your API keys and click \"Connect & test\": Wahou checks them, creates the webhook and registers your domain for Apple Pay / Google Pay automatically."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:534
+#: includes/Admin/SettingsPage.php:537
 msgid "Publishable key (test)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:539
+#: includes/Admin/SettingsPage.php:542
 msgid "Publishable key (live)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:604
+#: includes/Admin/SettingsPage.php:607
 msgid "Charge VAT"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:608
+#: includes/Admin/SettingsPage.php:611
 msgid "I am exempt from VAT (small business scheme)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:609
+#: includes/Admin/SettingsPage.php:612
 msgid "No VAT is charged and the legal exemption mention is printed on invoices."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:614
+#: includes/Admin/SettingsPage.php:617
 msgid "Exemption mention on invoices"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:615
+#: includes/Admin/SettingsPage.php:618
 #: includes/Tax/Tax.php:205
 msgid "VAT exempt (small business scheme)."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:622
+#: includes/Admin/SettingsPage.php:625
 msgid "Recommended for consumer sales: EU consumers must always see final prices."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:628
+#: includes/Admin/SettingsPage.php:631
 msgid "Your 19,90 € e-book costs 19,90 € everywhere: only the VAT share changes with the customer's country. Turn this off to recalculate prices from your price excluding VAT."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:633
+#: includes/Admin/SettingsPage.php:636
 msgid "Charge VAT on shipping costs"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:634
+#: includes/Admin/SettingsPage.php:637
 msgid "Shipping follows the VAT rate of the goods shipped (the highest rate when the cart mixes rates)."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:639
+#: includes/Admin/SettingsPage.php:642
 msgid "Show \"incl. VAT\" next to prices"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:646
+#: includes/Admin/SettingsPage.php:649
 msgid "Selling to other EU countries"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:650
+#: includes/Admin/SettingsPage.php:653
 msgid "I am registered for the One-Stop Shop (OSS)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:651
+#: includes/Admin/SettingsPage.php:654
 msgid "Below 10 000 € of sales to consumers in other EU countries per calendar year (all countries and digital services combined), you may charge your own country's VAT. Above that threshold – or if you opted in – you must charge the VAT of your customer's country and declare it through the OSS (art. 59c of Directive 2006/112/EC). Turn this on as soon as you are registered."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:656
+#: includes/Admin/SettingsPage.php:659
 msgid "No VAT for EU businesses with a valid VAT number (reverse charge)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:657
+#: includes/Admin/SettingsPage.php:660
 msgid "The number is checked live in the European Commission's VIES database. Invoices get the legal reverse-charge mention."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:664
+#: includes/Admin/SettingsPage.php:667
 msgid "VAT rates"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:665
+#: includes/Admin/SettingsPage.php:668
 msgid "Built-in rates for the 27 EU member states. Leave a cell empty to use the default rate; type a value only to override it."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:675
+#: includes/Admin/SettingsPage.php:678
 msgid "Shipping zones"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:676
+#: includes/Admin/SettingsPage.php:679
 msgid "Customers see the methods of the first zone that contains their country. Digital products never ask for a delivery address. Costs follow your VAT setting (prices including or excluding VAT)."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:682
+#: includes/Admin/SettingsPage.php:685
 msgid "Returns"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:686
+#: includes/Admin/SettingsPage.php:689
 msgid "Return window (days)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:689
+#: includes/Admin/SettingsPage.php:692
 msgid "Shown on product pages and in structured data for Google. EU consumers always have at least 14 days to withdraw from a distance purchase."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:693
+#: includes/Admin/SettingsPage.php:696
 msgid "Return shipping costs"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:695
+#: includes/Admin/SettingsPage.php:698
 msgid "Paid by the customer"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:696
+#: includes/Admin/SettingsPage.php:699
 msgid "Free returns"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:707
+#: includes/Admin/SettingsPage.php:710
 msgid "Sender"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:711
+#: includes/Admin/SettingsPage.php:714
 msgid "Sender name"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:716
+#: includes/Admin/SettingsPage.php:719
 msgid "Sender email"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:718
+#: includes/Admin/SettingsPage.php:721
 msgid "Use an address on your own domain (with SPF and DKIM configured) to stay out of spam folders."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:722
+#: includes/Admin/SettingsPage.php:725
 msgid "Logo"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:726
+#: includes/Admin/SettingsPage.php:729
 msgid "Footer text"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:733
+#: includes/Admin/SettingsPage.php:736
 msgid "Notifications"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:737
+#: includes/Admin/SettingsPage.php:740
 msgid "Order confirmation (customer, with download links)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:741
+#: includes/Admin/SettingsPage.php:744
 msgid "Order shipped (customer, with tracking)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:745
+#: includes/Admin/SettingsPage.php:748
 msgid "Refund (customer)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:749
+#: includes/Admin/SettingsPage.php:752
 msgid "New order (you)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:753
+#: includes/Admin/SettingsPage.php:756
 msgid "Low stock alert (you)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:759
+#: includes/Admin/SettingsPage.php:762
 msgid "Abandoned cart recovery"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:760
+#: includes/Admin/SettingsPage.php:763
 msgid "The cart is saved as soon as the shopper types their email at checkout. If they leave without paying, Wahou sends the reminders below with a link that restores their cart."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:764
+#: includes/Admin/SettingsPage.php:767
 msgid "Send abandoned cart reminders"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:768
+#: includes/Admin/SettingsPage.php:771
 msgid "Consider a cart abandoned after (minutes)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:775
+#: includes/Admin/SettingsPage.php:778
 msgid "Consent"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:777
+#: includes/Admin/SettingsPage.php:780
 msgid "Information notice"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:778
+#: includes/Admin/SettingsPage.php:781
 msgid "Opt-in checkbox"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:780
+#: includes/Admin/SettingsPage.php:783
 msgid "The GDPR requires at least a clear notice and an unsubscribe link in every reminder (always included). An opt-in checkbox is the most cautious choice."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:785
+#: includes/Admin/SettingsPage.php:788
 msgid "Delete abandoned carts after (days)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:795
+#: includes/Admin/SettingsPage.php:798
 msgid "Review requests"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:799
+#: includes/Admin/SettingsPage.php:802
 msgid "Ask customers for a review after their order"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:803
+#: includes/Admin/SettingsPage.php:806
 msgid "Days after the order is completed"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:817
+#: includes/Admin/SettingsPage.php:820
 msgid "Wahou adapts to your theme (fonts, colors). Pick your accent color: text contrast is computed automatically for accessibility."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:821
+#: includes/Admin/SettingsPage.php:824
 msgid "Accent color"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:825
+#: includes/Admin/SettingsPage.php:828
 msgid "Corner radius"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:831
+#: includes/Admin/SettingsPage.php:834
 msgid "Button shape"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:847
+#: includes/Admin/SettingsPage.php:850
 msgid "Search engines"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:851
+#: includes/Admin/SettingsPage.php:854
 msgid "Structured data (Product, Offer, Review, FAQ, Breadcrumb)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:852
+#: includes/Admin/SettingsPage.php:855
 msgid "Enables rich results: price, availability, stars and delivery details in Google."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:856
+#: includes/Admin/SettingsPage.php:859
 msgid "Meta tags (title, description, Open Graph)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:858
+#: includes/Admin/SettingsPage.php:861
 msgid "Automatic"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:859
+#: includes/Admin/SettingsPage.php:862
 msgid "Always"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:866
+#: includes/Admin/SettingsPage.php:869
 msgid "Breadcrumbs on product and category pages"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:870
+#: includes/Admin/SettingsPage.php:873
 msgid "Default brand"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:872
+#: includes/Admin/SettingsPage.php:875
 msgid "Used when a product has no brand of its own (Google Shopping requires one)."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:876
+#: includes/Admin/SettingsPage.php:879
 msgid "Google Merchant Center product feed"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:882
+#: includes/Admin/SettingsPage.php:885
 msgid "Generative engines (GEO)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:883
+#: includes/Admin/SettingsPage.php:886
 msgid "Make your catalog easy to read, understand and recommend for AI assistants and answer engines (ChatGPT, Perplexity, Gemini, Copilot…)."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:887
+#: includes/Admin/SettingsPage.php:890
 msgid "Publish /llms.txt and /llms-full.txt"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:888
+#: includes/Admin/SettingsPage.php:891
 msgid "A plain-language summary of your store and catalog for language models."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:892
+#: includes/Admin/SettingsPage.php:895
 msgid "Store introduction"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:894
+#: includes/Admin/SettingsPage.php:897
 msgid "Two or three factual sentences: who you are, what you sell, for whom. It opens your llms.txt file."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:899
+#: includes/Admin/SettingsPage.php:902
 msgid "Markdown version of every product page (.md)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:903
+#: includes/Admin/SettingsPage.php:906
 msgid "AI crawlers"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:905
+#: includes/Admin/SettingsPage.php:908
 msgid "Allow"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:906
+#: includes/Admin/SettingsPage.php:909
 msgid "Block"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:908
+#: includes/Admin/SettingsPage.php:911
 msgid "Blocking them keeps your content out of AI answers – and your products out of their recommendations."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:912
+#: includes/Admin/SettingsPage.php:915
 msgid "Expose the catalog to AI agents (WordPress Abilities API)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:913
+#: includes/Admin/SettingsPage.php:916
 msgid "Read-only abilities (search products, product details, store policies) usable by agents and MCP clients. Requires WordPress 6.9 or later."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:924
+#: includes/Admin/SettingsPage.php:927
 msgid "Speed"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:925
+#: includes/Admin/SettingsPage.php:928
 msgid "Wahou only loads its scripts on store pages and keeps catalog pages fully cacheable. These options trim WordPress a little more."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:929
+#: includes/Admin/SettingsPage.php:932
 msgid "Instant page loads (speculative loading)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:931
+#: includes/Admin/SettingsPage.php:934
 msgid "Off"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:932
+#: includes/Admin/SettingsPage.php:935
 msgid "Conservative – on click"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:933
+#: includes/Admin/SettingsPage.php:936
 msgid "Moderate – on hover (recommended)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:934
+#: includes/Admin/SettingsPage.php:937
 msgid "Eager – as soon as possible"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:936
+#: includes/Admin/SettingsPage.php:939
 msgid "Pages are prepared in the background when a visitor is about to open them. Cart, checkout and account pages are always excluded."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:940
+#: includes/Admin/SettingsPage.php:943
 msgid "Remove the WordPress emoji script"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:941
+#: includes/Admin/SettingsPage.php:944
 msgid "Modern devices display emojis natively."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:945
+#: includes/Admin/SettingsPage.php:948
 msgid "Disable WordPress embeds (oEmbed)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:946
+#: includes/Admin/SettingsPage.php:949
 msgid "Keep this off if you embed YouTube videos or posts in your pages."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:950
+#: includes/Admin/SettingsPage.php:953
 msgid "Load PayPal only when the payment section is reached"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:954
+#: includes/Admin/SettingsPage.php:957
 msgid "Refresh the cached product page when its price or stock changes"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:955
+#: includes/Admin/SettingsPage.php:958
 msgid "Compatible with LiteSpeed Cache, WP Rocket, W3 Total Cache, WP Super Cache, SiteGround Optimizer and others."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:965
+#: includes/Admin/SettingsPage.php:968
 msgid "Integrations"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:969
+#: includes/Admin/SettingsPage.php:972
 msgid "Send e-commerce events to the dataLayer (GA4, Google Tag Manager)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:970
+#: includes/Admin/SettingsPage.php:973
 msgid "view_item, add_to_cart, begin_checkout and purchase events. Your consent tool and Tag Manager decide what is sent."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:974
+#: includes/Admin/SettingsPage.php:977
 msgid "Public product API"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:981
+#: includes/Admin/SettingsPage.php:984
 msgid "Maintenance"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:985
+#: includes/Admin/SettingsPage.php:988
 msgid "Detailed logs"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:986
+#: includes/Admin/SettingsPage.php:989
 msgid "Errors are always logged. Turn this on temporarily to investigate a problem."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:993
+#: includes/Admin/SettingsPage.php:996
 msgid "Danger zone"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:998
+#: includes/Admin/SettingsPage.php:1001
 msgid "Delete all store data when the plugin is deleted"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:999
+#: includes/Admin/SettingsPage.php:1002
 msgid "Products, orders, invoices, carts, settings and private files would be permanently erased. Keep this off unless you are sure."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1009
+#: includes/Admin/SettingsPage.php:1012
 msgid "Automatic: Wahou steps aside when Yoast SEO, Rank Math, SEOPress, All in One SEO or The SEO Framework is active."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1012
+#: includes/Admin/SettingsPage.php:1015
 msgid "An SEO plugin is active on this site."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1023
+#: includes/Admin/SettingsPage.php:1026
 msgid "You are not allowed to access this page."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1041
+#: includes/Admin/SettingsPage.php:1044
 msgid "Settings sections"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1063
+#: includes/Admin/SettingsPage.php:1066
 msgid "Save changes"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1073
+#: includes/Admin/SettingsPage.php:1076
 msgid "Settings saved."
 msgstr ""
 
 #. translators: %d: number of pages.
-#: includes/Admin/SettingsPage.php:1079
+#: includes/Admin/SettingsPage.php:1082
 #, php-format
 msgid "%d page created."
 msgid_plural "%d pages created."
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/Admin/SettingsPage.php:1080
+#: includes/Admin/SettingsPage.php:1083
 msgid "All store pages already exist."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1283
+#: includes/Admin/SettingsPage.php:1286
 msgid "Your catalog."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1284
+#: includes/Admin/SettingsPage.php:1287
 msgid "Used when the slide-in cart is turned off and as a fallback without JavaScript."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1285
+#: includes/Admin/SettingsPage.php:1288
 msgid "Also shows the order confirmation and post-purchase offers."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1286
+#: includes/Admin/SettingsPage.php:1289
 msgid "Orders, downloads and passwordless login."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1287
+#: includes/Admin/SettingsPage.php:1290
 msgid "Linked from the checkout. A template with the sections required in the EU is created for you: complete it before opening your store."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1288
+#: includes/Admin/SettingsPage.php:1291
 msgid "Defaults to the WordPress privacy policy page."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1307
+#: includes/Admin/SettingsPage.php:1310
 msgid "— Select a page —"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1315
+#: includes/Admin/SettingsPage.php:1318
 msgid "No page yet."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1322
+#: includes/Admin/SettingsPage.php:1325
 msgid "Edit"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1326
+#: includes/Admin/SettingsPage.php:1329
 msgid "Wahou block missing"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1329
+#: includes/Admin/SettingsPage.php:1332
 msgid "Not published"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1342
+#: includes/Admin/SettingsPage.php:1345
 msgid "Create missing pages"
 msgstr ""
 
 #. translators: %d: number of missing pages.
-#: includes/Admin/SettingsPage.php:1345
+#: includes/Admin/SettingsPage.php:1348
 #, php-format
 msgid "%d page is missing."
 msgid_plural "%d pages are missing."
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/Admin/SettingsPage.php:1364
+#: includes/Admin/SettingsPage.php:1367
 msgid "Module unavailable"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1401
+#: includes/Admin/SettingsPage.php:1404
 msgid "Defined in wp-config.php"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1412
+#: includes/Admin/SettingsPage.php:1415
 msgid "This key is defined in wp-config.php and takes precedence."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1413
+#: includes/Admin/SettingsPage.php:1416
 msgid "Saved and encrypted. Leave empty to keep it."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1424
+#: includes/Admin/SettingsPage.php:1427
 msgid "Cards, Apple Pay, Google Pay, Link, SEPA Direct Debit, Bancontact, iDEAL… One integration, all local payment methods."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1428
+#: includes/Admin/SettingsPage.php:1431
 msgid "Accept payments with Stripe"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1443
+#: includes/Admin/SettingsPage.php:1446
 msgid "Test mode uses Stripe test cards (4242 4242 4242 4242) – no real money moves."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1448
+#: includes/Admin/SettingsPage.php:1451
 msgid "Test keys"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1448
+#: includes/Admin/SettingsPage.php:1451
 msgid "Live keys"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1468
+#: includes/Admin/SettingsPage.php:1471
 msgid "Webhook signing secret (optional)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1476
+#: includes/Admin/SettingsPage.php:1479
 msgid "Where are my keys? Stripe Dashboard › Developers › API keys."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1486
+#: includes/Admin/SettingsPage.php:1489
 msgid "Statement descriptor"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1496
+#: includes/Admin/SettingsPage.php:1499
 msgid "Shown on your customers' bank statements (5 to 22 characters). A recognizable name avoids disputes."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1500
+#: includes/Admin/SettingsPage.php:1503
 msgid "Express checkout buttons (Apple Pay, Google Pay, Link) at the top of the checkout"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1511
+#: includes/Admin/SettingsPage.php:1514
 msgid "PayPal wallet, Pay Later and guest card payments through PayPal."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1515
+#: includes/Admin/SettingsPage.php:1518
 msgid "Accept payments with PayPal"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1534
+#: includes/Admin/SettingsPage.php:1537
 msgid "Sandbox app"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1534
+#: includes/Admin/SettingsPage.php:1537
 msgid "Live app"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1554
+#: includes/Admin/SettingsPage.php:1557
 msgid "Webhook ID"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1566
+#: includes/Admin/SettingsPage.php:1569
 msgid "Filled automatically when you connect."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1572
+#: includes/Admin/SettingsPage.php:1575
 msgid "Where are my keys? PayPal Developer Dashboard › Apps & Credentials (create an app, then copy its Client ID and Secret)."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1574
+#: includes/Admin/SettingsPage.php:1577
 msgid "Offer \"Pay Later\" (pay in installments, where PayPal offers it)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1591
+#: includes/Admin/SettingsPage.php:1594
 msgid "No fees. The order stays on hold until you confirm the transfer was received."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1593
+#: includes/Admin/SettingsPage.php:1596
 msgid "Inactive"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1617
+#: includes/Admin/SettingsPage.php:1620
 msgid "Bank name"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1622
+#: includes/Admin/SettingsPage.php:1625
 msgid "Instructions"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1628
+#: includes/Admin/SettingsPage.php:1631
 msgid "Please use your order number as the payment reference. Your order ships as soon as the transfer is received."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1635
+#: includes/Admin/SettingsPage.php:1638
 msgid "Cancel unpaid orders after (days)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1645
+#: includes/Admin/SettingsPage.php:1648
 msgid "Reserved stock is released when the order is cancelled."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1674
+#: includes/Admin/SettingsPage.php:1677
 msgid "Order at checkout"
 msgstr ""
 
 #. translators: %s: date.
-#: includes/Admin/SettingsPage.php:1734
+#: includes/Admin/SettingsPage.php:1737
 #, php-format
 msgid "Rates checked on %s against the European Commission database."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1736
+#: includes/Admin/SettingsPage.php:1739
 msgid "Source"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1738
+#: includes/Admin/SettingsPage.php:1741
 msgid "Rates change: check them once a year."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1747
+#: includes/Admin/SettingsPage.php:1750
 msgid "Show the rates table"
 msgstr ""
 
 #. translators: %d: number of overridden rates.
-#: includes/Admin/SettingsPage.php:1750
+#: includes/Admin/SettingsPage.php:1753
 #, php-format
 msgid "%d rate overridden"
 msgid_plural "%d rates overridden"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/Admin/SettingsPage.php:1753
+#: includes/Admin/SettingsPage.php:1756
 #: includes/Checkout/Checkout.php:90
 msgid "Country"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1812
+#: includes/Admin/SettingsPage.php:1815
 msgid "+ Add a shipping zone"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1813
+#: includes/Admin/SettingsPage.php:1816
 msgid "JavaScript is required to edit shipping zones."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1829
+#: includes/Admin/SettingsPage.php:1832
 msgid "Send after (hours)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1843
+#: includes/Admin/SettingsPage.php:1846
 msgid "Discount (%)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1853
+#: includes/Admin/SettingsPage.php:1856
 msgid "0 = no coupon"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1857
+#: includes/Admin/SettingsPage.php:1860
 msgid "Coupon valid (days)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1872
+#: includes/Admin/SettingsPage.php:1875
 msgid "Subject"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1878
+#: includes/Admin/SettingsPage.php:1881
 msgid "Default subject, translated into the customer's language"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1891
+#: includes/Admin/SettingsPage.php:1894
 msgid "Reminder sequence"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1892
+#: includes/Admin/SettingsPage.php:1895
 msgid "Tip: a first reminder within the hour, a second one the next day, and a small discount only in the last one."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1899
+#: includes/Admin/SettingsPage.php:1902
 msgid "+ Add a reminder"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1908
+#: includes/Admin/SettingsPage.php:1911
 msgid "Preview"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1911
+#: includes/Admin/SettingsPage.php:1914
 msgid "Your best-selling product"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1922
+#: includes/Admin/SettingsPage.php:1925
 msgid "Google Merchant feed"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1923
+#: includes/Admin/SettingsPage.php:1926
 #: includes/Seo/Geo.php:251
 msgid "Product API (JSON)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1925
+#: includes/Admin/SettingsPage.php:1928
 msgid "Your public URLs"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1927
+#: includes/Admin/SettingsPage.php:1930
 msgid "Enable pretty permalinks (Settings › Permalinks) for these URLs to work."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1936
+#: includes/Admin/SettingsPage.php:1939
 msgid "Submit the Google feed in Merchant Center › Products › Feeds (scheduled fetch, daily)."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1942
+#: includes/Admin/SettingsPage.php:1945
 msgid "Run the setup wizard again"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1947
+#: includes/Admin/SettingsPage.php:1950
 msgid "Logs"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1949
+#: includes/Admin/SettingsPage.php:1952
 msgid "No log entries yet."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:1960
+#: includes/Admin/SettingsPage.php:1963
 msgid "File"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2000
-#: includes/Admin/SettingsPage.php:2001
-#: includes/Admin/SettingsPage.php:2009
-#: includes/Admin/SettingsPage.php:2010
+#: includes/Admin/SettingsPage.php:2003
+#: includes/Admin/SettingsPage.php:2004
+#: includes/Admin/SettingsPage.php:2012
+#: includes/Admin/SettingsPage.php:2013
 msgid "Yes"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2000
+#: includes/Admin/SettingsPage.php:2003
 msgid "No – required for live payments"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2001
+#: includes/Admin/SettingsPage.php:2004
 msgid "Pretty permalinks"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2001
+#: includes/Admin/SettingsPage.php:2004
 msgid "No"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2003
+#: includes/Admin/SettingsPage.php:2006
 msgid "Scheduled tasks"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2004
+#: includes/Admin/SettingsPage.php:2007
 msgid "WP-Cron disabled: make sure a server cron calls wp-cron.php."
 msgstr ""
 
 #. translators: %s: date and time.
-#: includes/Admin/SettingsPage.php:2006
+#: includes/Admin/SettingsPage.php:2009
 #, php-format
 msgid "Next run: %s"
 msgstr ""
 
 #. translators: %s: date and time.
-#: includes/Admin/SettingsPage.php:2006
+#: includes/Admin/SettingsPage.php:2009
 msgid "Not scheduled"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2009
+#: includes/Admin/SettingsPage.php:2012
 msgid "PHP intl extension"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2009
+#: includes/Admin/SettingsPage.php:2012
 msgid "Missing – prices and country names use a basic format"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2010
+#: includes/Admin/SettingsPage.php:2013
 msgid "Persistent object cache"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2010
+#: includes/Admin/SettingsPage.php:2013
 msgid "No (recommended for large catalogs)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2011
+#: includes/Admin/SettingsPage.php:2014
 msgid "Maximum upload size"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2013
+#: includes/Admin/SettingsPage.php:2016
 msgid "System status"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2069
+#: includes/Admin/SettingsPage.php:2072
 msgid "Your product URLs changed. Set up redirects for links already shared or indexed."
 msgstr ""
 
 #. translators: %s: field label.
-#: includes/Admin/SettingsPage.php:2121
+#: includes/Admin/SettingsPage.php:2124
 #, php-format
 msgid "%s: this email address is not valid. The previous value was kept."
 msgstr ""
 
 #. translators: 1: field label, 2: expected prefix.
-#: includes/Admin/SettingsPage.php:2193
+#: includes/Admin/SettingsPage.php:2196
 #, php-format
 msgid "%1$s must start with %2$s. The previous value was kept."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2203
+#: includes/Admin/SettingsPage.php:2206
 msgid "The statement descriptor needs 5 to 22 characters, including at least one letter. Stripe will use your account default."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2211
+#: includes/Admin/SettingsPage.php:2214
 msgid "The IBAN does not look valid (checksum error). Please double-check it."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2218
+#: includes/Admin/SettingsPage.php:2221
 msgid "The BIC does not look valid (8 or 11 characters). Please double-check it."
 msgstr ""
 
 #. translators: %s: name of the key.
-#: includes/Admin/SettingsPage.php:2259
+#: includes/Admin/SettingsPage.php:2262
 #, php-format
 msgid "The value entered for \"%s\" does not look valid and was not saved."
 msgstr ""
 
 #. translators: %s: name of the key.
-#: includes/Admin/SettingsPage.php:2264
+#: includes/Admin/SettingsPage.php:2267
 #, php-format
 msgid "%s saved. Click \"Connect & test\" to check it."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2270
+#: includes/Admin/SettingsPage.php:2273
 msgid "Stripe secret key (test)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2271
+#: includes/Admin/SettingsPage.php:2274
 msgid "Stripe secret key (live)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2272
+#: includes/Admin/SettingsPage.php:2275
 msgid "Stripe webhook secret (test)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2273
+#: includes/Admin/SettingsPage.php:2276
 msgid "Stripe webhook secret (live)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2274
+#: includes/Admin/SettingsPage.php:2277
 msgid "PayPal secret (sandbox)"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2275
+#: includes/Admin/SettingsPage.php:2278
 msgid "PayPal secret (live)"
 msgstr ""
 
 #. translators: 1: country, 2: value.
-#: includes/Admin/SettingsPage.php:2305
+#: includes/Admin/SettingsPage.php:2308
 #, php-format
 msgid "Invalid VAT rate for %1$s: \"%2$s\". It was ignored."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2330
+#: includes/Admin/SettingsPage.php:2333
 msgid "The shipping zones could not be read and were not saved."
 msgstr ""
 
 #. translators: %s: zone name.
-#: includes/Admin/SettingsPage.php:2384
+#: includes/Admin/SettingsPage.php:2387
 #, php-format
 msgid "The zone \"%s\" has no country: customers will never see it."
 msgstr ""
 
 #. translators: %s: zone name.
-#: includes/Admin/SettingsPage.php:2388
+#: includes/Admin/SettingsPage.php:2391
 #, php-format
 msgid "The zone \"%s\" has no delivery method: customers in this zone cannot order physical products."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2421
+#: includes/Admin/SettingsPage.php:2424
 msgid "Only the first 5 reminders were kept."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:2425
+#: includes/Admin/SettingsPage.php:2428
 msgid "Tip: give reminder coupons a validity period (e.g. 3 days) to create urgency."
 msgstr ""
 
@@ -5256,13 +5256,13 @@ msgid "Comma-separated IDs to show specific products in this order."
 msgstr ""
 
 #: includes/Frontend/Blocks.php:213
-#: includes/Products/PostTypes.php:95
+#: includes/Products/PostTypes.php:126
 #: templates/parts/product-details.php:56
 msgid "Category"
 msgstr ""
 
 #: includes/Frontend/Blocks.php:214
-#: includes/Products/PostTypes.php:98
+#: includes/Products/PostTypes.php:129
 msgid "All categories"
 msgstr ""
 
@@ -6499,239 +6499,239 @@ msgstr ""
 msgid "You can access, correct, export or delete your data, or object to its use, by writing to %s. Data we must keep for legal reasons is deleted at the end of the legal retention period."
 msgstr ""
 
-#: includes/Products/PostTypes.php:49
-msgid "All products"
-msgstr ""
-
-#: includes/Products/PostTypes.php:51
-msgid "Add new product"
-msgstr ""
-
-#: includes/Products/PostTypes.php:52
-msgid "Edit product"
-msgstr ""
-
-#: includes/Products/PostTypes.php:53
-msgid "New product"
-msgstr ""
-
-#: includes/Products/PostTypes.php:54
-msgid "View product"
-msgstr ""
-
-#: includes/Products/PostTypes.php:55
-msgid "View products"
-msgstr ""
-
-#: includes/Products/PostTypes.php:56
-#: includes/Seo/Abilities.php:70
-msgid "Search products"
-msgstr ""
-
 #: includes/Products/PostTypes.php:57
-msgid "No products found"
-msgstr ""
-
-#: includes/Products/PostTypes.php:58
-msgid "No products found in Trash"
-msgstr ""
-
-#: includes/Products/PostTypes.php:59
-msgid "Main product image"
-msgstr ""
-
-#: includes/Products/PostTypes.php:60
-msgid "Set main image"
-msgstr ""
-
-#: includes/Products/PostTypes.php:61
-msgid "Remove main image"
-msgstr ""
-
-#: includes/Products/PostTypes.php:62
-msgid "Use as main image"
-msgstr ""
-
-#: includes/Products/PostTypes.php:63
-#: includes/Products/PostTypes.php:226
-msgid "Product published."
-msgstr ""
-
-#: includes/Products/PostTypes.php:64
-#: includes/Products/PostTypes.php:224
-#: includes/Products/PostTypes.php:225
-msgid "Product updated."
-msgstr ""
-
-#: includes/Products/PostTypes.php:66
-msgid "Products sold in your store."
-msgstr ""
-
-#: includes/Products/PostTypes.php:97
-msgid "Search categories"
-msgstr ""
-
-#: includes/Products/PostTypes.php:99
-msgid "Parent category"
-msgstr ""
-
-#: includes/Products/PostTypes.php:100
-msgid "Edit category"
-msgstr ""
-
-#: includes/Products/PostTypes.php:101
-msgid "Update category"
-msgstr ""
-
-#: includes/Products/PostTypes.php:102
-msgid "Add new category"
-msgstr ""
-
-#: includes/Products/PostTypes.php:103
-msgid "New category name"
-msgstr ""
-
-#: includes/Products/PostTypes.php:104
-msgid "No categories found"
-msgstr ""
-
-#: includes/Products/PostTypes.php:129
-msgid "Product tags"
-msgstr ""
-
-#: includes/Products/PostTypes.php:130
-msgid "Tag"
-msgstr ""
-
-#: includes/Products/PostTypes.php:131
-msgid "Tags"
-msgstr ""
-
-#: includes/Products/PostTypes.php:132
-msgid "Search tags"
-msgstr ""
-
-#: includes/Products/PostTypes.php:133
-msgid "All tags"
-msgstr ""
-
-#: includes/Products/PostTypes.php:134
-msgid "Edit tag"
-msgstr ""
-
-#: includes/Products/PostTypes.php:135
-msgid "Add new tag"
-msgstr ""
-
-#: includes/Products/PostTypes.php:136
-msgid "No tags found"
-msgstr ""
-
-#: includes/Products/PostTypes.php:143
 msgctxt "URL slug"
 msgid "product-tag"
 msgstr ""
 
-#: includes/Products/PostTypes.php:159
+#: includes/Products/PostTypes.php:80
+msgid "All products"
+msgstr ""
+
+#: includes/Products/PostTypes.php:82
+msgid "Add new product"
+msgstr ""
+
+#: includes/Products/PostTypes.php:83
+msgid "Edit product"
+msgstr ""
+
+#: includes/Products/PostTypes.php:84
+msgid "New product"
+msgstr ""
+
+#: includes/Products/PostTypes.php:85
+msgid "View product"
+msgstr ""
+
+#: includes/Products/PostTypes.php:86
+msgid "View products"
+msgstr ""
+
+#: includes/Products/PostTypes.php:87
+#: includes/Seo/Abilities.php:70
+msgid "Search products"
+msgstr ""
+
+#: includes/Products/PostTypes.php:88
+msgid "No products found"
+msgstr ""
+
+#: includes/Products/PostTypes.php:89
+msgid "No products found in Trash"
+msgstr ""
+
+#: includes/Products/PostTypes.php:90
+msgid "Main product image"
+msgstr ""
+
+#: includes/Products/PostTypes.php:91
+msgid "Set main image"
+msgstr ""
+
+#: includes/Products/PostTypes.php:92
+msgid "Remove main image"
+msgstr ""
+
+#: includes/Products/PostTypes.php:93
+msgid "Use as main image"
+msgstr ""
+
+#: includes/Products/PostTypes.php:94
+#: includes/Products/PostTypes.php:263
+msgid "Product published."
+msgstr ""
+
+#: includes/Products/PostTypes.php:95
+#: includes/Products/PostTypes.php:261
+#: includes/Products/PostTypes.php:262
+msgid "Product updated."
+msgstr ""
+
+#: includes/Products/PostTypes.php:97
+msgid "Products sold in your store."
+msgstr ""
+
+#: includes/Products/PostTypes.php:128
+msgid "Search categories"
+msgstr ""
+
+#: includes/Products/PostTypes.php:130
+msgid "Parent category"
+msgstr ""
+
+#: includes/Products/PostTypes.php:131
+msgid "Edit category"
+msgstr ""
+
+#: includes/Products/PostTypes.php:132
+msgid "Update category"
+msgstr ""
+
+#: includes/Products/PostTypes.php:133
+msgid "Add new category"
+msgstr ""
+
+#: includes/Products/PostTypes.php:134
+msgid "New category name"
+msgstr ""
+
+#: includes/Products/PostTypes.php:135
+msgid "No categories found"
+msgstr ""
+
+#: includes/Products/PostTypes.php:160
+msgid "Product tags"
+msgstr ""
+
 #: includes/Products/PostTypes.php:161
-msgid "Coupons"
+msgid "Tag"
 msgstr ""
 
 #: includes/Products/PostTypes.php:162
-msgid "Add coupon"
+msgid "Tags"
 msgstr ""
 
 #: includes/Products/PostTypes.php:163
-msgid "Add new coupon"
+msgid "Search tags"
 msgstr ""
 
 #: includes/Products/PostTypes.php:164
-msgid "Edit coupon"
+msgid "All tags"
 msgstr ""
 
 #: includes/Products/PostTypes.php:165
-msgid "Search coupons"
+msgid "Edit tag"
 msgstr ""
 
 #: includes/Products/PostTypes.php:166
-msgid "No coupons found"
+msgid "Add new tag"
 msgstr ""
 
 #: includes/Products/PostTypes.php:167
-msgid "No coupons found in Trash"
-msgstr ""
-
-#: includes/Products/PostTypes.php:186
-msgid "Offer"
-msgstr ""
-
-#: includes/Products/PostTypes.php:188
-msgid "Add offer"
-msgstr ""
-
-#: includes/Products/PostTypes.php:189
-msgid "Add new offer"
+msgid "No tags found"
 msgstr ""
 
 #: includes/Products/PostTypes.php:190
-msgid "Edit offer"
-msgstr ""
-
-#: includes/Products/PostTypes.php:191
-msgid "Search offers"
-msgstr ""
-
 #: includes/Products/PostTypes.php:192
-msgid "No offers found"
+msgid "Coupons"
 msgstr ""
 
 #: includes/Products/PostTypes.php:193
+msgid "Add coupon"
+msgstr ""
+
+#: includes/Products/PostTypes.php:194
+msgid "Add new coupon"
+msgstr ""
+
+#: includes/Products/PostTypes.php:195
+msgid "Edit coupon"
+msgstr ""
+
+#: includes/Products/PostTypes.php:196
+msgid "Search coupons"
+msgstr ""
+
+#: includes/Products/PostTypes.php:197
+msgid "No coupons found"
+msgstr ""
+
+#: includes/Products/PostTypes.php:198
+msgid "No coupons found in Trash"
+msgstr ""
+
+#: includes/Products/PostTypes.php:217
+msgid "Offer"
+msgstr ""
+
+#: includes/Products/PostTypes.php:219
+msgid "Add offer"
+msgstr ""
+
+#: includes/Products/PostTypes.php:220
+msgid "Add new offer"
+msgstr ""
+
+#: includes/Products/PostTypes.php:221
+msgid "Edit offer"
+msgstr ""
+
+#: includes/Products/PostTypes.php:222
+msgid "Search offers"
+msgstr ""
+
+#: includes/Products/PostTypes.php:223
+msgid "No offers found"
+msgstr ""
+
+#: includes/Products/PostTypes.php:224
 msgid "No offers found in Trash"
 msgstr ""
 
-#: includes/Products/PostTypes.php:227
+#: includes/Products/PostTypes.php:264
 msgid "Product saved."
 msgstr ""
 
-#: includes/Products/PostTypes.php:228
+#: includes/Products/PostTypes.php:265
 msgid "Product submitted."
 msgstr ""
 
-#: includes/Products/PostTypes.php:229
+#: includes/Products/PostTypes.php:266
 msgid "Product draft updated."
 msgstr ""
 
-#: includes/Products/PostTypes.php:232
-#: includes/Products/PostTypes.php:233
+#: includes/Products/PostTypes.php:269
+#: includes/Products/PostTypes.php:270
 msgid "Coupon updated."
 msgstr ""
 
-#: includes/Products/PostTypes.php:234
+#: includes/Products/PostTypes.php:271
 msgid "Coupon published."
 msgstr ""
 
-#: includes/Products/PostTypes.php:235
+#: includes/Products/PostTypes.php:272
 msgid "Coupon saved."
 msgstr ""
 
-#: includes/Products/PostTypes.php:236
+#: includes/Products/PostTypes.php:273
 msgid "Coupon draft updated."
 msgstr ""
 
-#: includes/Products/PostTypes.php:239
-#: includes/Products/PostTypes.php:240
+#: includes/Products/PostTypes.php:276
+#: includes/Products/PostTypes.php:277
 msgid "Offer updated."
 msgstr ""
 
-#: includes/Products/PostTypes.php:241
+#: includes/Products/PostTypes.php:278
 msgid "Offer published."
 msgstr ""
 
-#: includes/Products/PostTypes.php:242
+#: includes/Products/PostTypes.php:279
 msgid "Offer saved."
 msgstr ""
 
-#: includes/Products/PostTypes.php:243
+#: includes/Products/PostTypes.php:280
 msgid "Offer draft updated."
 msgstr ""
 
