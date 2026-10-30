@@ -1,6 +1,7 @@
 <?php
 /**
  * Plugin Name:       Wahou Commerce
+ * Plugin URI:        https://github.com/Jacckisback/wahou-commerce
  * Description:       Frictionless e-commerce for WordPress: mobile-first, lightning fast, built-in SEO & GEO, Stripe and PayPal in two minutes, automatic EU VAT (OSS), bundles, upsells, abandoned cart recovery, physical and digital products.
  * Version:           1.0.0
  * Requires at least: 6.5

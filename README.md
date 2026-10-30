@@ -78,7 +78,7 @@
 
 ## Installation
 
-1. Téléchargez `wahou-commerce.zip`, puis **Extensions → Ajouter → Téléverser**.
+1. Téléchargez l'archive [`dist/wahou-commerce-1.0.0.zip`](dist/wahou-commerce-1.0.0.zip), puis **Extensions → Ajouter → Téléverser**.
 2. Activez l'extension : l'assistant s'ouvre automatiquement.
 3. Connectez Stripe et/ou PayPal (mode test d'abord), créez les pages, ajoutez votre premier produit.
 
