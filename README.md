@@ -1,178 +1,350 @@
-# Wahou Commerce
+<div align="center">
 
-**L'e-commerce WordPress sans friction.** Mobile-first, ultra-rapide, SEO & GEO natifs, Stripe et PayPal connectés en deux minutes, TVA européenne automatique, bundles, upsells, relances de paniers abandonnés, produits physiques et numériques.
+<img src="docs/images/banner-fr.jpg" alt="Wahou Commerce – L'e-commerce WordPress sans friction" width="100%">
 
-- Version : 1.0.0
-- Prérequis : WordPress 6.5+ (testé jusqu'à 7.1), PHP 8.1+, HTTPS (obligatoire pour les webhooks Stripe/PayPal et Apple Pay)
-- Licence : GPL-2.0-or-later
-- Auteur : Thierry Gustin
+**🇫🇷 Français** · [🇬🇧 English](README.en.md) · [🇪🇸 Español](README.es.md) · [🇮🇹 Italiano](README.it.md) · [🇩🇪 Deutsch](README.de.md) · [🇯🇵 日本語](README.ja.md) · [🇵🇹 Português](README.pt.md)
+
+<br>
+
+![Version](https://img.shields.io/badge/version-1.0.0-5b3df5?style=flat-square)
+![WordPress](https://img.shields.io/badge/WordPress-6.5%20→%207.1-21759b?style=flat-square&logo=wordpress&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.1%2B-777bb4?style=flat-square&logo=php&logoColor=white)
+![Licence](https://img.shields.io/badge/licence-GPL--2.0--or--later-2ea44f?style=flat-square)
+![Langues](https://img.shields.io/badge/langues-FR%20·%20ES%20·%20EN-ff6f61?style=flat-square)
+![jQuery](https://img.shields.io/badge/front--end-0%20jQuery-111827?style=flat-square)
+
+### La boutique WordPress qui vend plus, charge moins et respecte vos clients.
+
+**[⬇️ Télécharger la v1.0.0](dist/wahou-commerce-1.0.0.zip)** · [🚀 Démarrer en 5 minutes](#-démarrer-en-5-minutes) · [🆚 Comparer avec WooCommerce](#-wahou-commerce-vs-woocommerce) · [👤 L'auteur](#-lauteur--thierry-gustin)
+
+</div>
 
 ---
 
-## Pourquoi Wahou Commerce ?
+<img src="docs/images/hero.jpg" alt="Fiche produit, panier et paiement Wahou Commerce sur mobile" width="100%">
 
-| Point de friction classique | Réponse de Wahou Commerce |
-|---|---|
-| Sites lents, panier qui casse le cache | Panier sans session PHP (cookie + table dédiée) : toutes les pages catalogue restent en cache. CSS/JS légers chargés seulement là où ils servent, Stripe.js uniquement au checkout, SDK PayPal chargé à la demande. |
-| Base de données encombrée | Commandes, paniers, téléchargements et factures dans des tables indexées dédiées (pas de postmeta). |
-| Checkout long sur mobile | Checkout une page, e-mail en premier, champs `autocomplete`, Apple Pay / Google Pay / Link en un geste, aucune adresse demandée pour les produits numériques. |
-| Configuration des paiements pénible | Collez vos clés : le webhook Stripe est créé automatiquement, le domaine Apple Pay enregistré, le webhook PayPal configuré. |
-| TVA européenne complexe | OSS, taux des 27 pays, livres et e-books, autoliquidation B2B vérifiée via VIES, territoires hors TVA (Canaries, DOM…), prix TTC identiques pour tous les clients. |
-| Contenu invisible pour les IA | Fiches 100 % rendues côté serveur, JSON-LD complet, `llms.txt`, version Markdown de chaque produit, flux Google Merchant, abilities WordPress pour les agents IA. |
+## ✨ En bref
 
-## Fonctionnalités
+**Wahou Commerce** est une extension e-commerce complète pour WordPress, pensée pour les **créateurs, éditeurs, formateurs et petites marques européennes** qui veulent vendre en direct, sans abonnement ni commission sur leurs ventes.
 
-### Catalogue
-- Produits physiques, numériques (fichiers privés, liens signés, limite et expiration) et services.
-- Variantes (taille, couleur…) avec prix, stock, SKU et image par variante.
-- Bundles à prix fixe ou en % de remise sur les composants (stock déduit sur chaque composant).
-- « Fréquemment achetés ensemble » avec remise, ventes croisées dans le panier, montées en gamme sur la fiche.
-- Avis clients avec note, badge « achat vérifié », option avis vérifiés uniquement, demande d'avis automatique par e-mail.
-- Points forts, FAQ produit, fiche technique, badges, GTIN/MPN/marque.
-- Prix barré conforme Omnibus : prix de référence = prix le plus bas des 30 jours précédant la réduction, pourcentage calculé sur ce prix.
+Elle supprime un à un les points de friction qui font fuir les clients et perdre du temps aux vendeurs :
 
-### Conversion
-- Tiroir panier avec barre « livraison offerte dans X € », ventes croisées en un tap, code promo.
-- Barre d'ajout au panier collante sur mobile, bouton « Acheter maintenant », estimation de livraison.
-- **Order bumps** (case à cocher au checkout), **upsells post-achat en un clic** (sans ressaisir la carte, Stripe) et **downsells** si l'offre est refusée.
-- Liens d'achat directs à partager partout (bio Instagram, e-mail, QR code, fin d'un e-book) :
-  - `https://votresite.fr/?wahou_buy=123` → checkout direct avec le produit 123
-  - `https://votresite.fr/?wahou_buy=123&wahou_coupon=LANCEMENT` → avec code promo appliqué
-  - `https://votresite.fr/?wahou_add=123` → ajout au panier
-- Pas de faux compteurs ni de fausse urgence (interdits par la directive Omnibus) : seules des données réelles sont affichées (stock, heure limite d'expédition).
+- ⚡ **Rapide par construction** : rien n'est chargé hors de la boutique, et la page de paiement pèse **20 fois moins de JavaScript** que celle de WooCommerce.
+- 📱 **Pensée pour le pouce** : paiement sur une seule page, Apple Pay et Google Pay, aucun champ inutile.
+- 🇪🇺 **Prête pour l'Europe** : TVA des 27 pays, OSS, autoliquidation B2B vérifiée en direct, règles Omnibus et droit de rétractation numérique.
+- 🤖 **Visible des IA** : `llms.txt`, fiches Markdown, données structurées complètes et abilities WordPress pour les agents d'achat.
+- 💸 **Vendre plus, automatiquement** : order bump, upsell en un clic, relances de paniers abandonnés et liens d'achat direct.
 
-### Paniers abandonnés
-- Capture de l'e-mail dès sa saisie au checkout (avec mention ou case de consentement, au choix).
-- Séquence de 3 relances configurable (1 h, 24 h, 72 h par défaut), coupon personnel à usage unique en option.
-- Lien de reprise qui restaure le panier, lien de désinscription, statistiques (taux de récupération, CA récupéré).
+## 📊 Les chiffres
 
-### Checkout & paiements
-- Stripe (cartes, Apple Pay, Google Pay, Link, moyens locaux), PayPal (avec paiement en plusieurs fois PayPal si disponible), virement bancaire.
-- Commandes gratuites (coupon 100 %, lead magnet) sans paiement.
-- Remboursements depuis l'admin (Stripe/PayPal) avec avoir numéroté.
-- Protections : limitation de débit contre le « card testing », champ piège anti-bot, vérification des montants côté serveur, signature des webhooks.
+<img src="docs/images/stats-fr.png" alt="Comparaison mesurée Wahou Commerce vs WooCommerce" width="100%">
 
-### Commandes, factures, clients
-- Statuts, notes, suivi de colis, e-mails d'expédition, export comptable CSV (TVA ventilée par taux).
-- Factures et avoirs HTML imprimables à numérotation continue, mentions légales selon le pays du vendeur.
-- Comptes clients sans mot de passe (lien de connexion magique), création automatique après achat, espace « Mes commandes / Mes téléchargements ».
+<table>
+<tr>
+<td align="center" width="33%"><h3>−95 %</h3>de JavaScript sur la page de paiement</td>
+<td align="center" width="33%"><h3>0</h3>fichier chargé hors de la boutique</td>
+<td align="center" width="33%"><h3>0,98 Mo</h3>pour l'extension complète</td>
+</tr>
+<tr>
+<td align="center"><h3>27</h3>pays de TVA intégrés et sourcés</td>
+<td align="center"><h3>3</h3>langues incluses (1 802 textes traduits)</td>
+<td align="center"><h3>7</h3>étapes pour lancer la boutique</td>
+</tr>
+</table>
 
-### Admin & onboarding
-- Assistant de démarrage en 7 étapes (activité, TVA, paiements, livraison, design, pages, c'est parti 🎉) avec produits de démonstration.
-- Tableau de bord : CA, panier moyen, paniers récupérés, top produits, liste de vérification de mise en ligne.
-- Réglages complets par onglets, zones de livraison, éditeur de produits par onglets, coupons, offres & funnels.
-- Import des produits WooCommerce.
+<details>
+<summary><b>Méthode de mesure</b></summary>
 
-### SEO & GEO
-- JSON-LD : Product, Offer/AggregateOffer, politique de retour, frais et délais de livraison, AggregateRating, avis, BreadcrumbList, FAQPage, ItemList.
-- Balises meta / Open Graph produit (désactivées automatiquement si Yoast, Rank Math, SEOPress, AIOSEO… sont actifs, sauf les balises de prix).
-- `/llms.txt`, `/llms-full.txt`, version Markdown de chaque fiche (`/produit/mon-livre.md`), lien `rel="alternate"`.
-- Flux Google Merchant Center : `/wahou-feed/google.xml`.
-- robots.txt : autorisation (ou blocage) des robots IA au choix, exclusion du panier/checkout/compte.
-- Abilities WordPress (API des capacités, WP 6.9+) : recherche produit, fiche produit, infos boutique, lien de paiement — exploitables par les agents IA via l'adaptateur MCP.
+Mesures faites le 30/10/2026 sur deux installations identiques : WordPress 7.1.4, thème Twenty Twenty-Five, réglages par défaut, mêmes produits, aucune passerelle de paiement connectée, navigateur mobile (390 px) à cache vide. Wahou Commerce 1.0.0 comparé à WooCommerce 11.2.1 (dernière version stable). Le JavaScript est compté en Ko compressés (gzip) pour toute la page : WordPress, thème et extension.
 
-### Multilingue
-- Interface traduite en français et en espagnol (anglais par défaut), formats de prix et noms de pays selon la langue du visiteur.
-- Compatible WPML et Polylang (pages traduites, champs synchronisés, stock partagé entre traductions).
-- E-mails envoyés dans la langue de la commande.
+| Page | Requêtes (Wahou / Woo) | JavaScript (Wahou / Woo) | Fichiers de l'extension (Wahou / Woo) |
+|---|---|---|---|
+| Accueil (hors boutique) | 4 / 19 | 17 Ko / 69 Ko | 0 / 11 |
+| Catalogue | 10 / 31 | 26 Ko / 77 Ko | 2 / 20 |
+| Fiche produit | 9 / 32 | 26 Ko / 96 Ko | 2 / 23 |
+| Paiement | 10 / 121 | 33 Ko / 687 Ko | 4 / 30 |
 
-## Installation
+Sur la boutique de démonstration, en local : LCP d'une fiche produit de 0,2 s, CLS de 0.
+</details>
 
-1. Téléchargez l'archive [`dist/wahou-commerce-1.0.0.zip`](dist/wahou-commerce-1.0.0.zip), puis **Extensions → Ajouter → Téléverser**.
-2. Activez l'extension : l'assistant s'ouvre automatiquement.
-3. Connectez Stripe et/ou PayPal (mode test d'abord), créez les pages, ajoutez votre premier produit.
+## 🆚 Wahou Commerce vs WooCommerce
 
-Clés API :
-- Stripe : <https://dashboard.stripe.com/apikeys>
-- PayPal : <https://developer.paypal.com/dashboard/applications>
+WooCommerce est une référence et son écosystème est immense. Wahou Commerce fait un autre choix : **tout l'essentiel du e-commerce européen inclus, dans une extension légère**.
 
-Les secrets peuvent aussi être définis dans `wp-config.php` (ils sont alors prioritaires) :
+| | **Wahou Commerce 1.0** | WooCommerce 11.2.1 seul |
+|---|:---:|:---:|
+| Poids de l'extension (zip) | **0,98 Mo** | 18,1 Mo |
+| Fichiers chargés sur une page hors boutique | **0** | 11 |
+| Requêtes sur la page de paiement | **10** | 121 |
+| Stripe, Apple Pay, Google Pay et PayPal | ✅ webhooks configurés automatiquement | ➕ |
+| Taux de TVA des 27 pays + OSS | ✅ | ⚙️ taux à saisir |
+| Numéro de TVA vérifié (VIES) + autoliquidation B2B | ✅ | ➕ ¹ |
+| Prix de référence Omnibus (30 jours) | ✅ | ➕ |
+| Case de renonciation au droit de rétractation (numérique) | ✅ | ➕ |
+| Relances de paniers abandonnés | ✅ 3 e-mails + coupon | ➕ |
+| Order bump, upsell et downsell en 1 clic | ✅ | ➕ |
+| Factures et avoirs numérotés | ✅ | ➕ |
+| Comptes clients sans mot de passe | ✅ lien magique | ⚙️ mot de passe |
+| `llms.txt` et fiches Markdown pour les IA | ✅ | ➕ |
+| Flux Google Merchant Center | ✅ | ➕ |
+| Écosystème d'extensions et de thèmes | 🌱 jeune projet | ✅ immense |
+| Abonnements, multidevise | 🗺️ feuille de route | ➕ |
+
+✅ inclus · ⚙️ possible, mais manuel · ➕ nécessite une extension · 🗺️ prévu
+
+¹ WooCommerce recommande lui-même son extension [EU VAT Number](https://woocommerce.com/products/eu-vat-number/) pour collecter et valider les numéros de TVA. Fonctionnalités vérifiées dans le code source de WooCommerce 11.2.1 le 30/10/2026.
+
+## 📱 Le parcours d'achat
+
+<img src="docs/images/journey.jpg" alt="Parcours d'achat mobile en 4 écrans" width="100%">
+
+| 1. Catalogue | 2. Fiche produit | 3. Paiement | 4. Confirmation |
+|---|---|---|---|
+| Filtres par catégorie, tri, badges promo honnêtes, ajout rapide. | Prix barré conforme Omnibus, points forts, avis vérifiés, achat immédiat. | Une seule page, e-mail d'abord, adresse seulement si nécessaire. | Téléchargements immédiats, coordonnées bancaires, compte créé sans mot de passe. |
+
+## 🧰 Tout ce qui est inclus
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🛍️ Catalogue
+- Produits physiques, numériques et services
+- Variantes avec prix, stock, SKU et image
+- Bundles à prix fixe ou en pourcentage
+- Avis clients, badge « achat vérifié »
+- FAQ produit, points forts, fiche technique
+
+</td>
+<td width="50%" valign="top">
+
+### 💸 Conversion
+- Tiroir panier avec barre « livraison offerte »
+- Barre d'achat collante sur mobile
+- Order bump, upsell et downsell en 1 clic
+- « Souvent achetés ensemble » avec remise
+- Liens d'achat direct et codes promo par URL
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+### ✉️ Paniers abandonnés
+- E-mail capturé dès sa saisie, avec consentement
+- 3 relances programmables (1 h, 24 h, 72 h)
+- Coupon personnel à usage unique
+- Lien de reprise et désinscription en 1 clic
+- Statistiques : taux et CA récupérés
+
+</td>
+<td valign="top">
+
+### 💳 Paiements
+- Stripe : cartes, Apple Pay, Google Pay, Link
+- PayPal, avec paiement en plusieurs fois
+- Virement bancaire avec stock réservé
+- Remboursements depuis l'admin, avec avoir
+- Commandes gratuites (coupon 100 %)
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+### 🇪🇺 TVA & conformité
+- 27 pays, livres et e-books compris
+- OSS, VIES, territoires hors TVA (Canaries, DOM)
+- Prix de référence Omnibus sur 30 jours
+- Droit de rétractation numérique encadré
+- RGPD : export et effacement des données
+
+</td>
+<td valign="top">
+
+### 🤖 SEO & GEO
+- JSON-LD : Product, Offer, avis, FAQ, fil d'Ariane
+- `llms.txt`, `llms-full.txt` et fiches `.md`
+- Flux Google Merchant Center
+- Abilities WordPress pour les agents IA
+- robots.txt réglable pour les robots IA
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+### 🌍 Multilingue
+- Français, espagnol et anglais inclus
+- Prix et pays affichés dans la langue du visiteur
+- WPML et Polylang, stock partagé
+- E-mails dans la langue de la commande
+
+</td>
+<td valign="top">
+
+### 🧭 Admin & démarrage
+- Assistant de démarrage en 7 étapes
+- Tableau de bord : CA, panier moyen, top ventes
+- Export comptable CSV (TVA par taux)
+- Import des produits WooCommerce
+
+</td>
+</tr>
+</table>
+
+## 🖥️ Une administration claire
+
+<img src="docs/images/admin-dashboard.jpg" alt="Tableau de bord Wahou Commerce" width="100%">
+
+<table>
+<tr>
+<td width="50%"><img src="docs/images/admin-wizard.jpg" alt="Assistant de démarrage : connexion des paiements"><br><sub><b>Assistant</b> : Stripe et PayPal connectés en collant vos clés.</sub></td>
+<td width="50%"><img src="docs/images/admin-editor.jpg" alt="Éditeur de produit"><br><sub><b>Éditeur de produit</b> : tout le produit dans un seul formulaire, par onglets.</sub></td>
+</tr>
+<tr>
+<td><img src="docs/images/admin-tax.jpg" alt="Réglages de TVA"><br><sub><b>TVA</b> : taux des 27 pays, modifiables pays par pays.</sub></td>
+<td><img src="docs/images/admin-carts.jpg" alt="Paniers abandonnés"><br><sub><b>Paniers abandonnés</b> : relances et chiffre d'affaires récupéré.</sub></td>
+</tr>
+</table>
+
+## ✉️ Des e-mails qui inspirent confiance
+
+<img src="docs/images/email.jpg" alt="E-mail de confirmation de commande" width="100%">
+
+Confirmation avec liens de téléchargement, TVA détaillée, facture et rappel des consentements légaux. Les e-mails partent dans la langue de la commande.
+
+## 🚀 Démarrer en 5 minutes
+
+1. **Téléchargez** [`wahou-commerce-1.0.0.zip`](dist/wahou-commerce-1.0.0.zip), puis dans WordPress : **Extensions → Ajouter → Téléverser**.
+2. **Activez** : l'assistant s'ouvre et vous guide en 7 étapes (activité, TVA, paiements, livraison, design, pages, lancement).
+3. **Collez vos clés** [Stripe](https://dashboard.stripe.com/apikeys) et/ou [PayPal](https://developer.paypal.com/dashboard/applications) : webhooks et domaine Apple Pay sont configurés pour vous.
+4. **Testez** une commande en mode test, puis passez en production.
+
+Prérequis : WordPress 6.5 ou plus récent, PHP 8.1 ou plus, et HTTPS pour les paiements réels.
+
+<details>
+<summary><b>Réglages avancés (wp-config.php, nginx)</b></summary>
 
 ```php
-define( 'WAHOU_STRIPE_LIVE_SECRET', 'sk_live_...' );
+define( 'WAHOU_STRIPE_LIVE_SECRET', 'sk_live_...' );   // les constantes sont prioritaires sur la base
 define( 'WAHOU_PAYPAL_LIVE_SECRET', '...' );
-define( 'WAHOU_ENCRYPTION_KEY', 'une-longue-chaine-aleatoire' ); // clé de chiffrement des secrets en base
-define( 'WAHOU_TRUST_PROXY', true ); // derrière Cloudflare / un proxy : IP réelle pour l'anti-fraude
+define( 'WAHOU_ENCRYPTION_KEY', 'une-longue-chaine-aleatoire' ); // clé de chiffrement des secrets
+define( 'WAHOU_TRUST_PROXY', true );                  // derrière Cloudflare ou un proxy
 ```
-
-Hébergement nginx : bloquez l'accès direct aux fichiers privés.
 
 ```nginx
 location ~* /wp-content/uploads/(wahou-private|wahou-logs)/ { deny all; }
 ```
+</details>
 
-## TVA et conformité (vérifié le 30/10/2026)
+## 🔗 Des liens d'achat partout
 
-| Règle | Ce que fait le plugin | Source |
+Partagez un lien et le client arrive directement au paiement : idéal pour une bio Instagram, une newsletter, un QR code ou la dernière page d'un e-book.
+
+```text
+https://votre-boutique.fr/?wahou_buy=123                        → paiement direct du produit 123
+https://votre-boutique.fr/?wahou_buy=123&wahou_coupon=LANCEMENT → avec code promo appliqué
+https://votre-boutique.fr/?wahou_add=123                        → ajout au panier
+```
+
+## 🤖 Prête pour la recherche par IA (GEO)
+
+Les assistants IA lisent mal le JavaScript : chez Wahou Commerce, **tout le contenu est rendu côté serveur** et chaque boutique publie automatiquement :
+
+- `/llms.txt` : votre boutique résumée pour les IA (produits, livraison, retours, paiement) ;
+- `/produit/mon-produit.md` : chaque fiche en Markdown, liée par `rel="alternate"` ;
+- un **JSON-LD complet** : prix TTC, disponibilité, politique de retour, frais et délais de livraison, avis, FAQ ;
+- des **abilities WordPress** (6.9+) : recherche de produits, fiche, infos boutique et lien de paiement, utilisables par un agent via l'adaptateur MCP.
+
+```markdown
+# Boutique Wahou
+
+- Devise : EUR
+- Livraison (France) : 2 à 3 jours ouvrés, 4,90 €, gratuite dès 50,00 €
+- Retours : 14 jours après la livraison pour les produits physiques
+
+## Produits
+- [Le Guide des Cocktails (e-book)](https://boutique-wahou.fr/produit/guide-des-cocktails-ebook.md): 120 recettes signature. – 14,90 € TTC
+```
+
+## 🇪🇺 Conformité européenne (vérifiée le 30/10/2026)
+
+| Règle | Ce que fait Wahou Commerce | Source |
 |---|---|---|
-| Seuil OSS de 10 000 € (ventes à distance de biens + services électroniques, UE) | Sous le seuil : TVA du pays du vendeur. Option OSS : TVA du pays du client. | Directive 2006/112/CE art. 59 quater ; [Commission – OSS](https://vat-one-stop-shop.ec.europa.eu/one-stop-shop_en) |
-| Taux des 27 États membres (normal, réduits, livres, e-books) | Table intégrée, modifiable pays par pays | [TEDB – Commission européenne](https://ec.europa.eu/taxation_customs/tedb/) (situation au 30/10/2026) |
-| Territoires hors TVA UE (Canaries, Ceuta, Melilla, DOM, Åland, mont Athos…) ; Monaco = France | Détection par pays et code postal, vente traitée comme une exportation | Directive 2006/112/CE art. 6 et 7 |
-| Autoliquidation B2B intra-UE | Numéro de TVA vérifié en direct via VIES, TVA à 0 %, mention légale sur la facture | [VIES](https://ec.europa.eu/taxation_customs/vies/) ; art. 196 et 138 de la directive |
-| Mentions de facture selon le pays du vendeur | ES : « Inversión del sujeto pasivo », « Entrega intracomunitaria exenta » ; FR : « Autoliquidation », « Exonération de TVA, article 262 ter, I du CGI », « TVA non applicable, article 293 B du CGI » | Directive art. 219 bis ; [RD 1619/2012 art. 6](https://www.boe.es/eli/es/rd/2012/11/30/1619) ; [CGI ann. II art. 242 nonies A](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000050811276) |
-| Prix de référence des promotions (30 jours) | Historique des prix, prix barré = plus bas des 30 jours précédents | [C. conso. L112-1-1](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044549592) ; [Ley 7/1996 art. 20](https://www.boe.es/buscar/act.php?id=BOE-A-1996-1072#a20) ; CJUE C-330/23 |
-| Contenu numérique : renonciation au droit de rétractation | Case non cochée obligatoire au checkout + rappel dans l'e-mail de confirmation | Directive 2011/83 art. 16 m) ; [C. conso. L221-28 13°](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044563170) ; TRLGDCU art. 103 m) |
-| Bouton de commande explicite | « Payer maintenant – 49,90 € » (libellé modifiable, ex. « Commande avec obligation de paiement ») | Directive 2011/83 art. 8(2) ; [C. conso. L221-14](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032226854) ; TRLGDCU art. 98.2 |
-| Prix TTC affichés aux consommateurs | Affichage TTC partout, mention « TTC » | Directive 98/6/CE |
-| RGPD | Export / effacement des données, durée de conservation des paniers, texte pour la politique de confidentialité | Outils de confidentialité WordPress |
-| Accessibilité (European Accessibility Act) | Interface pensée pour le clavier, les lecteurs d'écran et le contraste | Directive 2019/882, applicable depuis le 28/06/2025 (microentreprises de services exemptées, art. 4.5) |
+| Seuil OSS de 10 000 € | TVA du pays du vendeur sous le seuil, du pays du client avec l'option OSS | Directive 2006/112/CE art. 59 quater ; [Commission – OSS](https://vat-one-stop-shop.ec.europa.eu/one-stop-shop_en) |
+| Taux des 27 États membres | Table intégrée (normal, réduits, livres, e-books), modifiable | [TEDB, Commission européenne](https://ec.europa.eu/taxation_customs/tedb/) |
+| Territoires hors TVA (Canaries, Ceuta, Melilla, DOM…), Monaco = France | Détection par pays et code postal | Directive 2006/112/CE art. 6 et 7 |
+| Autoliquidation B2B | Numéro vérifié en direct sur [VIES](https://ec.europa.eu/taxation_customs/vies/), mention légale sur la facture | Directive art. 196 et 138 |
+| Mentions de facture du pays du vendeur | ES : « Inversión del sujeto pasivo » ; FR : « Autoliquidation », « TVA non applicable, art. 293 B du CGI » | [RD 1619/2012](https://www.boe.es/eli/es/rd/2012/11/30/1619) ; [CGI](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000050811276) |
+| Prix de référence des promotions | Prix barré = plus bas des 30 jours précédant la réduction | [C. conso. L112-1-1](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044549592) ; [Ley 7/1996 art. 20](https://www.boe.es/buscar/act.php?id=BOE-A-1996-1072#a20) ; CJUE C-330/23 |
+| Contenu numérique et droit de rétractation | Case non cochée obligatoire + rappel dans l'e-mail | Directive 2011/83/UE art. 16 m) ; [C. conso. L221-28](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044563170) |
+| Bouton de commande explicite | « Payer maintenant – 49,90 € » (libellé modifiable) | Directive 2011/83/UE art. 8(2) ; [C. conso. L221-14](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032226854) |
+| Accessibilité (EAA) | Navigation clavier, lecteurs d'écran, contrastes, mouvements réduits | Directive (UE) 2019/882, applicable depuis le 28/06/2025 |
 
-Les taux changent : vérifiez-les régulièrement dans **Réglages → TVA** (chaque taux peut être remplacé).
+<details>
+<summary><b>⚠️ À savoir avant d'encaisser</b></summary>
 
-## À surveiller avant d'encaisser (important)
-
-- **Espagne – VERI\*FACTU** : les factures générées par le plugin ne sont **pas** au format VERI\*FACTU (pas de chaînage, pas de QR, pas d'envoi à l'AEAT). Dates en vigueur : 1er janvier 2027 (sociétés à l'IS) et **1er juillet 2027 pour les autónomos** ([RDL 15/2025](https://www.boe.es/buscar/doc.php?id=BOE-A-2025-24446)). Le ministère a annoncé le 05/10/2026 un report à octobre 2028, mais aucun texte n'est encore publié au BOE ([note Hacienda](https://www.hacienda.gob.es/sgt/gabsehacienda/nota-informativa-verifactu.pdf)). D'ici là, émettez vos factures officielles avec un logiciel conforme, ou utilisez celles du plugin comme justificatifs.
-- **France – facturation électronique** : réception obligatoire pour toutes les entreprises depuis le 1er septembre 2026 ; émission et e-reporting (y compris B2C) au plus tard le 1er septembre 2027 pour les PME et microentreprises ([impots.gouv.fr](https://www.impots.gouv.fr/professionnel/je-passe-la-facturation-electronique)). Le plugin ne transmet pas de données à une plateforme agréée : l'export CSV comptable sert de base.
-- **OSS 2027** : à partir du 1er janvier 2027, seules les livraisons de biens expédiées depuis l'État d'établissement comptent dans le seuil de 10 000 €, et l'inscription à l'OSS vaut option ([Directive 2025/516](https://eur-lex.europa.eu/eli/dir/2025/516/oj)).
-- **Preuves de localisation (e-books)** : le plugin conserve le pays de facturation et, si votre CDN le fournit (Cloudflare…), le pays de l'adresse IP. Une seule preuve suffit tant que vos ventes de services électroniques B2C restent ≤ 100 000 € par an.
+- **Espagne – VERI\*FACTU** : les factures du plugin ne sont pas au format VERI\*FACTU. Dates en vigueur : 1er janvier 2027 (sociétés) et 1er juillet 2027 (autónomos) ([RDL 15/2025](https://www.boe.es/buscar/doc.php?id=BOE-A-2025-24446)). Un report à octobre 2028 a été annoncé le 05/10/2026 mais n'est pas encore publié au BOE ([note Hacienda](https://www.hacienda.gob.es/sgt/gabsehacienda/nota-informativa-verifactu.pdf)).
+- **France – facturation électronique** : réception obligatoire depuis le 1er septembre 2026 ; émission et e-reporting au plus tard le 1er septembre 2027 pour les PME et microentreprises ([impots.gouv.fr](https://www.impots.gouv.fr/professionnel/je-passe-la-facturation-electronique)). L'export CSV comptable sert de base.
+- **OSS 2027** : le calcul du seuil de 10 000 € change au 1er janvier 2027 ([Directive 2025/516](https://eur-lex.europa.eu/eli/dir/2025/516/oj)).
 - Taxes locales non gérées : IGIC (Canaries), IPSI (Ceuta, Melilla), octroi de mer (DOM).
+</details>
 
-## Performance
-
-- Aucune session PHP, pages catalogue compatibles avec tous les caches (LiteSpeed, WP Rocket, Cloudflare…), purge automatique du cache d'un produit quand son stock change.
-- Assets chargés uniquement sur les pages boutique ; ailleurs, un script en ligne minuscule affiche le badge panier.
-- Images responsive avec dimensions réservées (pas de décalage de mise en page), image principale prioritaire, autres en lazy-load.
-- Préchargement spéculatif des pages produits (WordPress 6.8+), exclusion du panier et du checkout.
-- Tables SQL indexées pour les commandes et paniers.
-
-## Sécurité
+## 🛡️ Sécurité
 
 - Secrets chiffrés en base (libsodium), surchargeables par constantes.
-- Webhooks Stripe signés (HMAC-SHA256, tolérance 5 min) et PayPal vérifiés via l'API PayPal.
-- Montants recalculés côté serveur et comparés au paiement reçu.
-- Fichiers numériques hors de la médiathèque, servis via jetons à usage limité, protection contre la traversée de répertoires.
-- Nonces + capacités sur toutes les actions admin, rôles dédiés (`wahou_manager`, `wahou_customer`).
-- Limitation de débit (checkout, coupons, VIES, connexion magique), champ piège anti-bot.
-- Connexion magique refusée aux comptes d'équipe (éditeurs, admins).
+- Webhooks Stripe signés (HMAC-SHA256) et PayPal vérifiés par l'API PayPal.
+- Montants toujours recalculés côté serveur et comparés au paiement reçu.
+- Fichiers numériques hors médiathèque, servis par jetons à durée et usage limités.
+- Nonces et capacités sur chaque action, rôles dédiés, limitation de débit contre le « card testing ».
 
-## Tests réalisés (version 1.0.0)
+## 🧑‍💻 Pour les développeurs
 
-Sur WordPress 7.1.4 / PHP 8.3, thème Twenty Twenty-Five, navigateur mobile (390 px) :
-
-- Parcours complets sans erreur PHP ni JavaScript : fiche produit → variante → tiroir panier → checkout → virement → page de remerciement → paiement validé → facture, téléchargement, e-mails.
-- TVA : France, OSS Allemagne, Canaries (export), Monaco (= France), B2B Irlande avec numéro VIES réel (autoliquidation), commande gratuite par coupon 100 %.
-- Relance de paniers abandonnés (séquence, coupon personnel), webhooks Stripe signés, montants PayPal, connexion des clés.
-- 23 écrans d'administration, assistant de démarrage, import WooCommerce.
-- Performance mesurée : aucune ressource Wahou sur les pages hors boutique, 7 requêtes et CLS 0 sur une fiche produit.
-
-Non testé en réel : paiements Stripe et PayPal en production (nécessitent vos clés et un site en HTTPS) — faites une commande test en mode test avant d'ouvrir.
-
-## Pour les développeurs
-
-- Surcharge des templates : copiez `templates/xxx.php` dans `votre-theme/wahou-commerce/xxx.php`.
-- API REST `wahou/v1` (panier, checkout, commandes, produits) — voir `includes/Rest/RestApi.php`.
-- Hooks et contrats internes : [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+- Templates surchargeables dans `votre-theme/wahou-commerce/`.
+- API REST `wahou/v1` (panier, paiement, commandes, produits) et hooks documentés dans [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 - WP-CLI : `wp wahou status`, `wp wahou cron`, `wp wahou pages`.
-- Fonctions utiles : `wahou_get_product()`, `wahou_get_order()`, `wahou_cart()`, `wahou_price()`, `wahou_buy_url()`, `wahou_date()`.
-- Éditeur de produits classique par défaut (formulaire produit toujours visible) ; Gutenberg : `add_filter( 'wahou_product_block_editor', '__return_true' );`
-- `bin/build.sh` : génère les fichiers minifiés (`*.min.js`, `*.min.css`) et le zip installable dans `dist/`. Avec `SCRIPT_DEBUG`, les sources lisibles sont servies.
+- `bin/build.sh` génère les fichiers minifiés et le zip ; avec `SCRIPT_DEBUG`, les sources lisibles sont servies.
+- Aucune dépendance Composer ni npm à l'exécution, aucun jQuery côté boutique.
 
-## Feuille de route
+## 🗺️ Feuille de route
 
-- Abonnements (Stripe Billing), multidevise, filtres à facettes, alertes de retour en stock.
-- Factures VERI\*FACTU (Espagne) et transmission à une plateforme agréée (France).
-- Tatouage numérique des PDF/EPUB, clés de licence pour les logiciels.
+- Abonnements (Stripe Billing) et multidevise
+- Filtres à facettes et alertes de retour en stock
+- Factures VERI\*FACTU (Espagne) et transmission à une plateforme agréée (France)
+- Tatouage numérique des PDF/EPUB et clés de licence
 
-## Licence
+## 👤 L'auteur — Thierry Gustin
 
-GPL-2.0-or-later. © Thierry Gustin.
+<table>
+<tr>
+<td valign="top">
+
+Français installé à Madrid depuis 14 ans, je suis entrepreneur indépendant. Éditeur avec les **Éditions Olibook** (environ 200 livres publiés en six langues, dont la collection des « Bibles » sur l'intelligence artificielle, les cocktails ou le jardinage), fondateur de **[GustinAI](https://gustinai.com)** (formations IA pour les entreprises en France et en Espagne) et de **[DelfOnline](https://delfonline.es)** (préparation aux examens DELF, DALF et TCF).
+
+J'ai créé Wahou Commerce pour mes propres besoins : **vendre en direct, partout en Europe, sans abonnement ni commission, et sans y passer mes soirées.**
+
+**Mes valeurs, traduites dans le code :**
+
+- 🕊️ **Simplicité radicale** : chaque champ et chaque clic en moins compte.
+- ⏱️ **Le temps avant tout** : tout ce qui peut s'automatiser l'est (relances, factures, TVA).
+- 🤝 **Respect du client** : pas de faux compteurs ni de fausse urgence, des prix clairs.
+- ⚖️ **Transparence** : règles vérifiées, sources citées, limites assumées.
+- 🌍 **Europe multilingue** : pensé dès le départ pour la France, l'Espagne et toute l'UE.
+- 🔓 **Indépendance** : vos clients, vos données, votre boutique, en logiciel libre.
+
+[🌐 gustinai.com](https://gustinai.com) · [📚 delfonline.es](https://delfonline.es) · [💻 GitHub @Jacckisback](https://github.com/Jacckisback)
+
+</td>
+</tr>
+</table>
+
+## 📄 Licence
+
+[GPL-2.0-or-later](LICENSE) © Thierry Gustin. Libre d'utilisation, de modification et de redistribution.
+
+<div align="center">
+
+**Si Wahou Commerce vous fait gagner du temps, laissez une ⭐ sur GitHub !**
+
+</div>
