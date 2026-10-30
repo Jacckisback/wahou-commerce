@@ -256,6 +256,10 @@
 				elementOptions.business = { name: cfg.storeName };
 			}
 			this.paymentElement = this.elements.create( 'payment', elementOptions );
+			// Invalid key, network filter or ad blocker: tell the shopper instead of an empty box.
+			this.paymentElement.on( 'loaderror', function () {
+				showMessage( container, strings( cfg ).loadFailed || 'Stripe could not load.' );
+			} );
 			this.paymentElement.mount( container );
 			this.mounted = true;
 
@@ -375,6 +379,10 @@
 				slot.hidden = ! available;
 				container.classList.toggle( 'wahou-express--ready', available );
 				document.dispatchEvent( new CustomEvent( 'wahou:express-ready', { detail: { gateway: GATEWAY_ID, available: available } } ) );
+			} );
+			element.on( 'loaderror', function () {
+				slot.hidden = true;
+				document.dispatchEvent( new CustomEvent( 'wahou:express-ready', { detail: { gateway: GATEWAY_ID, available: false } } ) );
 			} );
 			element.on( 'click', function ( event ) {
 				self.onExpressClick( event );

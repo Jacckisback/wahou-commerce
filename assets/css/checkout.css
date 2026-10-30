@@ -828,6 +828,12 @@
 	box-shadow: 0 -10px 14px -12px rgba(15, 15, 35, 0.2);
 }
 
+/* While typing (virtual keyboard open), the pay bar returns to the flow so it never hides a field. */
+.wahou-checkout__form:has(input:focus, select:focus, textarea:focus) .wahou-checkout__pay {
+	position: static;
+	box-shadow: none;
+}
+
 .wahou-checkout__after-pay {
 	padding-top: 2px;
 }
