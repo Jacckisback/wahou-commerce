@@ -30,6 +30,9 @@ final class Tax {
 
 	public const CLASSES = array( 'standard', 'reduced', 'super_reduced', 'books', 'ebooks', 'zero' );
 
+	/** Territories taxed as another member state (art. 7 Directive 2006/112/EC). */
+	private const VAT_ALIASES = array( 'MC' => 'FR' );
+
 	/**
 	 * @return array<string, string> class => label
 	 */
@@ -110,6 +113,8 @@ final class Tax {
 			'rate_country' => $store,
 			'country'      => $country,
 		);
+		// Monaco belongs to the French VAT territory (art. 7 Directive 2006/112/EC).
+		$vat_country = self::VAT_ALIASES[ $country ] ?? $country;
 
 		if ( ! Settings::bool( 'tax_enabled' ) ) {
 			$result['mode'] = 'disabled';
@@ -119,16 +124,16 @@ final class Tax {
 			$result['mode'] = 'export';
 		} elseif ( ! Countries::is_eu( $store ) ) {
 			// Merchant outside the EU: domestic sales taxed, everything else zero-rated.
-			$result['mode'] = $country === $store ? 'domestic' : 'export';
-		} elseif ( ! Countries::is_eu( $country ) ) {
+			$result['mode'] = $vat_country === $store ? 'domestic' : 'export';
+		} elseif ( ! Countries::is_eu( $vat_country ) ) {
 			$result['mode'] = 'export';
-		} elseif ( $country !== $store && ! empty( $customer['vat_valid'] ) && Settings::bool( 'tax_b2b_reverse_charge' ) ) {
+		} elseif ( $vat_country !== $store && ! empty( $customer['vat_valid'] ) && Settings::bool( 'tax_b2b_reverse_charge' ) ) {
 			$result['mode'] = 'reverse_charge';
-		} elseif ( $country === $store ) {
+		} elseif ( $vat_country === $store ) {
 			$result['mode'] = 'domestic';
 		} elseif ( Settings::bool( 'tax_oss' ) ) {
 			$result['mode']         = 'oss';
-			$result['rate_country'] = $country;
+			$result['rate_country'] = $vat_country;
 		} else {
 			$result['mode'] = 'origin';
 		}
@@ -181,16 +186,30 @@ final class Tax {
 
 	/**
 	 * Mention printed on invoices for zero-rated or exempt sales.
+	 *
+	 * Invoicing rules are those of the seller's member state (art. 219a
+	 * Directive 2006/112/EC), so statutory wordings follow the store country:
+	 *  - FR: "Autoliquidation" (CGI ann. II art. 242 nonies A I-13°), "Exonération de TVA,
+	 *    article 262 ter, I du CGI" (I-12°), franchise "TVA non applicable, article 293 B du CGI".
+	 *  - ES: «Inversión del sujeto pasivo» and «Entrega intracomunitaria exenta»
+	 *    (Real Decreto 1619/2012, art. 6.1 m) and j)).
 	 */
 	public static function invoice_mention( string $mode, bool $has_goods = false ): string {
+		$store = Settings::store_country();
 		switch ( $mode ) {
 			case 'exempt':
 				$custom = Settings::str( 'tax_exempt_mention' );
 				if ( '' !== $custom ) {
 					return $custom;
 				}
-				return 'FR' === Settings::store_country() ? 'TVA non applicable, art. 293 B du CGI' : __( 'VAT exempt (small business scheme).', 'wahou-commerce' );
+				return 'FR' === $store ? 'TVA non applicable, article 293 B du CGI' : __( 'VAT exempt (small business scheme).', 'wahou-commerce' );
 			case 'reverse_charge':
+				if ( 'FR' === $store ) {
+					return $has_goods ? 'Exonération de TVA, article 262 ter, I du CGI' : 'Autoliquidation (article 196 de la directive 2006/112/CE)';
+				}
+				if ( 'ES' === $store ) {
+					return $has_goods ? 'Entrega intracomunitaria exenta (art. 25 Ley 37/1992 – art. 138 Directiva 2006/112/CE)' : 'Inversión del sujeto pasivo (art. 196 Directiva 2006/112/CE)';
+				}
 				return $has_goods
 					? __( 'Exempt intra-Community supply – Article 138 of Directive 2006/112/EC.', 'wahou-commerce' )
 					: __( 'Reverse charge – Article 196 of Directive 2006/112/EC.', 'wahou-commerce' );
@@ -280,13 +299,20 @@ final class Tax {
 			set_transient( $cache_key, $result, 10 * MINUTE_IN_SECONDS );
 			return $result;
 		}
+		if ( isset( $body['actionSucceed'] ) && false === $body['actionSucceed'] ) {
+			// Service errors (MS_UNAVAILABLE, TIMEOUT...) are returned with HTTP 200.
+			Logger::error( 'tax', 'VIES service error', array( 'errors' => $body['errorWrappers'] ?? array() ) );
+			$result['error'] = 'unavailable';
+			set_transient( $cache_key, $result, 10 * MINUTE_IN_SECONDS );
+			return $result;
+		}
 		if ( ! empty( $body['valid'] ) ) {
 			$result['valid']   = true;
 			$result['name']    = trim( (string) ( $body['name'] ?? '' ) ) === '---' ? '' : trim( (string) ( $body['name'] ?? '' ) );
 			$result['address'] = trim( (string) ( $body['address'] ?? '' ) ) === '---' ? '' : trim( (string) ( $body['address'] ?? '' ) );
 			set_transient( $cache_key, $result, DAY_IN_SECONDS );
 		} else {
-			$result['error'] = isset( $body['userError'] ) && 'VALID' !== $body['userError'] && 'INVALID' !== $body['userError'] ? 'unavailable' : 'invalid';
+			$result['error'] = array_key_exists( 'valid', $body ) ? 'invalid' : 'unavailable';
 			set_transient( $cache_key, $result, 'invalid' === $result['error'] ? HOUR_IN_SECONDS : 10 * MINUTE_IN_SECONDS );
 		}
 		return $result;
