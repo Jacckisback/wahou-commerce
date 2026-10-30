@@ -58,8 +58,11 @@ final class Emails {
 	 */
 	public static function plugin_languages( $languages ): array {
 		$languages = (array) $languages;
-		$files     = glob( WAHOU_DIR . 'languages/wahou-commerce-*.{mo,l10n.php}', GLOB_BRACE );
-		foreach ( $files ? $files : array() as $file ) {
+		$files     = array_merge(
+			(array) glob( WAHOU_DIR . 'languages/wahou-commerce-*.mo' ),
+			(array) glob( WAHOU_DIR . 'languages/wahou-commerce-*.l10n.php' )
+		);
+		foreach ( array_filter( $files ) as $file ) {
 			if ( preg_match( '/wahou-commerce-([a-z]{2,3}(?:_[A-Z]{2})?(?:_[a-z]+)?)\.(?:mo|l10n\.php)$/', basename( $file ), $m ) ) {
 				$languages[] = $m[1];
 			}
@@ -569,6 +572,17 @@ final class Emails {
 			$lines[] = esc_html( sprintf( __( 'VAT number: %s', 'wahou-commerce' ), $address['vat_number'] ) );
 		}
 		return implode( '<br>', $lines );
+	}
+
+	/**
+	 * Localized date (month names follow the current, possibly switched, locale).
+	 */
+	public static function date( string $gmt, string $format = '' ): string {
+		$timestamp = '' !== $gmt ? strtotime( $gmt . ' UTC' ) : false;
+		if ( ! $timestamp ) {
+			return '';
+		}
+		return (string) wp_date( '' !== $format ? $format : (string) get_option( 'date_format' ), $timestamp );
 	}
 
 	public static function percent( float $value ): string {

@@ -76,7 +76,7 @@ final class Orders {
 				'tax_lines'            => $totals['tax_lines'],
 				'rate_country'         => $totals['rate_country'],
 				'prices_include_tax'   => (bool) $totals['prices_include_tax'],
-				'payment_method_title' => $gateway ? $gateway->title() : '',
+				'payment_method_title' => $gateway ? $gateway->title() : ( 'free' === ( $data['payment_method'] ?? '' ) ? __( 'Free order', 'wahou-commerce' ) : '' ),
 				'tax_evidence'         => array(
 					'billing_country' => (string) ( $billing['country'] ?? '' ),
 					'ip_country'      => Request::geo_country(),

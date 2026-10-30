@@ -119,16 +119,19 @@ final class Schema {
 		$images = array_values( array_filter( array_map( static fn( $id ) => wp_get_attachment_image_url( $id, 'large' ), $product->all_image_ids() ) ) );
 
 		$data = array(
-			'@type'       => 'Product',
-			'@id'         => $url . '#product',
-			'name'        => wp_strip_all_tags( $product->name() ),
-			'url'         => $url,
-			'description' => $product->summary( 60 ),
-			'brand'       => array(
+			'@type' => 'Product',
+			'@id'   => $url . '#product',
+			'name'  => wp_strip_all_tags( $product->name() ),
+			'url'   => $url,
+			'brand' => array(
 				'@type' => 'Brand',
 				'name'  => $product->brand(),
 			),
 		);
+		$description = $product->summary( 60 );
+		if ( '' !== $description ) {
+			$data['description'] = $description;
+		}
 		if ( $images ) {
 			$data['image'] = $images;
 		}

@@ -160,7 +160,10 @@ final class Render {
 		return '<span class="wahou-rating">' . $html . '</span>';
 	}
 
-	public static function badges( Product $product ): string {
+	/**
+	 * Card/gallery badges. The sale badge can be skipped where the price block already shows it.
+	 */
+	public static function badges( Product $product, bool $with_sale = true ): string {
 		$badges = array();
 		$custom = $product->badge();
 		if ( '' !== $custom ) {
@@ -168,14 +171,14 @@ final class Render {
 		}
 		if ( ! $product->in_stock() ) {
 			$badges[] = '<span class="wahou-badge wahou-badge--muted">' . esc_html__( 'Sold out', 'wahou-commerce' ) . '</span>';
-		} elseif ( 'variable' !== $product->type() ) {
+		} elseif ( $with_sale && 'variable' !== $product->type() ) {
 			$reference = $product->reference_price();
 			$percent   = null !== $reference ? self::discount_percent( $reference, $product->price() ) : 0;
 			if ( $percent ) {
 				/* translators: %d: discount percentage. */
 				$badges[] = '<span class="wahou-badge wahou-badge--sale">' . esc_html( sprintf( __( '-%d%%', 'wahou-commerce' ), $percent ) ) . '</span>';
 			}
-		} else {
+		} elseif ( $with_sale ) {
 			foreach ( $product->variants() as $variant ) {
 				if ( $product->is_on_sale( (string) $variant['id'] ) ) {
 					$badges[] = '<span class="wahou-badge wahou-badge--sale">' . esc_html__( 'Sale', 'wahou-commerce' ) . '</span>';
@@ -321,9 +324,9 @@ final class Render {
 					'order'   => 'ASC',
 				);
 			case 'price':
-				return $meta_sort( '_wahou_price', 'ASC' );
+				return $meta_sort( '_wahou_active_price', 'ASC' );
 			case 'price-desc':
-				return $meta_sort( '_wahou_price', 'DESC' );
+				return $meta_sort( '_wahou_active_price', 'DESC' );
 			case 'popularity':
 				return $meta_sort( '_wahou_total_sales', 'DESC' );
 			case 'rating':
@@ -550,7 +553,7 @@ final class Render {
 			return null;
 		}
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$requested = isset( $_GET['variant'] ) ? sanitize_key( wp_unslash( $_GET['variant'] ) ) : '';
+		$requested = isset( $_GET['variant'] ) ? (string) preg_replace( '/[^A-Za-z0-9_\-]/', '', sanitize_text_field( wp_unslash( $_GET['variant'] ) ) ) : '';
 		if ( '' !== $requested && $product->variant( $requested ) ) {
 			return $requested;
 		}
@@ -770,7 +773,7 @@ final class Render {
 	public static function analytics_item( Product $product, ?string $variant_id = null, int $quantity = 1 ): array {
 		$categories = $product->categories();
 		$item       = array(
-			'item_id'   => '' !== $product->sku( $variant_id ) ? $product->sku( $variant_id ) : (string) $product->id(),
+			'item_id'   => (string) $product->id(),
 			'item_name' => $product->name(),
 			'price'     => (float) Money::to_decimal( $product->price( $variant_id ) ),
 			'quantity'  => $quantity,

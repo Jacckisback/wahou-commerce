@@ -47,8 +47,12 @@ $first_name = $order->first_name();
 
 <p style="<?php echo esc_attr( Mailer::style( 'small' ) ); ?>">
 	<?php
-	/* translators: %d: number of days. */
-	echo esc_html( sprintf( _n( 'We ship (or give access to) your order as soon as the transfer is received. Without payment within %d day, the order is cancelled automatically.', 'We ship (or give access to) your order as soon as the transfer is received. Without payment within %d days, the order is cancelled automatically.', $hold_days, 'wahou-commerce' ), $hold_days ) );
+	if ( '' !== trim( $instructions ) ) {
+		esc_html_e( 'We ship (or give access to) your order as soon as the transfer is received.', 'wahou-commerce' );
+	} else {
+		/* translators: %d: number of days. */
+		echo esc_html( sprintf( _n( 'We ship (or give access to) your order as soon as the transfer is received. Without payment within %d day, the order is cancelled automatically.', 'We ship (or give access to) your order as soon as the transfer is received. Without payment within %d days, the order is cancelled automatically.', $hold_days, 'wahou-commerce' ), $hold_days ) );
+	}
 	?>
 </p>
 

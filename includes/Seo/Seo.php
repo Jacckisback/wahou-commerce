@@ -106,7 +106,10 @@ final class Seo {
 	 * Plain text from post content (blocks, shortcodes and tags removed).
 	 */
 	public static function plain_text( string $html, int $words = 0 ): string {
-		$text = wp_strip_all_tags( strip_shortcodes( excerpt_remove_blocks( $html ) ) );
+		$html = strip_shortcodes( excerpt_remove_blocks( $html ) );
+		// Keep words of consecutive blocks apart once tags are removed.
+		$html = preg_replace( '#<(br|/p|/h[1-6]|/li|/div|/tr|/td|/th|/blockquote|/figcaption)[^>]*>#i', ' ', $html ) ?? $html;
+		$text = wp_strip_all_tags( $html );
 		$text = trim( preg_replace( '/\s+/u', ' ', html_entity_decode( $text, ENT_QUOTES, 'UTF-8' ) ) ?? '' );
 		return $words > 0 ? wp_trim_words( $text, $words, '…' ) : $text;
 	}

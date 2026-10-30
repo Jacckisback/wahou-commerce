@@ -53,6 +53,8 @@ final class CheckoutPage {
 		add_action( 'template_redirect', array( self::class, 'template_redirect' ), 9 );
 		add_action( 'wp_enqueue_scripts', array( self::class, 'enqueue' ), 20 );
 		add_filter( 'body_class', array( self::class, 'body_class' ) );
+		add_filter( 'the_title', array( self::class, 'page_title' ), 10, 2 );
+		add_filter( 'document_title_parts', array( self::class, 'document_title' ) );
 	}
 
 	/* ------------------------------------------------------------------
@@ -101,6 +103,31 @@ final class CheckoutPage {
 			$classes[] = 'wahou-page-' . $context;
 		}
 		return $classes;
+	}
+
+	/**
+	 * "Order received" instead of "Checkout" above the confirmation and offer pages.
+	 *
+	 * @param mixed $title
+	 * @param mixed $post_id
+	 * @return mixed
+	 */
+	public static function page_title( $title, $post_id = 0 ) {
+		if ( is_admin() || ! in_array( self::context(), array( 'thankyou', 'offer' ), true ) || (int) $post_id !== (int) get_queried_object_id() ) {
+			return $title;
+		}
+		return __( 'Order received', 'wahou-commerce' );
+	}
+
+	/**
+	 * @param array<string, string> $parts
+	 * @return array<string, string>
+	 */
+	public static function document_title( array $parts ): array {
+		if ( in_array( self::context(), array( 'thankyou', 'offer' ), true ) ) {
+			$parts['title'] = __( 'Order received', 'wahou-commerce' );
+		}
+		return $parts;
 	}
 
 	private static function no_cache(): void {

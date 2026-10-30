@@ -589,7 +589,7 @@ final class OrdersPage {
 						<li>
 							<strong><?php echo esc_html( $fmt( (int) ( $refund['amount'] ?? 0 ) ) ); ?></strong>
 							<span class="wahou-ap-sub">
-								<?php echo esc_html( ! empty( $refund['date'] ) ? (string) get_date_from_gmt( (string) $refund['date'], (string) get_option( 'date_format' ) ) : '' ); ?>
+								<?php echo esc_html( ! empty( $refund['date'] ) ? wahou_date( (string) $refund['date'] ) : '' ); ?>
 								<?php if ( ! empty( $refund['credit_note'] ) ) : ?>
 									·
 									<?php
@@ -672,7 +672,7 @@ final class OrdersPage {
 						<li class="<?php echo ! empty( $note['is_customer'] ) ? 'is-customer' : ''; ?>">
 							<div class="wahou-ap-timeline__body"><?php echo wp_kses_post( wpautop( (string) $note['note'] ) ); ?></div>
 							<div class="wahou-ap-sub">
-								<?php echo esc_html( (string) get_date_from_gmt( (string) $note['created_at'], get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) ); ?>
+								<?php echo esc_html( wahou_date( (string) $note['created_at'], get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) ); ?>
 								· <?php echo esc_html( (string) $note['author'] ); ?>
 								<?php if ( ! empty( $note['is_customer'] ) ) : ?>
 									· <span class="wahou-ap-tag wahou-ap-tag--accent"><?php esc_html_e( 'Sent to customer', 'wahou-commerce' ); ?></span>
@@ -965,7 +965,7 @@ final class OrdersPage {
 						<li>
 							<span aria-hidden="true">✓</span>
 							<?php echo esc_html( $labels[ $key ] ?? (string) $key ); ?>
-							<span class="wahou-ap-sub"><?php echo esc_html( is_string( $when ) ? (string) get_date_from_gmt( $when, get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) : '' ); ?></span>
+							<span class="wahou-ap-sub"><?php echo esc_html( is_string( $when ) ? wahou_date( $when, get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) : '' ); ?></span>
 						</li>
 					<?php endforeach; ?>
 				</ul>

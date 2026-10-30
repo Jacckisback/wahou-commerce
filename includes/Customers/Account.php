@@ -220,12 +220,16 @@ final class Account {
 			return;
 		}
 		$user_id = $order->customer_id();
+		// Only the account holder (logged in at checkout) or a brand new account may
+		// have its profile updated: a guest typing someone else's email must not.
+		$may_update_profile = $user_id > 0;
 		if ( ! $user_id ) {
 			$user = get_user_by( 'email', $email );
 			if ( $user ) {
 				$user_id = (int) $user->ID;
 			} elseif ( Settings::bool( 'auto_create_account' ) ) {
-				$user_id = self::create_customer( $email, $order->billing() );
+				$user_id            = self::create_customer( $email, $order->billing() );
+				$may_update_profile = $user_id > 0;
 			}
 		}
 		if ( ! $user_id ) {
@@ -235,6 +239,9 @@ final class Account {
 			$order->update( array( 'customer_id' => $user_id ) );
 		}
 		self::link_orders( $user_id, $email );
+		if ( ! $may_update_profile ) {
+			return;
+		}
 
 		$billing = array_filter( $order->billing(), 'is_scalar' );
 		if ( $billing ) {

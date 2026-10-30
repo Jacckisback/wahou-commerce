@@ -422,7 +422,7 @@ final class Dashboard {
 				<?php
 				if ( $created > 0 ) {
 					/* translators: 1: carts created, 2: cart to order conversion rate. */
-					echo esc_html( sprintf( __( '%1$d carts created · %2$s turned into orders.', 'wahou-commerce' ), $created, number_format_i18n( min( 100, $cur['orders'] / $created * 100 ), 1 ) . ' %' ) );
+					echo esc_html( sprintf( _n( '%1$d cart created · %2$s turned into orders.', '%1$d carts created · %2$s turned into orders.', $created, 'wahou-commerce' ), $created, number_format_i18n( min( 100, $cur['orders'] / $created * 100 ), 1 ) . ' %' ) );
 				}
 				if ( $cur['refunds'] > 0 ) {
 					/* translators: %s: refunded amount. */

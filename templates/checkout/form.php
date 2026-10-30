@@ -377,9 +377,12 @@ $first_gateway   = $gateway_ids[0] ?? '';
 				<div class="wahou-checkout__pay" data-wahou-pay-area>
 					<div class="wahou-notice wahou-notice--error wahou-checkout__error" role="alert" data-wahou-checkout-error hidden></div>
 					<button type="submit" class="wahou-btn wahou-btn--primary wahou-btn--block wahou-pay-button" data-wahou-pay>
+						<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
 						<span class="wahou-pay-button__label" data-wahou-pay-label><?php echo esc_html( $pay_label ); ?></span>
 						<span class="wahou-co-spinner" aria-hidden="true"></span>
 					</button>
+				</div>
+				<div class="wahou-checkout__after-pay">
 					<p class="wahou-checkout__trust">
 						<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
 						<?php esc_html_e( 'Secure payment · SSL encryption · Your card details are never stored on our servers', 'wahou-commerce' ); ?>

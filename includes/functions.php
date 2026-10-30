@@ -89,3 +89,16 @@ if ( ! function_exists( 'wahou_buy_url' ) ) {
 		return add_query_arg( $args, home_url( '/' ) );
 	}
 }
+
+if ( ! function_exists( 'wahou_date' ) ) {
+	/**
+	 * Localized date (month names in the current language) from a GMT MySQL datetime.
+	 */
+	function wahou_date( string $gmt_datetime, string $format = '' ): string {
+		$timestamp = '' !== $gmt_datetime ? strtotime( $gmt_datetime . ' UTC' ) : false;
+		if ( ! $timestamp ) {
+			return '';
+		}
+		return (string) wp_date( '' !== $format ? $format : (string) get_option( 'date_format' ), $timestamp );
+	}
+}

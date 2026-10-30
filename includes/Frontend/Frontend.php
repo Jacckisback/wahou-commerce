@@ -314,7 +314,7 @@ final class Frontend {
 		// phpcs:disable WordPress.Security.NonceVerification.Missing -- Verified above (nonce or same origin).
 		$product_id = isset( $_POST['product_id'] ) ? absint( $_POST['product_id'] ) : 0;
 		$qty        = isset( $_POST['qty'] ) ? max( 1, absint( $_POST['qty'] ) ) : 1;
-		$variant_id = isset( $_POST['variant_id'] ) ? sanitize_key( wp_unslash( $_POST['variant_id'] ) ) : '';
+		$variant_id = isset( $_POST['variant_id'] ) ? (string) preg_replace( '/[^A-Za-z0-9_\-]/', '', sanitize_text_field( wp_unslash( $_POST['variant_id'] ) ) ) : '';
 		$fbt        = isset( $_POST['fbt'] ) ? array_filter( array_map( 'absint', (array) wp_unslash( $_POST['fbt'] ) ) ) : array();
 		$buy_now    = ! empty( $_POST['wahou_buy_now'] );
 		$skip_main  = ! empty( $_POST['wahou_fbt_only'] );

@@ -1,0 +1,2776 @@
+/*!
+ * Wahou Commerce – storefront design system.
+ * Mobile-first, theme-agnostic (inherits fonts and text colors), dark-theme
+ * friendly (colors derived from currentColor), 44px touch targets.
+ */
+
+/* ------------------------------------------------------------------
+ * Tokens
+ * ------------------------------------------------------------------ */
+:root {
+	--wahou-brand: #5b3df5;
+	--wahou-on-brand: #fff;
+	--wahou-radius: 12px;
+	--wahou-btn-radius: 12px;
+	--wahou-bg: #fff;
+	--wahou-star: #f5a623;
+	--wahou-success: #0a8a4a;
+	--wahou-danger: #d1242f;
+	--wahou-warning: #b25e00;
+	--wahou-max: 1200px;
+	--wahou-card-ratio: 1 / 1;
+	--wahou-gallery-ratio: 1 / 1;
+}
+
+.wahou,
+.wahou-drawer,
+.wahou-sticky,
+.wahou-toasts,
+.wahou-fab,
+.wahou-lightbox,
+.wahou-cart-icon {
+	--wahou-muted: rgba(127, 127, 127, 0.95);
+	--wahou-border: rgba(127, 127, 127, 0.22);
+	--wahou-border-strong: rgba(127, 127, 127, 0.4);
+	--wahou-surface: rgba(127, 127, 127, 0.06);
+	--wahou-surface-2: rgba(127, 127, 127, 0.12);
+	--wahou-brand-soft: rgba(91, 61, 245, 0.1);
+	--wahou-brand-hover: var(--wahou-brand);
+	--wahou-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+@supports (color: color-mix(in srgb, red 50%, blue)) {
+	.wahou,
+	.wahou-drawer,
+	.wahou-sticky,
+	.wahou-toasts,
+	.wahou-fab,
+	.wahou-lightbox,
+	.wahou-cart-icon {
+		--wahou-muted: color-mix(in srgb, currentColor 64%, transparent);
+		--wahou-border: color-mix(in srgb, currentColor 14%, transparent);
+		--wahou-border-strong: color-mix(in srgb, currentColor 30%, transparent);
+		--wahou-surface: color-mix(in srgb, currentColor 4%, transparent);
+		--wahou-surface-2: color-mix(in srgb, currentColor 9%, transparent);
+		--wahou-brand-soft: color-mix(in srgb, var(--wahou-brand) 10%, transparent);
+		--wahou-brand-hover: color-mix(in srgb, var(--wahou-brand) 85%, #000);
+	}
+}
+
+/* ------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------ */
+.wahou,
+.wahou-container,
+.wahou-drawer,
+.wahou-sticky,
+.wahou-fab,
+.wahou-toasts,
+.wahou *,
+.wahou *::before,
+.wahou *::after,
+.wahou-drawer *,
+.wahou-drawer *::before,
+.wahou-drawer *::after,
+.wahou-sticky *,
+.wahou-lightbox * {
+	box-sizing: border-box;
+}
+
+.wahou img,
+.wahou-drawer img,
+.wahou-sticky img {
+	max-width: 100%;
+	height: auto;
+}
+
+.wahou,
+.wahou-drawer,
+.wahou-sticky {
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.wahou-container {
+	width: 100%;
+	max-width: var(--wahou-max);
+	margin-inline: auto;
+	padding-inline: 16px;
+}
+
+.wahou-main {
+	display: block;
+}
+
+.wahou-muted {
+	color: var(--wahou-muted);
+}
+
+.wahou .screen-reader-text,
+.wahou-drawer .screen-reader-text,
+.wahou-sticky .screen-reader-text,
+.wahou-cart-icon .screen-reader-text,
+.wahou-store .screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.wahou-store .skip-link:focus {
+	clip: auto;
+	clip-path: none;
+	width: auto;
+	height: auto;
+	top: 8px;
+	left: 8px;
+	z-index: 100000;
+	padding: 12px 16px;
+	background: var(--wahou-bg);
+	color: inherit;
+	border-radius: 8px;
+	box-shadow: var(--wahou-shadow);
+}
+
+.wahou :focus-visible,
+.wahou-drawer :focus-visible,
+.wahou-sticky :focus-visible,
+.wahou-fab:focus-visible,
+.wahou-cart-icon:focus-visible,
+.wahou-lightbox :focus-visible {
+	outline: 2px solid var(--wahou-brand);
+	outline-offset: 2px;
+}
+
+.wahou-icon {
+	flex: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.wahou-prose > :first-child {
+	margin-top: 0;
+}
+
+.wahou-prose > :last-child {
+	margin-bottom: 0;
+}
+
+.wahou-prose img {
+	border-radius: var(--wahou-radius);
+}
+
+.wahou-section-title {
+	margin: 0 0 16px;
+	font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
+	line-height: 1.25;
+	letter-spacing: -0.01em;
+}
+
+/* ------------------------------------------------------------------
+ * Buttons
+ * ------------------------------------------------------------------ */
+.wahou-btn {
+	-webkit-appearance: none;
+	appearance: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	min-height: 44px;
+	padding: 0.6em 1.15em;
+	border: 1px solid transparent;
+	border-radius: var(--wahou-btn-radius);
+	font: inherit;
+	font-weight: 650;
+	font-size: 1rem;
+	line-height: 1.2;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease, opacity 0.15s ease;
+}
+
+.wahou-btn:active:not(:disabled) {
+	transform: translateY(1px) scale(0.99);
+}
+
+.wahou-btn:disabled,
+.wahou-btn[aria-disabled="true"] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.wahou-btn--primary,
+.wahou-btn--primary:visited {
+	background: var(--wahou-brand);
+	color: var(--wahou-on-brand);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.wahou-btn--primary:hover:not(:disabled),
+.wahou-btn--primary:focus-visible {
+	background: var(--wahou-brand-hover);
+	color: var(--wahou-on-brand);
+}
+
+.wahou-btn--secondary,
+.wahou-btn--secondary:visited {
+	background: var(--wahou-surface-2);
+	border-color: var(--wahou-border);
+	color: inherit;
+}
+
+.wahou-btn--secondary:hover:not(:disabled) {
+	border-color: var(--wahou-brand);
+	color: inherit;
+}
+
+.wahou-btn--ghost,
+.wahou-btn--ghost:visited {
+	background: transparent;
+	border-color: var(--wahou-border-strong);
+	color: inherit;
+}
+
+.wahou-btn--ghost:hover {
+	border-color: var(--wahou-brand);
+	color: inherit;
+}
+
+.wahou-btn--dark,
+.wahou-btn--dark:visited {
+	background: #151518;
+	border-color: rgba(255, 255, 255, 0.12);
+	color: #fff;
+}
+
+.wahou-btn--dark:hover:not(:disabled) {
+	background: #000;
+	color: #fff;
+}
+
+.wahou-btn--sm {
+	min-height: 40px;
+	padding: 0.45em 0.85em;
+	font-size: 0.9rem;
+}
+
+.wahou-btn--lg {
+	min-height: 52px;
+	padding: 0.75em 1.35em;
+	font-size: 1.05rem;
+}
+
+.wahou-btn--block {
+	display: flex;
+	width: 100%;
+}
+
+.wahou-btn__price {
+	margin-left: 0.15em;
+	padding-left: 0.6em;
+	border-left: 1px solid currentColor;
+	border-left-color: rgba(127, 127, 127, 0.5);
+	font-weight: 600;
+}
+
+.wahou-btn.is-busy {
+	pointer-events: none;
+	opacity: 0.85;
+}
+
+.wahou-btn.is-busy .wahou-icon {
+	display: none;
+}
+
+.wahou-btn.is-busy::before {
+	content: "";
+	width: 1em;
+	height: 1em;
+	border: 2px solid currentColor;
+	border-right-color: transparent;
+	border-radius: 50%;
+	animation: wahou-spin 0.7s linear infinite;
+}
+
+.wahou-btn.is-added {
+	background: var(--wahou-success);
+	border-color: var(--wahou-success);
+	color: #fff;
+}
+
+.wahou-icon-btn {
+	display: inline-grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+}
+
+.wahou-icon-btn:hover {
+	background: var(--wahou-surface-2);
+}
+
+.wahou-icon-btn--sm {
+	width: 32px;
+	height: 32px;
+}
+
+.wahou-link-btn {
+	min-height: 40px;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	font-size: 0.92rem;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	cursor: pointer;
+}
+
+/* ------------------------------------------------------------------
+ * Forms
+ * ------------------------------------------------------------------ */
+.wahou-input,
+.wahou-select {
+	width: 100%;
+	min-height: 44px;
+	padding: 0.6em 0.8em;
+	border: 1px solid var(--wahou-border-strong);
+	border-radius: calc(var(--wahou-radius) * 0.75);
+	background-color: transparent;
+	color: inherit;
+	font: inherit;
+	font-size: max(16px, 1em);
+	line-height: 1.3;
+}
+
+.wahou-input:focus,
+.wahou-select:focus {
+	border-color: var(--wahou-brand);
+	outline: 2px solid var(--wahou-brand-soft);
+	outline-offset: 0;
+}
+
+.wahou-select {
+	-webkit-appearance: none;
+	appearance: none;
+	padding-right: 2.4em;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 0.85em center;
+	cursor: pointer;
+}
+
+.wahou-select option {
+	color: #111;
+	background: #fff;
+}
+
+.wahou-select--sm {
+	width: auto;
+	min-height: 40px;
+	font-size: max(16px, 0.95rem);
+}
+
+.wahou-field {
+	display: grid;
+	gap: 6px;
+}
+
+.wahou-field__label {
+	font-weight: 600;
+}
+
+.wahou-field-error {
+	margin: 6px 0 0;
+	color: var(--wahou-danger);
+	font-size: 0.875rem;
+	font-weight: 600;
+}
+
+.wahou-notice {
+	margin: 0 0 16px;
+	padding: 12px 14px;
+	border: 1px solid var(--wahou-border);
+	border-radius: var(--wahou-radius);
+	background: var(--wahou-surface);
+	line-height: 1.45;
+}
+
+.wahou-notice--error {
+	border-color: rgba(209, 36, 47, 0.45);
+	background: rgba(209, 36, 47, 0.08);
+}
+
+.wahou-notice--success {
+	border-color: rgba(10, 138, 74, 0.45);
+	background: rgba(10, 138, 74, 0.08);
+}
+
+.wahou-notice--info {
+	border-color: var(--wahou-border-strong);
+}
+
+/* Quantity stepper */
+.wahou-qty {
+	display: inline-flex;
+	align-items: stretch;
+	height: 52px;
+	border: 1px solid var(--wahou-border-strong);
+	border-radius: var(--wahou-btn-radius);
+	overflow: hidden;
+	flex: none;
+}
+
+.wahou-qty__btn {
+	display: grid;
+	place-items: center;
+	width: 44px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+}
+
+.wahou-qty__btn:hover:not(:disabled) {
+	background: var(--wahou-surface-2);
+}
+
+.wahou-qty__btn:disabled {
+	opacity: 0.35;
+	cursor: not-allowed;
+}
+
+.wahou-qty__input {
+	width: 3.2ch;
+	min-width: 44px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-size: max(16px, 1rem);
+	font-weight: 650;
+	text-align: center;
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+
+.wahou-qty__input::-webkit-outer-spin-button,
+.wahou-qty__input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.wahou-qty__input:focus {
+	outline: none;
+	background: var(--wahou-surface);
+}
+
+.wahou-qty--sm {
+	height: 36px;
+}
+
+.wahou-qty--sm .wahou-qty__btn {
+	width: 36px;
+}
+
+.wahou-qty--sm .wahou-qty__input {
+	min-width: 32px;
+	font-size: 16px;
+}
+
+/* ------------------------------------------------------------------
+ * Badges, ratings, prices, stock
+ * ------------------------------------------------------------------ */
+.wahou-badges {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 2;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	pointer-events: none;
+}
+
+.wahou-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3em;
+	padding: 0.3em 0.65em;
+	border-radius: 999px;
+	background: var(--wahou-surface-2);
+	font-size: 0.75rem;
+	font-weight: 750;
+	line-height: 1.2;
+	letter-spacing: 0.01em;
+	white-space: nowrap;
+}
+
+.wahou-badge--sale {
+	background: var(--wahou-danger);
+	color: #fff;
+}
+
+.wahou-badge--custom {
+	background: var(--wahou-brand);
+	color: var(--wahou-on-brand);
+}
+
+.wahou-badge--muted {
+	background: #3a3a40;
+	color: #fff;
+}
+
+.wahou-badge--success {
+	background: rgba(10, 138, 74, 0.12);
+	color: var(--wahou-success);
+}
+
+.wahou-rating {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45em;
+	font-size: 0.9rem;
+	line-height: 1;
+}
+
+.wahou-rating__count {
+	color: var(--wahou-muted);
+	text-decoration: none;
+}
+
+a.wahou-rating__count:hover {
+	text-decoration: underline;
+}
+
+.wahou-stars {
+	--s: 1.05em;
+	position: relative;
+	display: inline-block;
+	flex: none;
+	width: calc(var(--s) * 5);
+	height: var(--s);
+	background: var(--wahou-border-strong);
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.6l2.85 5.95 6.55.85-4.8 4.55 1.25 6.5L12 17.3l-5.85 3.15 1.25-6.5L2.6 9.4l6.55-.85z'/%3E%3C/svg%3E") 0 0 / var(--s) var(--s) repeat-x;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.6l2.85 5.95 6.55.85-4.8 4.55 1.25 6.5L12 17.3l-5.85 3.15 1.25-6.5L2.6 9.4l6.55-.85z'/%3E%3C/svg%3E") 0 0 / var(--s) var(--s) repeat-x;
+}
+
+.wahou-stars__fill {
+	display: block;
+	height: 100%;
+	background: var(--wahou-star);
+}
+
+.wahou-price-block {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.3em 0.6em;
+}
+
+.wahou-price {
+	font-weight: 750;
+	font-variant-numeric: tabular-nums;
+}
+
+.wahou-price--current {
+	font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+	line-height: 1.1;
+	letter-spacing: -0.01em;
+}
+
+.wahou-price--sale {
+	color: var(--wahou-danger);
+}
+
+.wahou-price__reference {
+	color: var(--wahou-muted);
+	font-size: 0.95rem;
+	font-weight: 500;
+}
+
+.wahou-price__suffix {
+	color: var(--wahou-muted);
+	font-size: 0.8rem;
+	font-weight: 500;
+}
+
+.wahou-price__omnibus,
+.wahou-price__ends {
+	flex-basis: 100%;
+	margin: 2px 0 0;
+	font-size: 0.8rem;
+	line-height: 1.4;
+}
+
+.wahou-price__omnibus {
+	color: var(--wahou-muted);
+}
+
+.wahou-price__ends {
+	display: flex;
+	align-items: center;
+	gap: 0.35em;
+	color: var(--wahou-danger);
+	font-weight: 650;
+}
+
+.wahou-stock {
+	display: flex;
+	align-items: center;
+	gap: 0.55em;
+	margin: 0;
+	font-size: 0.95rem;
+	font-weight: 600;
+}
+
+.wahou-stock__dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--wahou-success);
+	box-shadow: 0 0 0 4px rgba(10, 138, 74, 0.16);
+}
+
+.wahou-stock--low-stock {
+	color: var(--wahou-warning);
+}
+
+.wahou-stock--low-stock .wahou-stock__dot {
+	background: var(--wahou-warning);
+	box-shadow: 0 0 0 4px rgba(178, 94, 0, 0.16);
+}
+
+.wahou-stock--out-of-stock {
+	color: var(--wahou-danger);
+}
+
+.wahou-stock--out-of-stock .wahou-stock__dot {
+	background: var(--wahou-danger);
+	box-shadow: 0 0 0 4px rgba(209, 36, 47, 0.16);
+}
+
+.wahou-placeholder {
+	display: grid;
+	place-items: center;
+	width: 100%;
+	height: 100%;
+	min-height: 64px;
+	color: var(--wahou-muted);
+	background: var(--wahou-surface);
+}
+
+/* ------------------------------------------------------------------
+ * Breadcrumbs, toolbar, chips, pagination
+ * ------------------------------------------------------------------ */
+.wahou-breadcrumbs ol {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px 6px;
+	margin: 0 0 14px;
+	padding: 0;
+	list-style: none;
+	color: var(--wahou-muted);
+	font-size: 0.85rem;
+	line-height: 1.4;
+}
+
+.wahou-breadcrumbs li + li::before {
+	content: "/";
+	margin-right: 6px;
+	opacity: 0.6;
+}
+
+.wahou-breadcrumbs a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.wahou-breadcrumbs a:hover {
+	text-decoration: underline;
+}
+
+.wahou-toolbar {
+	display: grid;
+	gap: 12px;
+	margin: 12px 0 20px;
+}
+
+.wahou-chips ul {
+	display: flex;
+	gap: 8px;
+	margin: 0;
+	padding: 2px 0 6px;
+	list-style: none;
+	overflow-x: auto;
+	scrollbar-width: none;
+	-webkit-overflow-scrolling: touch;
+}
+
+.wahou-chips ul::-webkit-scrollbar {
+	display: none;
+}
+
+.wahou-chip-link {
+	display: inline-flex;
+	align-items: center;
+	min-height: 40px;
+	padding: 0 16px;
+	border: 1px solid var(--wahou-border-strong);
+	border-radius: 999px;
+	color: inherit;
+	font-size: 0.95rem;
+	font-weight: 550;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background-color 0.15s, border-color 0.15s;
+}
+
+.wahou-chip-link:hover {
+	border-color: var(--wahou-brand);
+}
+
+.wahou-chip-link.is-active {
+	background: var(--wahou-brand);
+	border-color: var(--wahou-brand);
+	color: var(--wahou-on-brand);
+}
+
+.wahou-toolbar__row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.wahou-toolbar__count {
+	margin: 0;
+	color: var(--wahou-muted);
+	font-size: 0.9rem;
+}
+
+.wahou-sort {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+}
+
+.wahou-sort label {
+	color: var(--wahou-muted);
+	font-size: 0.9rem;
+	white-space: nowrap;
+}
+
+.wahou-pagination ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 6px;
+	margin: 32px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-pagination a,
+.wahou-pagination span {
+	display: grid;
+	place-items: center;
+	min-width: 44px;
+	height: 44px;
+	padding: 0 10px;
+	border: 1px solid var(--wahou-border);
+	border-radius: var(--wahou-btn-radius);
+	color: inherit;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.wahou-pagination a:hover {
+	border-color: var(--wahou-brand);
+}
+
+.wahou-pagination .current {
+	background: var(--wahou-brand);
+	border-color: var(--wahou-brand);
+	color: var(--wahou-on-brand);
+}
+
+.wahou-pagination .dots {
+	border: 0;
+}
+
+/* ------------------------------------------------------------------
+ * Product grid & cards
+ * ------------------------------------------------------------------ */
+.wahou-products {
+	margin-block: 8px 32px;
+}
+
+.wahou-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 20px 12px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-grid--c1 {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.wahou-grid__item {
+	min-width: 0;
+	margin: 0;
+}
+
+@media (min-width: 700px) {
+	.wahou-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 28px 20px;
+	}
+
+	.wahou-grid--c2 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.wahou-grid--c1 {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (min-width: 1024px) {
+	.wahou-grid {
+		grid-template-columns: repeat(var(--wahou-cols, 3), minmax(0, 1fr));
+	}
+}
+
+.wahou-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	height: 100%;
+}
+
+.wahou-card__media {
+	position: relative;
+	display: block;
+	aspect-ratio: var(--wahou-card-ratio);
+	overflow: hidden;
+	border-radius: var(--wahou-radius);
+	background: var(--wahou-surface);
+}
+
+.wahou-card__media img,
+.wahou-card__media .wahou-placeholder {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	transition: transform 0.35s ease;
+}
+
+@media (hover: hover) {
+	.wahou-card:hover .wahou-card__media img {
+		transform: scale(1.04);
+	}
+}
+
+.wahou-card__body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.wahou-card__title {
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.3;
+	letter-spacing: 0;
+}
+
+.wahou-card__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.wahou-card__title a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	border-radius: var(--wahou-radius);
+}
+
+.wahou-card__title a:hover {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.wahou-card__rating {
+	font-size: 0.85rem;
+}
+
+.wahou-card__excerpt {
+	margin: 4px 0;
+	color: var(--wahou-muted);
+	line-height: 1.5;
+}
+
+.wahou-card__price {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.2em 0.5em;
+}
+
+.wahou-card__price .wahou-price {
+	font-size: 1.05rem;
+}
+
+.wahou-card__price .wahou-price__reference {
+	font-size: 0.85rem;
+}
+
+.wahou-card__actions {
+	position: relative;
+	z-index: 2;
+	margin-top: auto;
+}
+
+.wahou-card__form {
+	margin: 0;
+}
+
+.wahou-card__actions .wahou-btn {
+	font-size: 0.92rem;
+}
+
+.wahou-card__oos {
+	display: block;
+	padding: 10px 0;
+	color: var(--wahou-muted);
+	font-size: 0.875rem;
+	text-align: center;
+}
+
+.wahou-card.is-out-of-stock .wahou-card__media img {
+	opacity: 0.6;
+}
+
+.wahou-card--featured {
+	display: grid;
+	gap: 16px;
+	padding: 16px;
+	border: 1px solid var(--wahou-border);
+	border-radius: calc(var(--wahou-radius) * 1.25);
+}
+
+.wahou-card--featured .wahou-card__title {
+	font-size: clamp(1.25rem, 1.05rem + 1vw, 1.75rem);
+}
+
+@media (min-width: 700px) {
+	.wahou-card--featured {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		align-items: center;
+		gap: 12px 32px;
+		padding: 24px;
+	}
+
+	.wahou-card--featured .wahou-card__media {
+		grid-row: span 2;
+	}
+
+	.wahou-card--featured .wahou-card__actions {
+		align-self: start;
+	}
+}
+
+.wahou-spotlight {
+	max-width: 980px;
+	margin: 24px auto;
+}
+
+.wahou-inline-buy {
+	margin: 16px 0;
+}
+
+.wahou-atc-mini {
+	margin: 0;
+}
+
+.wahou-empty {
+	display: grid;
+	justify-items: center;
+	gap: 12px;
+	padding: 40px 16px;
+	color: var(--wahou-muted);
+	text-align: center;
+}
+
+.wahou-empty p {
+	margin: 0;
+	font-size: 1.05rem;
+}
+
+/* ------------------------------------------------------------------
+ * Archive
+ * ------------------------------------------------------------------ */
+.wahou-archive {
+	padding-block: 16px 56px;
+}
+
+.wahou-archive__header {
+	margin-bottom: 8px;
+}
+
+.wahou-archive__title {
+	margin: 0.15em 0 0.3em;
+	font-size: clamp(1.6rem, 1.2rem + 2vw, 2.5rem);
+	line-height: 1.15;
+	letter-spacing: -0.015em;
+}
+
+.wahou-archive__description {
+	max-width: 72ch;
+	color: var(--wahou-muted);
+	line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------
+ * Product page
+ * ------------------------------------------------------------------ */
+.wahou-product-page {
+	padding-block: 12px 56px;
+}
+
+.wahou-product {
+	display: grid;
+	gap: 20px;
+}
+
+.wahou-product__media,
+.wahou-product__summary {
+	min-width: 0;
+}
+
+@media (min-width: 900px) {
+	.wahou-product {
+		grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+		gap: 48px;
+		align-items: start;
+	}
+
+	.wahou-product__media {
+		position: sticky;
+		top: 24px;
+	}
+}
+
+/* Gallery */
+.wahou-gallery {
+	position: relative;
+}
+
+.wahou-gallery > .wahou-badges {
+	top: 12px;
+	left: 12px;
+}
+
+.wahou-gallery__viewport {
+	position: relative;
+	overflow: hidden;
+	margin-inline: -16px;
+	border-radius: 0;
+	background: var(--wahou-surface);
+}
+
+@media (min-width: 700px) {
+	.wahou-gallery__viewport {
+		margin-inline: 0;
+		border-radius: var(--wahou-radius);
+	}
+}
+
+.wahou-gallery__track {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	-webkit-overflow-scrolling: touch;
+	overscroll-behavior-x: contain;
+}
+
+.wahou-gallery__track::-webkit-scrollbar {
+	display: none;
+}
+
+.wahou-gallery__slide {
+	flex: 0 0 100%;
+	margin: 0;
+	aspect-ratio: var(--wahou-gallery-ratio);
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+}
+
+.wahou-gallery__zoom {
+	display: block;
+	width: 100%;
+	height: 100%;
+	cursor: zoom-in;
+}
+
+.wahou-gallery__slide img,
+.wahou-gallery__viewport .wahou-placeholder {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.wahou-gallery__viewport .wahou-placeholder {
+	aspect-ratio: var(--wahou-gallery-ratio);
+}
+
+.wahou-gallery__nav {
+	position: absolute;
+	top: 50%;
+	z-index: 2;
+	display: none;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.92);
+	color: #111;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+
+.wahou-gallery__nav--prev {
+	left: 12px;
+}
+
+.wahou-gallery__nav--next {
+	right: 12px;
+}
+
+.wahou-gallery__nav:disabled {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.wahou-gallery__dots {
+	display: flex;
+	justify-content: center;
+	gap: 6px;
+	margin-top: 10px;
+}
+
+.wahou-gallery__dot {
+	width: 7px;
+	height: 7px;
+	border-radius: 4px;
+	background: var(--wahou-border-strong);
+	transition: width 0.2s, background-color 0.2s;
+}
+
+.wahou-gallery__dot.is-active {
+	width: 20px;
+	background: var(--wahou-brand);
+}
+
+.wahou-gallery__thumbs {
+	display: none;
+	gap: 10px;
+	margin-top: 12px;
+	overflow-x: auto;
+	scrollbar-width: thin;
+}
+
+.wahou-gallery__thumb {
+	flex: none;
+	width: 76px;
+	height: 76px;
+	padding: 0;
+	overflow: hidden;
+	border: 2px solid transparent;
+	border-radius: calc(var(--wahou-radius) * 0.75);
+	background: var(--wahou-surface);
+	cursor: pointer;
+	opacity: 0.75;
+	transition: opacity 0.15s, border-color 0.15s;
+}
+
+.wahou-gallery__thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.wahou-gallery__thumb:hover,
+.wahou-gallery__thumb.is-active {
+	opacity: 1;
+}
+
+.wahou-gallery__thumb.is-active {
+	border-color: var(--wahou-brand);
+}
+
+@media (min-width: 900px) {
+	.wahou-gallery__dots {
+		display: none;
+	}
+
+	.wahou-gallery__thumbs {
+		display: flex;
+	}
+
+	.wahou-gallery--multi .wahou-gallery__nav {
+		display: grid;
+	}
+}
+
+/* Summary */
+.wahou-product__header .wahou-badge {
+	margin-bottom: 8px;
+}
+
+.wahou-product__title {
+	margin: 0.1em 0 0.35em;
+	font-size: clamp(1.55rem, 1.15rem + 1.7vw, 2.3rem);
+	line-height: 1.15;
+	letter-spacing: -0.015em;
+	overflow-wrap: anywhere;
+}
+
+.wahou-product__rating {
+	margin-bottom: 4px;
+}
+
+.wahou-product__price {
+	margin: 12px 0 16px;
+}
+
+.wahou-product__excerpt {
+	margin-bottom: 16px;
+	font-size: 1.02rem;
+	line-height: 1.6;
+}
+
+.wahou-highlights {
+	display: grid;
+	gap: 8px;
+	margin: 0 0 20px;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-highlights li {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	line-height: 1.45;
+}
+
+.wahou-highlights .wahou-icon {
+	margin-top: 2px;
+	color: var(--wahou-success);
+}
+
+.wahou-product__formats {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 16px;
+	font-weight: 600;
+}
+
+.wahou-product__formats .wahou-icon {
+	color: var(--wahou-brand);
+}
+
+/* Bundle */
+.wahou-bundle {
+	margin: 0 0 18px;
+	padding: 14px;
+	border: 1px dashed var(--wahou-border-strong);
+	border-radius: var(--wahou-radius);
+}
+
+.wahou-bundle__title {
+	margin: 0 0 10px;
+	font-weight: 700;
+}
+
+.wahou-bundle__list {
+	display: grid;
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-bundle__item {
+	display: grid;
+	grid-template-columns: 44px 1fr auto;
+	gap: 10px;
+	align-items: center;
+}
+
+.wahou-bundle__thumb {
+	width: 44px;
+	height: 44px;
+	overflow: hidden;
+	border-radius: 8px;
+	background: var(--wahou-surface);
+}
+
+.wahou-bundle__thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.wahou-bundle__name a {
+	color: inherit;
+}
+
+.wahou-bundle__qty {
+	margin-right: 4px;
+	font-weight: 700;
+}
+
+.wahou-bundle__price {
+	color: var(--wahou-muted);
+	font-size: 0.9rem;
+	white-space: nowrap;
+}
+
+.wahou-bundle__saving {
+	display: flex;
+	gap: 8px;
+	align-items: flex-start;
+	margin: 12px 0 0;
+	color: var(--wahou-success);
+	font-weight: 650;
+}
+
+/* Buy box */
+.wahou-atc {
+	display: grid;
+	gap: 14px;
+	margin: 0 0 16px;
+	padding: 16px;
+	border: 1px solid var(--wahou-border);
+	border-radius: calc(var(--wahou-radius) * 1.25);
+	background: var(--wahou-surface);
+}
+
+.wahou-variants {
+	display: grid;
+	gap: 14px;
+}
+
+.wahou-variant {
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.wahou-variant__legend {
+	margin: 0 0 8px;
+	padding: 0;
+	font-weight: 650;
+}
+
+.wahou-variant__value {
+	color: var(--wahou-muted);
+	font-weight: 500;
+}
+
+.wahou-variant__value::before {
+	content: "·";
+	margin: 0 0.45em;
+}
+
+.wahou-variant__options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.wahou-chip {
+	position: relative;
+	display: inline-flex;
+	margin: 0;
+}
+
+.wahou-chip input {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.wahou-chip span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 48px;
+	min-height: 44px;
+	padding: 0.45em 0.95em;
+	border: 1px solid var(--wahou-border-strong);
+	border-radius: var(--wahou-btn-radius);
+	background: var(--wahou-bg);
+	font-weight: 550;
+	line-height: 1.2;
+	transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+
+.wahou-chip input:hover + span {
+	border-color: var(--wahou-brand);
+}
+
+.wahou-chip input:checked + span {
+	border-color: var(--wahou-brand);
+	background: var(--wahou-brand-soft);
+	box-shadow: inset 0 0 0 1px var(--wahou-brand);
+}
+
+.wahou-chip input:focus-visible + span {
+	outline: 2px solid var(--wahou-brand);
+	outline-offset: 2px;
+}
+
+.wahou-chip.is-unavailable span {
+	color: var(--wahou-muted);
+	text-decoration: line-through;
+	opacity: 0.6;
+}
+
+.wahou-atc__row {
+	display: flex;
+	gap: 10px;
+}
+
+.wahou-atc__add {
+	flex: 1;
+}
+
+.wahou-atc__buy {
+	margin-top: -4px;
+}
+
+.wahou-atc__error {
+	margin: 0;
+	color: var(--wahou-danger);
+	font-weight: 650;
+}
+
+.wahou-atc__sku {
+	margin: 0;
+	color: var(--wahou-muted);
+	font-size: 0.8rem;
+}
+
+.wahou-atc.is-shaking {
+	animation: wahou-shake 0.35s;
+}
+
+/* Delivery & trust */
+.wahou-delivery {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin: 0 0 16px;
+	padding: 12px 14px;
+	border-radius: var(--wahou-radius);
+	background: var(--wahou-brand-soft);
+}
+
+.wahou-delivery .wahou-icon {
+	margin-top: 1px;
+	color: var(--wahou-brand);
+}
+
+.wahou-delivery p {
+	margin: 0;
+	line-height: 1.45;
+}
+
+.wahou-delivery__main {
+	font-weight: 650;
+}
+
+.wahou-delivery__sub {
+	color: var(--wahou-muted);
+	font-size: 0.92rem;
+}
+
+.wahou-trust {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 14px;
+	margin: 0 0 8px;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-trust__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	font-size: 0.85rem;
+	line-height: 1.35;
+}
+
+.wahou-trust__item .wahou-icon {
+	color: var(--wahou-brand);
+}
+
+.wahou-trust__item strong {
+	display: block;
+	margin-bottom: 2px;
+	font-size: 0.9rem;
+}
+
+/* Frequently bought together */
+.wahou-fbt {
+	margin-top: 40px;
+	padding: 18px;
+	border: 1px solid var(--wahou-border);
+	border-radius: calc(var(--wahou-radius) * 1.25);
+}
+
+.wahou-fbt__promo {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: -6px 0 14px;
+	color: var(--wahou-success);
+	font-weight: 650;
+}
+
+.wahou-fbt__form {
+	margin: 0;
+}
+
+.wahou-fbt__list {
+	display: grid;
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-fbt__item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.wahou-fbt__item.is-current {
+	min-height: 44px;
+}
+
+.wahou-fbt__check {
+	display: grid;
+	flex: none;
+	place-items: center;
+	width: 22px;
+	height: 22px;
+	border-radius: 6px;
+	background: var(--wahou-brand);
+	color: var(--wahou-on-brand);
+}
+
+.wahou-fbt__input {
+	flex: none;
+	width: 22px;
+	height: 22px;
+	margin: 0;
+	accent-color: var(--wahou-brand);
+	cursor: pointer;
+}
+
+.wahou-fbt__label {
+	display: flex;
+	flex: 1;
+	align-items: center;
+	gap: 12px;
+	min-height: 44px;
+	cursor: pointer;
+}
+
+.wahou-fbt__thumb {
+	flex: none;
+	width: 52px;
+	height: 52px;
+	overflow: hidden;
+	border-radius: 8px;
+	background: var(--wahou-surface);
+}
+
+.wahou-fbt__thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.wahou-fbt__name {
+	flex: 1;
+	min-width: 0;
+	line-height: 1.35;
+}
+
+.wahou-fbt__price {
+	font-weight: 700;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.wahou-fbt__price del {
+	display: block;
+	color: var(--wahou-muted);
+	font-size: 0.8rem;
+	font-weight: 500;
+}
+
+.wahou-fbt__item:has(.wahou-fbt__input:not(:checked)) .wahou-fbt__label {
+	opacity: 0.55;
+}
+
+.wahou-fbt__footer {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: 16px;
+	padding-top: 16px;
+	border-top: 1px solid var(--wahou-border);
+}
+
+.wahou-fbt__total {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5em;
+	margin: 0;
+}
+
+.wahou-fbt__total strong {
+	font-size: 1.25rem;
+}
+
+.wahou-fbt__total del {
+	color: var(--wahou-muted);
+}
+
+/* Accordions */
+.wahou-details {
+	max-width: 880px;
+	margin-top: 40px;
+	border-top: 1px solid var(--wahou-border);
+}
+
+.wahou-accordion {
+	border-bottom: 1px solid var(--wahou-border);
+}
+
+.wahou-accordion__summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	min-height: 56px;
+	padding: 14px 0;
+	list-style: none;
+	cursor: pointer;
+}
+
+.wahou-accordion__summary::-webkit-details-marker {
+	display: none;
+}
+
+.wahou-accordion__summary h2 {
+	margin: 0;
+	font-size: 1.15rem;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.wahou-accordion__count {
+	color: var(--wahou-muted);
+	font-weight: 500;
+}
+
+.wahou-accordion__summary .wahou-icon {
+	transition: transform 0.2s ease;
+}
+
+.wahou-accordion[open] > .wahou-accordion__summary .wahou-icon {
+	transform: rotate(45deg);
+}
+
+.wahou-accordion__body {
+	padding: 0 0 24px;
+	line-height: 1.65;
+}
+
+.wahou-specs {
+	display: grid;
+	margin: 0;
+}
+
+.wahou-specs__row {
+	display: grid;
+	grid-template-columns: minmax(110px, 38%) 1fr;
+	gap: 12px;
+	padding: 10px 0;
+	border-bottom: 1px solid var(--wahou-border);
+}
+
+.wahou-specs__row:last-child {
+	border-bottom: 0;
+}
+
+.wahou-specs dt {
+	color: var(--wahou-muted);
+	font-weight: 500;
+}
+
+.wahou-specs dd {
+	margin: 0;
+	font-weight: 600;
+	overflow-wrap: anywhere;
+}
+
+.wahou-faq {
+	display: grid;
+	gap: 18px;
+}
+
+.wahou-faq__q {
+	margin: 0 0 6px;
+	font-size: 1.02rem;
+	font-weight: 700;
+}
+
+/* Reviews */
+.wahou-reviews__summary {
+	display: grid;
+	gap: 16px;
+	margin-bottom: 20px;
+	padding: 16px;
+	border-radius: var(--wahou-radius);
+	background: var(--wahou-surface);
+}
+
+@media (min-width: 600px) {
+	.wahou-reviews__summary {
+		grid-template-columns: auto 1fr;
+		align-items: center;
+		gap: 32px;
+	}
+}
+
+.wahou-reviews__score {
+	display: grid;
+	justify-items: start;
+	gap: 6px;
+}
+
+.wahou-reviews__average {
+	font-size: 2.6rem;
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -0.02em;
+}
+
+.wahou-reviews__bars {
+	display: grid;
+	gap: 6px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-reviews__bars li {
+	display: grid;
+	grid-template-columns: 4.5em 1fr 2.5em;
+	gap: 10px;
+	align-items: center;
+	font-size: 0.85rem;
+}
+
+.wahou-reviews__bar {
+	height: 8px;
+	overflow: hidden;
+	border-radius: 4px;
+	background: var(--wahou-surface-2);
+}
+
+.wahou-reviews__bar span {
+	display: block;
+	height: 100%;
+	border-radius: 4px;
+	background: var(--wahou-star);
+}
+
+.wahou-reviews__bar-count {
+	color: var(--wahou-muted);
+	text-align: right;
+}
+
+.wahou-reviews__empty {
+	margin: 0 0 16px;
+	color: var(--wahou-muted);
+}
+
+.wahou-reviews__list {
+	display: grid;
+	gap: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-review {
+	display: grid;
+	gap: 8px;
+	padding: 16px 0;
+	border-bottom: 1px solid var(--wahou-border);
+}
+
+.wahou-review__head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.wahou-review__date {
+	margin-left: auto;
+	font-size: 0.85rem;
+}
+
+.wahou-review__text p {
+	margin: 0 0 0.5em;
+}
+
+.wahou-review__reply {
+	margin-top: 4px;
+	padding: 10px 14px;
+	border-left: 3px solid var(--wahou-brand);
+	border-radius: 0 var(--wahou-radius) var(--wahou-radius) 0;
+	background: var(--wahou-surface);
+	font-size: 0.95rem;
+}
+
+.wahou-review-form {
+	display: grid;
+	gap: 14px;
+	margin-top: 24px;
+	padding: 18px;
+	border: 1px solid var(--wahou-border);
+	border-radius: calc(var(--wahou-radius) * 1.25);
+}
+
+.wahou-review-form__title {
+	margin: 0;
+	font-size: 1.15rem;
+}
+
+.wahou-review-form p {
+	margin: 0;
+}
+
+.wahou-review-form label {
+	display: block;
+	margin-bottom: 6px;
+	font-weight: 600;
+}
+
+.wahou-review-form input[type="text"],
+.wahou-review-form input[type="email"],
+.wahou-review-form input[type="url"],
+.wahou-review-form textarea {
+	width: 100%;
+	min-height: 44px;
+	padding: 0.6em 0.8em;
+	border: 1px solid var(--wahou-border-strong);
+	border-radius: calc(var(--wahou-radius) * 0.75);
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-size: max(16px, 1em);
+}
+
+.wahou-review-form .comment-form-cookies-consent {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.wahou-review-form .comment-form-cookies-consent label {
+	margin: 0;
+	font-weight: 400;
+}
+
+.wahou-review-form .required {
+	color: var(--wahou-danger);
+}
+
+.wahou-review-form__note {
+	font-size: 0.875rem;
+}
+
+.wahou-rating-input {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.wahou-rating-input legend {
+	margin-bottom: 6px;
+	padding: 0;
+	font-weight: 600;
+}
+
+.wahou-rating-input__stars {
+	display: inline-flex;
+	flex-direction: row-reverse;
+	gap: 2px;
+}
+
+.wahou-rating-input__stars input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+.wahou-rating-input__stars label {
+	width: 40px;
+	height: 40px;
+	margin: 0;
+	background: var(--wahou-border-strong);
+	cursor: pointer;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.6l2.85 5.95 6.55.85-4.8 4.55 1.25 6.5L12 17.3l-5.85 3.15 1.25-6.5L2.6 9.4l6.55-.85z'/%3E%3C/svg%3E") center / 34px 34px no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.6l2.85 5.95 6.55.85-4.8 4.55 1.25 6.5L12 17.3l-5.85 3.15 1.25-6.5L2.6 9.4l6.55-.85z'/%3E%3C/svg%3E") center / 34px 34px no-repeat;
+	transition: background-color 0.12s;
+}
+
+.wahou-rating-input__stars label:hover,
+.wahou-rating-input__stars label:hover ~ label,
+.wahou-rating-input__stars input:checked ~ label {
+	background: var(--wahou-star);
+}
+
+.wahou-rating-input__stars input:focus-visible + label {
+	outline: 2px solid var(--wahou-brand);
+	outline-offset: 1px;
+	border-radius: 6px;
+}
+
+/* Related sections */
+.wahou-related {
+	margin-top: 48px;
+}
+
+/* ------------------------------------------------------------------
+ * Sticky add to cart (mobile)
+ * ------------------------------------------------------------------ */
+.wahou-sticky {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99980;
+	padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+	border-top: 1px solid var(--wahou-border);
+	background: var(--wahou-bg);
+	box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08);
+	transform: translateY(110%);
+	transition: transform 0.25s ease;
+}
+
+.wahou-sticky[hidden] {
+	display: none;
+}
+
+.wahou-sticky:not(.is-visible) {
+	visibility: hidden;
+	transition: transform 0.25s ease, visibility 0s linear 0.25s;
+}
+
+.wahou-sticky.is-visible {
+	transform: none;
+}
+
+.wahou-sticky__inner {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	max-width: var(--wahou-max);
+	margin: 0 auto;
+}
+
+.wahou-sticky__thumb {
+	flex: none;
+	width: 44px;
+	height: 44px;
+	overflow: hidden;
+	border-radius: 8px;
+	background: var(--wahou-surface);
+}
+
+.wahou-sticky__thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.wahou-sticky__info {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-width: 0;
+	line-height: 1.25;
+}
+
+.wahou-sticky__name {
+	overflow: hidden;
+	font-size: 0.85rem;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.wahou-sticky__price {
+	font-weight: 750;
+}
+
+@media (min-width: 900px) {
+	.wahou-sticky {
+		display: none !important;
+	}
+}
+
+/* ------------------------------------------------------------------
+ * Cart icon, floating button, toasts
+ * ------------------------------------------------------------------ */
+.wahou-cart-icon {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	min-width: 44px;
+	min-height: 44px;
+	color: inherit;
+	text-decoration: none;
+}
+
+.wahou-cart-icon__count {
+	position: absolute;
+	top: 2px;
+	right: 0;
+	min-width: 18px;
+	height: 18px;
+	padding: 0 5px;
+	border-radius: 9px;
+	background: var(--wahou-brand);
+	color: var(--wahou-on-brand);
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 18px;
+	text-align: center;
+}
+
+.wahou-cart-icon__label + .wahou-cart-icon__count {
+	position: static;
+}
+
+.wahou-cart-icon__count[hidden],
+.wahou-fab[hidden] {
+	display: none;
+}
+
+.wahou-fab {
+	position: fixed;
+	right: 16px;
+	bottom: calc(16px + env(safe-area-inset-bottom));
+	z-index: 99990;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	border: 0;
+	border-radius: 50%;
+	background: var(--wahou-brand);
+	color: var(--wahou-on-brand);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+	text-decoration: none;
+	cursor: pointer;
+	transition: transform 0.2s ease, bottom 0.25s ease;
+}
+
+.wahou-fab:hover {
+	transform: scale(1.05);
+	color: var(--wahou-on-brand);
+}
+
+.wahou-fab__count {
+	position: absolute;
+	top: -4px;
+	right: -4px;
+	min-width: 22px;
+	height: 22px;
+	padding: 0 6px;
+	border-radius: 11px;
+	background: #111;
+	color: #fff;
+	font: 700 12px/22px system-ui, sans-serif;
+	text-align: center;
+}
+
+body.wahou-sticky-on .wahou-fab {
+	bottom: calc(84px + env(safe-area-inset-bottom));
+}
+
+.wahou-bump {
+	animation: wahou-bump 0.45s ease;
+}
+
+.wahou-toasts {
+	position: fixed;
+	bottom: calc(16px + env(safe-area-inset-bottom));
+	left: 50%;
+	z-index: 100000;
+	display: grid;
+	gap: 8px;
+	width: min(440px, calc(100% - 24px));
+	transform: translateX(-50%);
+	pointer-events: none;
+}
+
+body.wahou-sticky-on .wahou-toasts {
+	bottom: calc(84px + env(safe-area-inset-bottom));
+}
+
+.wahou-toast {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 14px;
+	border-radius: var(--wahou-radius);
+	background: #17171a;
+	color: #fff;
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+	font-size: 0.95rem;
+	pointer-events: auto;
+	animation: wahou-toast-in 0.25s ease-out;
+}
+
+.wahou-toast .wahou-icon {
+	color: #4ade80;
+}
+
+.wahou-toast--error {
+	background: #b42318;
+}
+
+.wahou-toast--error .wahou-icon {
+	color: #fff;
+}
+
+.wahou-toast a {
+	margin-left: auto;
+	color: #fff;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.wahou-toast.is-leaving {
+	opacity: 0;
+	transform: translateY(6px);
+	transition: opacity 0.2s, transform 0.2s;
+}
+
+/* ------------------------------------------------------------------
+ * Cart drawer
+ * ------------------------------------------------------------------ */
+.wahou-drawer {
+	position: fixed;
+	inset: 0;
+	z-index: 99995;
+}
+
+.wahou-drawer[hidden] {
+	display: none;
+}
+
+.wahou-drawer__overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(10, 10, 15, 0.5);
+	opacity: 0;
+	transition: opacity 0.25s ease;
+}
+
+.wahou-drawer__panel {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	width: min(440px, 100%);
+	background: var(--wahou-bg);
+	box-shadow: -12px 0 40px rgba(0, 0, 0, 0.18);
+	outline: none;
+	transform: translateX(100%);
+	transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wahou-drawer.is-open .wahou-drawer__overlay {
+	opacity: 1;
+}
+
+.wahou-drawer.is-open .wahou-drawer__panel {
+	transform: none;
+}
+
+.wahou-drawer__content {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	min-height: 0;
+	transition: opacity 0.15s;
+}
+
+.wahou-drawer__content[aria-busy="true"] {
+	opacity: 0.55;
+	pointer-events: none;
+}
+
+.wahou-drawer__loading {
+	display: grid;
+	flex: 1;
+	place-items: center;
+}
+
+.wahou-spinner {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	border: 3px solid var(--wahou-border-strong);
+	border-top-color: var(--wahou-brand);
+	border-radius: 50%;
+	animation: wahou-spin 0.7s linear infinite;
+}
+
+.wahou-drawer__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 10px 8px 10px 18px;
+	border-bottom: 1px solid var(--wahou-border);
+}
+
+.wahou-drawer__title {
+	margin: 0;
+	font-size: 1.15rem;
+	line-height: 1.3;
+}
+
+.wahou-drawer__count {
+	color: var(--wahou-muted);
+	font-weight: 500;
+}
+
+.wahou-drawer__body {
+	flex: 1;
+	padding: 16px 18px;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	-webkit-overflow-scrolling: touch;
+}
+
+.wahou-drawer__body--empty {
+	display: grid;
+	place-items: center;
+}
+
+.wahou-drawer__footer {
+	display: grid;
+	gap: 10px;
+	padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
+	border-top: 1px solid var(--wahou-border);
+	background: var(--wahou-bg);
+}
+
+.wahou-freeship {
+	margin: 0 0 18px;
+	padding: 12px;
+	border-radius: var(--wahou-radius);
+	background: var(--wahou-surface);
+}
+
+.wahou-freeship__text {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 8px;
+	font-size: 0.9rem;
+	line-height: 1.35;
+}
+
+.wahou-freeship__text .wahou-icon {
+	color: var(--wahou-brand);
+}
+
+.wahou-freeship.is-unlocked .wahou-freeship__text {
+	color: var(--wahou-success);
+	font-weight: 650;
+}
+
+.wahou-freeship.is-unlocked .wahou-freeship__text .wahou-icon {
+	color: var(--wahou-success);
+}
+
+.wahou-freeship__bar {
+	height: 6px;
+	overflow: hidden;
+	border-radius: 3px;
+	background: var(--wahou-surface-2);
+}
+
+.wahou-freeship__bar span {
+	display: block;
+	height: 100%;
+	border-radius: 3px;
+	background: var(--wahou-brand);
+	transition: width 0.45s ease;
+}
+
+.wahou-freeship.is-unlocked .wahou-freeship__bar span {
+	background: var(--wahou-success);
+}
+
+.wahou-lines {
+	display: grid;
+	gap: 16px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-line {
+	display: grid;
+	grid-template-columns: 72px minmax(0, 1fr) auto;
+	gap: 12px;
+	align-items: start;
+}
+
+.wahou-line__thumb {
+	display: block;
+	width: 72px;
+	height: 72px;
+	overflow: hidden;
+	border-radius: 10px;
+	background: var(--wahou-surface);
+}
+
+.wahou-line__thumb img,
+.wahou-line__thumb .wahou-placeholder {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.wahou-line__info {
+	display: grid;
+	gap: 3px;
+	min-width: 0;
+}
+
+.wahou-line__name {
+	color: inherit;
+	font-weight: 650;
+	line-height: 1.3;
+	text-decoration: none;
+}
+
+.wahou-line__name:hover {
+	text-decoration: underline;
+}
+
+.wahou-line__meta {
+	color: var(--wahou-muted);
+	font-size: 0.85rem;
+}
+
+.wahou-line__info .wahou-badge {
+	justify-self: start;
+}
+
+.wahou-line__controls {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: 6px;
+}
+
+.wahou-line__qty-fixed {
+	color: var(--wahou-muted);
+	font-size: 0.9rem;
+}
+
+.wahou-line__remove {
+	display: grid;
+	place-items: center;
+	width: 36px;
+	height: 36px;
+	padding: 0;
+	border: 0;
+	border-radius: 8px;
+	background: transparent;
+	color: var(--wahou-muted);
+	cursor: pointer;
+}
+
+.wahou-line__remove:hover {
+	background: rgba(209, 36, 47, 0.1);
+	color: var(--wahou-danger);
+}
+
+.wahou-line__price {
+	font-weight: 700;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.wahou-line__price del {
+	display: block;
+	color: var(--wahou-muted);
+	font-size: 0.8rem;
+	font-weight: 500;
+}
+
+.wahou-xsell {
+	margin-top: 24px;
+	padding-top: 16px;
+	border-top: 1px dashed var(--wahou-border-strong);
+}
+
+.wahou-xsell__title {
+	margin: 0 0 12px;
+	font-size: 0.95rem;
+}
+
+.wahou-xsell__list {
+	display: grid;
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-xsell__item {
+	display: grid;
+	grid-template-columns: 52px minmax(0, 1fr) auto;
+	gap: 10px;
+	align-items: center;
+}
+
+.wahou-xsell__thumb {
+	width: 52px;
+	height: 52px;
+	overflow: hidden;
+	border-radius: 8px;
+	background: var(--wahou-surface);
+}
+
+.wahou-xsell__thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.wahou-xsell__info {
+	display: grid;
+	gap: 2px;
+	min-width: 0;
+	font-size: 0.9rem;
+	line-height: 1.3;
+}
+
+.wahou-xsell__info a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.wahou-xsell__info .wahou-price {
+	font-size: 0.9rem;
+}
+
+.wahou-coupon summary {
+	display: inline-flex;
+	align-items: center;
+	min-height: 32px;
+	color: var(--wahou-muted);
+	font-size: 0.9rem;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	list-style: none;
+	cursor: pointer;
+}
+
+.wahou-coupon summary::-webkit-details-marker {
+	display: none;
+}
+
+.wahou-coupon__form {
+	display: flex;
+	gap: 8px;
+	margin-top: 8px;
+}
+
+.wahou-coupon__form .wahou-input {
+	text-transform: uppercase;
+}
+
+.wahou-coupon-chip {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 6px 6px 12px;
+	border-radius: var(--wahou-radius);
+	background: rgba(10, 138, 74, 0.1);
+	font-size: 0.9rem;
+}
+
+.wahou-coupon-chip .wahou-icon {
+	color: var(--wahou-success);
+}
+
+.wahou-coupon-chip span {
+	flex: 1;
+}
+
+.wahou-drawer__totals {
+	display: grid;
+	gap: 4px;
+	margin: 0;
+}
+
+.wahou-drawer__totals > div {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.wahou-drawer__totals dt,
+.wahou-drawer__totals dd {
+	margin: 0;
+}
+
+.wahou-drawer__subtotal {
+	font-size: 1.1rem;
+	font-weight: 750;
+}
+
+.wahou-drawer__note {
+	margin: -4px 0 2px;
+	font-size: 0.82rem;
+}
+
+.wahou-drawer__footer .wahou-link-btn {
+	justify-self: center;
+}
+
+/* ------------------------------------------------------------------
+ * Lightbox
+ * ------------------------------------------------------------------ */
+.wahou-lightbox {
+	width: 100vw;
+	max-width: 100vw;
+	height: 100vh;
+	max-height: 100vh;
+	height: 100dvh;
+	max-height: 100dvh;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: rgba(8, 8, 10, 0.96);
+	color: #fff;
+}
+
+.wahou-lightbox::backdrop {
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.wahou-lightbox__img {
+	position: absolute;
+	inset: 60px 12px;
+	width: calc(100% - 24px);
+	height: calc(100% - 120px);
+	object-fit: contain;
+	touch-action: pinch-zoom;
+}
+
+.wahou-lightbox__btn {
+	position: absolute;
+	display: grid;
+	place-items: center;
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.12);
+	color: #fff;
+	cursor: pointer;
+}
+
+.wahou-lightbox__btn:hover {
+	background: rgba(255, 255, 255, 0.24);
+}
+
+.wahou-lightbox__close {
+	top: 8px;
+	right: 8px;
+}
+
+.wahou-lightbox__prev,
+.wahou-lightbox__next {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.wahou-lightbox__prev {
+	left: 8px;
+}
+
+.wahou-lightbox__next {
+	right: 8px;
+}
+
+.wahou-lightbox__count {
+	position: absolute;
+	top: 20px;
+	left: 16px;
+	font-size: 0.9rem;
+	opacity: 0.8;
+}
+
+html.wahou-scroll-lock,
+html.wahou-scroll-lock body {
+	overflow: hidden;
+}
+
+/* ------------------------------------------------------------------
+ * Animations
+ * ------------------------------------------------------------------ */
+@keyframes wahou-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes wahou-bump {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	40% {
+		transform: scale(1.18);
+	}
+}
+
+@keyframes wahou-toast-in {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+}
+
+@keyframes wahou-shake {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	25% {
+		transform: translateX(-6px);
+	}
+
+	75% {
+		transform: translateX(6px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wahou *,
+	.wahou-drawer *,
+	.wahou-sticky,
+	.wahou-toast,
+	.wahou-fab,
+	.wahou-gallery__track {
+		animation: none !important;
+		transition: none !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+@media print {
+	.wahou-sticky,
+	.wahou-fab,
+	.wahou-drawer,
+	.wahou-toasts,
+	.wahou-atc,
+	.wahou-fbt {
+		display: none !important;
+	}
+}

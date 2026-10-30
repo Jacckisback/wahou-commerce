@@ -14,6 +14,7 @@
  * @package WahouCommerce
  */
 
+use WahouCommerce\Emails\Emails;
 use WahouCommerce\Emails\Mailer;
 use WahouCommerce\Support\Pages;
 use WahouCommerce\Support\Template;
@@ -72,7 +73,7 @@ $datetime   = trim( get_option( 'date_format' ) . ' ' . get_option( 'time_format
 					}
 					if ( ! empty( $download['expires'] ) ) {
 						/* translators: %s: expiry date. */
-						$limits[] = sprintf( __( 'available until %s', 'wahou-commerce' ), get_date_from_gmt( (string) $download['expires'], get_option( 'date_format' ) ) );
+						$limits[] = sprintf( __( 'available until %s', 'wahou-commerce' ), Emails::date( (string) $download['expires'] ) );
 					}
 					if ( $limits ) :
 						?>
@@ -109,7 +110,7 @@ $datetime   = trim( get_option( 'date_format' ) . ' ' . get_option( 'time_format
 		<?php if ( ! empty( $consents['terms'] ) ) : ?>
 			<?php
 			/* translators: %s: date and time of acceptance. */
-			echo esc_html( sprintf( __( 'You accepted our terms and conditions of sale on %s.', 'wahou-commerce' ), get_date_from_gmt( (string) $consents['terms'], $datetime ) ) );
+			echo esc_html( sprintf( __( 'You accepted our terms and conditions of sale on %s.', 'wahou-commerce' ), Emails::date( (string) $consents['terms'], $datetime ) ) );
 			?>
 			<?php if ( '' !== $terms_url ) : ?>
 				<a href="<?php echo esc_url( $terms_url ); ?>" style="<?php echo esc_attr( Mailer::style( 'link' ) ); ?>"><?php esc_html_e( 'Read them again', 'wahou-commerce' ); ?></a>

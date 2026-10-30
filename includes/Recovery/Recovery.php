@@ -499,7 +499,7 @@ final class Recovery {
 			}
 			$products[] = array(
 				'name'  => $product->name(),
-				'url'   => $product->permalink() . '#reviews',
+				'url'   => $product->permalink() . '#wahou-reviews',
 				'image' => $product->image_url( 'thumbnail' ),
 			);
 		}

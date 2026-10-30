@@ -286,8 +286,9 @@ final class Order {
 	 * Local date for display.
 	 */
 	public function date( string $format = '' ): string {
-		$format = '' !== $format ? $format : (string) get_option( 'date_format' );
-		return (string) get_date_from_gmt( $this->created_at(), $format );
+		$format    = '' !== $format ? $format : (string) get_option( 'date_format' );
+		$timestamp = strtotime( $this->created_at() . ' UTC' );
+		return $timestamp ? (string) wp_date( $format, $timestamp ) : '';
 	}
 
 	/**

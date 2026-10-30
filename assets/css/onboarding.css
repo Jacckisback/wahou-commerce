@@ -1,0 +1,1248 @@
+/* Wahou Commerce – setup wizard (standalone page, no wp-admin styles). */
+
+:root {
+	--ob-brand: #5b3df5;
+	--ob-on-brand: #ffffff;
+	--ob-bg: #f6f5fb;
+	--ob-card: #ffffff;
+	--ob-text: #1a1730;
+	--ob-muted: #5f5b74;
+	--ob-border: #e3e0ee;
+	--ob-field: #ffffff;
+	--ob-soft: color-mix(in srgb, var(--ob-brand) 8%, var(--ob-card));
+	--ob-ring: color-mix(in srgb, var(--ob-brand) 45%, transparent);
+	--ob-success: #0d7f57;
+	--ob-danger: #c22d2d;
+	--ob-radius: 20px;
+	--ob-radius-sm: 12px;
+	--ob-shadow: 0 1px 2px rgba(22, 17, 54, .06), 0 18px 50px rgba(22, 17, 54, .09);
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--ob-bg: #0e0c18;
+		--ob-card: #171428;
+		--ob-text: #f2f0fa;
+		--ob-muted: #aaa5c2;
+		--ob-border: #2d2947;
+		--ob-field: #1d1932;
+		--ob-shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 18px 50px rgba(0, 0, 0, .35);
+		color-scheme: dark;
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body.wahou-ob {
+	margin: 0;
+	min-height: 100vh;
+	font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	color: var(--ob-text);
+	background:
+		radial-gradient(1100px 560px at 8% -12%, color-mix(in srgb, var(--ob-brand) 16%, transparent), transparent 62%),
+		radial-gradient(900px 520px at 108% 4%, color-mix(in srgb, #f59e0b 12%, transparent), transparent 60%),
+		var(--ob-bg);
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: var(--ob-brand);
+	text-underline-offset: 3px;
+}
+
+:focus-visible {
+	outline: 3px solid var(--ob-ring);
+	outline-offset: 2px;
+}
+
+.screen-reader-text {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.wahou-ob-skip-link {
+	position: absolute;
+	left: 16px;
+	top: -60px;
+	z-index: 100;
+	padding: 10px 16px;
+	border-radius: 10px;
+	background: var(--ob-card);
+	box-shadow: var(--ob-shadow);
+}
+
+.wahou-ob-skip-link:focus {
+	top: 12px;
+}
+
+/* Header & progress ------------------------------------------------------ */
+
+.wahou-ob-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 1040px;
+	margin: 0 auto;
+	padding: 20px 20px 8px;
+}
+
+.wahou-ob-brand {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-weight: 700;
+	letter-spacing: -.01em;
+}
+
+.wahou-ob-logo {
+	display: grid;
+	place-items: center;
+	width: 34px;
+	height: 34px;
+	border-radius: 10px;
+	background: linear-gradient(135deg, var(--ob-brand), color-mix(in srgb, var(--ob-brand) 60%, #f59e0b));
+	color: var(--ob-on-brand);
+	font-weight: 800;
+	box-shadow: 0 6px 16px color-mix(in srgb, var(--ob-brand) 35%, transparent);
+}
+
+.wahou-ob-exit {
+	color: var(--ob-muted);
+	font-size: 14px;
+	text-decoration: none;
+	padding: 8px 4px;
+}
+
+.wahou-ob-exit:hover {
+	color: var(--ob-text);
+	text-decoration: underline;
+}
+
+.wahou-ob-progress {
+	position: fixed;
+	inset: 0 0 auto 0;
+	height: 4px;
+	background: color-mix(in srgb, var(--ob-brand) 12%, transparent);
+	z-index: 20;
+}
+
+.wahou-ob-progress > span {
+	display: block;
+	width: 0;
+	height: 100%;
+	background: var(--ob-brand);
+	border-radius: 0 4px 4px 0;
+	transition: width .45s cubic-bezier(.2, .7, .2, 1);
+}
+
+/* Stepper ----------------------------------------------------------------- */
+
+.wahou-ob-stepper {
+	max-width: 1040px;
+	margin: 8px auto 24px;
+	padding: 0 20px;
+}
+
+.wahou-ob-stepper ol {
+	display: flex;
+	justify-content: center;
+	gap: 6px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-ob-stepper button {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 10px;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+	color: var(--ob-muted);
+	font: inherit;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.wahou-ob-stepper button:disabled {
+	cursor: default;
+}
+
+.wahou-ob-stepper button:not(:disabled):hover {
+	background: var(--ob-soft);
+	color: var(--ob-text);
+}
+
+.wahou-ob-stepper__dot {
+	display: grid;
+	place-items: center;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	border: 1.5px solid var(--ob-border);
+	background: var(--ob-card);
+	font-size: 13px;
+	font-weight: 700;
+	transition: background-color .2s, border-color .2s, color .2s;
+}
+
+.wahou-ob-stepper .is-current button {
+	color: var(--ob-text);
+	font-weight: 600;
+}
+
+.wahou-ob-stepper .is-current .wahou-ob-stepper__dot {
+	border-color: var(--ob-brand);
+	background: var(--ob-brand);
+	color: var(--ob-on-brand);
+}
+
+.wahou-ob-stepper .is-done .wahou-ob-stepper__dot {
+	border-color: color-mix(in srgb, var(--ob-brand) 40%, var(--ob-border));
+	background: var(--ob-soft);
+	color: var(--ob-brand);
+}
+
+.wahou-ob-stepper__compact {
+	display: none;
+	margin: 0;
+	color: var(--ob-muted);
+	font-size: 14px;
+	text-align: center;
+}
+
+/* Layout ------------------------------------------------------------------ */
+
+.wahou-ob-main {
+	max-width: 760px;
+	margin: 0 auto;
+	padding: 0 16px 120px;
+}
+
+.wahou-ob-card {
+	position: relative;
+	padding: 36px;
+	border: 1px solid var(--ob-border);
+	border-radius: var(--ob-radius);
+	background: var(--ob-card);
+	box-shadow: var(--ob-shadow);
+	animation: wahou-ob-in .35s cubic-bezier(.2, .7, .2, 1);
+}
+
+@keyframes wahou-ob-in {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.wahou-ob-intro {
+	margin-bottom: 26px;
+}
+
+.wahou-ob-kicker {
+	margin: 0 0 6px;
+	color: var(--ob-brand);
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+}
+
+.wahou-ob-intro h1,
+.wahou-ob-step--done h1 {
+	margin: 0 0 8px;
+	font-size: clamp(24px, 3.4vw, 32px);
+	line-height: 1.2;
+	letter-spacing: -.02em;
+}
+
+.wahou-ob-intro h1:focus,
+.wahou-ob-step--done h1:focus {
+	outline: none;
+}
+
+.wahou-ob-intro p {
+	margin: 0;
+	color: var(--ob-muted);
+}
+
+.wahou-ob-card h2 {
+	margin: 0 0 4px;
+	font-size: 18px;
+	line-height: 1.3;
+}
+
+/* Fields ------------------------------------------------------------------- */
+
+.wahou-ob-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px 18px;
+	margin: 18px 0;
+}
+
+.wahou-ob-field {
+	grid-column: 1 / -1;
+	min-width: 0;
+}
+
+.wahou-ob-field--half {
+	grid-column: span 1;
+}
+
+.wahou-ob-field label,
+.wahou-ob-label {
+	display: block;
+	margin-bottom: 6px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.wahou-ob-field input:not([type="checkbox"]):not([type="radio"]):not([type="color"]),
+.wahou-ob-field select,
+.wahou-ob-field textarea {
+	width: 100%;
+	min-height: 48px;
+	padding: 12px 14px;
+	border: 1.5px solid var(--ob-border);
+	border-radius: var(--ob-radius-sm);
+	background: var(--ob-field);
+	color: var(--ob-text);
+	font: inherit;
+	font-size: 16px;
+	transition: border-color .15s, box-shadow .15s;
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.wahou-ob-field select {
+	padding-right: 40px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%23807a99' stroke-width='1.8' d='m1 1.5 5 5 5-5'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 16px center;
+}
+
+.wahou-ob-field textarea {
+	min-height: 96px;
+	resize: vertical;
+}
+
+.wahou-ob-field input:focus,
+.wahou-ob-field select:focus,
+.wahou-ob-field textarea:focus {
+	border-color: var(--ob-brand);
+	box-shadow: 0 0 0 4px color-mix(in srgb, var(--ob-brand) 16%, transparent);
+	outline: none;
+}
+
+.wahou-ob-field [aria-invalid="true"] {
+	border-color: var(--ob-danger) !important;
+}
+
+.wahou-ob-input {
+	position: relative;
+}
+
+.wahou-ob-input.has-suffix input {
+	padding-right: 56px !important;
+}
+
+.wahou-ob-input__suffix {
+	position: absolute;
+	top: 50%;
+	right: 16px;
+	transform: translateY(-50%);
+	color: var(--ob-muted);
+	font-weight: 600;
+	pointer-events: none;
+}
+
+.wahou-ob-help {
+	margin: 6px 0 0;
+	color: var(--ob-muted);
+	font-size: 14px;
+	line-height: 1.45;
+}
+
+.wahou-ob-field__error {
+	margin: 6px 0 0;
+	color: var(--ob-danger);
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.wahou-ob-range {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--ob-muted);
+}
+
+.wahou-ob-range input {
+	width: 84px !important;
+	text-align: center;
+}
+
+/* Choice cards ------------------------------------------------------------- */
+
+.wahou-ob-choices {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+	margin: 0 0 20px;
+	padding: 0;
+	border: 0;
+}
+
+.wahou-ob-choices--3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.wahou-ob-choices legend {
+	grid-column: 1 / -1;
+	margin-bottom: 10px;
+	padding: 0;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.wahou-ob-choice {
+	position: relative;
+	min-width: 0;
+}
+
+.wahou-ob-choice input,
+.wahou-ob-toggle input,
+.wahou-ob-segmented input {
+	position: absolute;
+	opacity: 0;
+	width: 1px;
+	height: 1px;
+	pointer-events: none;
+}
+
+.wahou-ob-choice label {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	height: 100%;
+	padding: 16px;
+	border: 1.5px solid var(--ob-border);
+	border-radius: 14px;
+	background: var(--ob-card);
+	cursor: pointer;
+	transition: border-color .15s, background-color .15s, box-shadow .15s, transform .15s;
+}
+
+.wahou-ob-choice label:hover {
+	border-color: color-mix(in srgb, var(--ob-brand) 45%, var(--ob-border));
+}
+
+.wahou-ob-choice input:checked + label {
+	border-color: var(--ob-brand);
+	background: var(--ob-soft);
+	box-shadow: 0 0 0 1px var(--ob-brand) inset;
+}
+
+.wahou-ob-choice input:focus-visible + label {
+	outline: 3px solid var(--ob-ring);
+	outline-offset: 2px;
+}
+
+.wahou-ob-choice__icon {
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	margin-bottom: 6px;
+	border-radius: 12px;
+	background: var(--ob-soft);
+	color: var(--ob-brand);
+}
+
+.wahou-ob-choice input:checked + label .wahou-ob-choice__icon {
+	background: var(--ob-brand);
+	color: var(--ob-on-brand);
+}
+
+.wahou-ob-choice__title {
+	font-weight: 700;
+}
+
+.wahou-ob-choice__text {
+	color: var(--ob-muted);
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+.wahou-ob-choices--compact .wahou-ob-choice label {
+	padding: 12px 14px;
+}
+
+/* Toggles ------------------------------------------------------------------ */
+
+.wahou-ob-toggles {
+	display: grid;
+	gap: 6px;
+}
+
+.wahou-ob-toggle {
+	position: relative;
+	padding: 12px 0;
+	border-top: 1px solid var(--ob-border);
+}
+
+.wahou-ob-toggles .wahou-ob-toggle:first-child,
+.wahou-ob-zone > .wahou-ob-toggle {
+	border-top: 0;
+}
+
+.wahou-ob-toggle label {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.wahou-ob-toggle__ui {
+	position: relative;
+	flex: 0 0 46px;
+	width: 46px;
+	height: 28px;
+	margin-top: -2px;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--ob-text) 18%, transparent);
+	transition: background-color .2s;
+}
+
+.wahou-ob-toggle__ui::after {
+	content: "";
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background: #ffffff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+	transition: transform .2s cubic-bezier(.2, .7, .2, 1);
+}
+
+.wahou-ob-toggle input:checked + label .wahou-ob-toggle__ui {
+	background: var(--ob-brand);
+}
+
+.wahou-ob-toggle input:checked + label .wahou-ob-toggle__ui::after {
+	transform: translateX(18px);
+}
+
+.wahou-ob-toggle input:focus-visible + label .wahou-ob-toggle__ui {
+	outline: 3px solid var(--ob-ring);
+	outline-offset: 2px;
+}
+
+.wahou-ob-toggle .wahou-ob-help {
+	margin-left: 60px;
+}
+
+/* Payment gateways --------------------------------------------------------- */
+
+.wahou-ob-gateway {
+	margin-bottom: 14px;
+	padding: 18px;
+	border: 1.5px solid var(--ob-border);
+	border-radius: 16px;
+	transition: border-color .2s, box-shadow .2s;
+}
+
+.wahou-ob-gateway.is-connected {
+	border-color: color-mix(in srgb, var(--ob-success) 45%, var(--ob-border));
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--ob-success) 10%, transparent);
+}
+
+.wahou-ob-gateway__head {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.wahou-ob-gateway__head > div {
+	flex: 1;
+	min-width: 0;
+}
+
+.wahou-ob-gateway__head p {
+	margin: 0;
+	color: var(--ob-muted);
+	font-size: 14px;
+}
+
+.wahou-ob-gateway__logo {
+	display: grid;
+	flex: 0 0 44px;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	border-radius: 12px;
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 800;
+}
+
+.wahou-ob-gateway__logo--stripe {
+	background: #635bff;
+}
+
+.wahou-ob-gateway__logo--paypal {
+	background: linear-gradient(135deg, #003087, #0070e0);
+}
+
+.wahou-ob-gateway__logo--bank {
+	background: color-mix(in srgb, var(--ob-text) 75%, transparent);
+}
+
+.wahou-ob-badge {
+	flex: 0 0 auto;
+	padding: 4px 10px;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--ob-text) 8%, transparent);
+	color: var(--ob-muted);
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.is-connected .wahou-ob-badge {
+	background: color-mix(in srgb, var(--ob-success) 14%, transparent);
+	color: var(--ob-success);
+}
+
+.wahou-ob-gateway__info {
+	margin: 10px 0 0;
+	color: var(--ob-muted);
+	font-size: 14px;
+}
+
+.wahou-ob-gateway__form {
+	margin-top: 12px;
+}
+
+.wahou-ob-gateway__form summary {
+	cursor: pointer;
+	color: var(--ob-brand);
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.wahou-ob-gateway > .wahou-ob-toggle {
+	margin-top: 10px;
+	border-top: 0;
+}
+
+.wahou-ob-segmented {
+	display: inline-flex;
+	margin: 14px 0 0;
+	padding: 4px;
+	border: 0;
+	border-radius: 12px;
+	background: color-mix(in srgb, var(--ob-text) 7%, transparent);
+}
+
+.wahou-ob-segmented label {
+	padding: 8px 16px;
+	border-radius: 9px;
+	color: var(--ob-muted);
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.wahou-ob-segmented input:checked + label {
+	background: var(--ob-card);
+	color: var(--ob-text);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .12);
+}
+
+.wahou-ob-segmented input:focus-visible + label {
+	outline: 3px solid var(--ob-ring);
+}
+
+.wahou-ob-gateway__actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 18px;
+	font-size: 14px;
+}
+
+.wahou-ob-gateway__result {
+	margin: 12px 0 0;
+	padding: 10px 14px;
+	border-radius: 10px;
+	font-size: 14px;
+}
+
+.wahou-ob-gateway__result.is-success {
+	background: color-mix(in srgb, var(--ob-success) 12%, transparent);
+	color: var(--ob-success);
+}
+
+.wahou-ob-gateway__result.is-error {
+	background: color-mix(in srgb, var(--ob-danger) 10%, transparent);
+	color: var(--ob-danger);
+}
+
+/* Shipping zones ----------------------------------------------------------- */
+
+.wahou-ob-zone {
+	padding: 18px 0;
+	border-top: 1px solid var(--ob-border);
+}
+
+.wahou-ob-zone:first-of-type {
+	border-top: 0;
+	padding-top: 0;
+}
+
+.wahou-ob-zone .wahou-ob-grid {
+	margin-bottom: 0;
+}
+
+/* Design ------------------------------------------------------------------- */
+
+.wahou-ob-design {
+	display: grid;
+	grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+	gap: 28px;
+	align-items: start;
+}
+
+.wahou-ob-color {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+}
+
+.wahou-ob-color input[type="color"] {
+	width: 56px;
+	height: 48px;
+	padding: 4px;
+	border: 1.5px solid var(--ob-border);
+	border-radius: 12px;
+	background: var(--ob-field);
+	cursor: pointer;
+}
+
+.wahou-ob-swatches {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.wahou-ob-swatch {
+	width: 32px;
+	height: 32px;
+	border: 3px solid var(--ob-card);
+	border-radius: 50%;
+	background: var(--swatch);
+	box-shadow: 0 0 0 1.5px var(--ob-border);
+	cursor: pointer;
+	transition: transform .15s;
+}
+
+.wahou-ob-swatch:hover {
+	transform: scale(1.08);
+}
+
+.wahou-ob-swatch[aria-pressed="true"] {
+	box-shadow: 0 0 0 2px var(--swatch);
+}
+
+.wahou-ob-design .wahou-ob-choices {
+	margin-top: 20px;
+}
+
+.wahou-ob-preview {
+	position: sticky;
+	top: 24px;
+	overflow: hidden;
+	border: 1px solid var(--ob-border);
+	border-radius: 18px;
+	background: var(--ob-card);
+	box-shadow: var(--ob-shadow);
+}
+
+.wahou-ob-preview__img {
+	position: relative;
+	display: grid;
+	place-items: center;
+	aspect-ratio: 4 / 3;
+	background: linear-gradient(135deg, var(--ob-soft), color-mix(in srgb, var(--ob-brand) 22%, var(--ob-card)));
+	color: var(--ob-brand);
+}
+
+.wahou-ob-preview__img svg {
+	width: 64px;
+	height: 64px;
+}
+
+.wahou-ob-preview__badge {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	padding: 4px 10px;
+	border-radius: 999px;
+	background: var(--ob-brand);
+	color: var(--ob-on-brand);
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 700;
+}
+
+.wahou-ob-preview__body {
+	display: grid;
+	gap: 6px;
+	padding: 16px;
+}
+
+.wahou-ob-preview__stars {
+	color: #f59e0b;
+	font-size: 14px;
+}
+
+.wahou-ob-preview__stars small {
+	color: var(--ob-muted);
+}
+
+.wahou-ob-preview__price s {
+	color: var(--ob-muted);
+}
+
+.wahou-ob-preview__price b {
+	font-size: 18px;
+}
+
+.wahou-ob-preview__btn {
+	display: grid;
+	place-items: center;
+	min-height: 46px;
+	margin-top: 6px;
+	border-radius: 12px;
+	background: var(--ob-brand);
+	color: var(--ob-on-brand);
+	font-weight: 700;
+	transition: border-radius .2s, background-color .2s;
+}
+
+.wahou-ob-preview[data-style="pill"] .wahou-ob-preview__btn {
+	border-radius: 999px;
+}
+
+.wahou-ob-preview[data-style="square"] .wahou-ob-preview__btn {
+	border-radius: 4px;
+}
+
+.wahou-ob-preview__ship {
+	color: var(--ob-success);
+	font-size: 13px;
+	font-weight: 600;
+}
+
+/* Pages & notes ------------------------------------------------------------ */
+
+.wahou-ob-pages {
+	margin: 8px 0 18px;
+	padding: 18px;
+	border-radius: 16px;
+	background: var(--ob-soft);
+}
+
+.wahou-ob-pages ul {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 8px 16px;
+	margin: 12px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wahou-ob-pages li span {
+	display: inline-grid;
+	place-items: center;
+	width: 22px;
+	height: 22px;
+	margin-right: 6px;
+	border-radius: 50%;
+	background: var(--ob-card);
+	color: var(--ob-brand);
+	font-size: 13px;
+	font-weight: 800;
+}
+
+.wahou-ob-pages li.is-done span {
+	background: var(--ob-success);
+	color: #ffffff;
+}
+
+.wahou-ob-pages small {
+	color: var(--ob-muted);
+}
+
+.wahou-ob-note {
+	margin: 18px 0 0;
+	padding: 12px 14px;
+	border-left: 3px solid var(--ob-brand);
+	border-radius: 0 10px 10px 0;
+	background: var(--ob-soft);
+	color: var(--ob-muted);
+	font-size: 14px;
+}
+
+.wahou-ob-fineprint {
+	margin: 18px 0 0;
+	font-size: 14px;
+	text-align: center;
+}
+
+.wahou-ob-fineprint a {
+	color: var(--ob-muted);
+}
+
+/* Buttons & actions -------------------------------------------------------- */
+
+.wahou-ob-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 48px;
+	padding: 0 22px;
+	border: 1.5px solid var(--ob-border);
+	border-radius: 12px;
+	background: var(--ob-card);
+	color: var(--ob-text);
+	font: inherit;
+	font-weight: 700;
+	text-decoration: none;
+	cursor: pointer;
+	transition: transform .15s, box-shadow .15s, background-color .15s, filter .15s;
+}
+
+.wahou-ob-btn:hover {
+	transform: translateY(-1px);
+}
+
+.wahou-ob-btn:disabled {
+	cursor: progress;
+	opacity: .75;
+	transform: none;
+}
+
+.wahou-ob-btn--primary {
+	border-color: transparent;
+	background: var(--ob-brand);
+	color: var(--ob-on-brand);
+	box-shadow: 0 8px 22px color-mix(in srgb, var(--ob-brand) 32%, transparent);
+}
+
+.wahou-ob-btn--primary:hover {
+	filter: brightness(1.06);
+	box-shadow: 0 12px 26px color-mix(in srgb, var(--ob-brand) 38%, transparent);
+}
+
+.wahou-ob-btn--ghost {
+	border-color: transparent;
+	background: transparent;
+	color: var(--ob-muted);
+}
+
+.wahou-ob-btn--ghost:hover {
+	background: color-mix(in srgb, var(--ob-text) 6%, transparent);
+	color: var(--ob-text);
+}
+
+.wahou-ob-btn--link {
+	min-height: 40px;
+	padding: 0 8px;
+	border-color: transparent;
+	background: transparent;
+	color: var(--ob-muted);
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+.wahou-ob-btn--small {
+	min-height: 40px;
+	padding: 0 16px;
+	font-size: 14px;
+}
+
+.wahou-ob-btn.is-busy::before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	border: 2px solid currentColor;
+	border-right-color: transparent;
+	border-radius: 50%;
+	animation: wahou-ob-spin .7s linear infinite;
+}
+
+@keyframes wahou-ob-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.wahou-ob-form__error {
+	margin-top: 18px;
+	padding: 12px 14px;
+	border-radius: 10px;
+	background: color-mix(in srgb, var(--ob-danger) 10%, transparent);
+	color: var(--ob-danger);
+	font-weight: 600;
+}
+
+.wahou-ob-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: 28px;
+	padding-top: 22px;
+	border-top: 1px solid var(--ob-border);
+}
+
+.wahou-ob-actions__right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-left: auto;
+}
+
+/* Done --------------------------------------------------------------------- */
+
+.wahou-ob-step--done .wahou-ob-card {
+	text-align: center;
+}
+
+.wahou-ob-done__icon {
+	display: grid;
+	place-items: center;
+	width: 76px;
+	height: 76px;
+	margin: 4px auto 18px;
+	border-radius: 24px;
+	background: linear-gradient(135deg, var(--ob-brand), color-mix(in srgb, var(--ob-brand) 55%, #f59e0b));
+	color: var(--ob-on-brand);
+	box-shadow: 0 14px 34px color-mix(in srgb, var(--ob-brand) 35%, transparent);
+	animation: wahou-ob-pop .6s cubic-bezier(.2, 1.4, .4, 1);
+}
+
+.wahou-ob-done__icon svg {
+	width: 38px;
+	height: 38px;
+}
+
+@keyframes wahou-ob-pop {
+	from {
+		transform: scale(.4) rotate(-12deg);
+		opacity: 0;
+	}
+	to {
+		transform: none;
+		opacity: 1;
+	}
+}
+
+.wahou-ob-done__lead {
+	max-width: 520px;
+	margin: 0 auto 22px;
+	color: var(--ob-muted);
+	font-size: 17px;
+}
+
+.wahou-ob-summary {
+	display: inline-grid;
+	gap: 8px;
+	margin: 0 auto 26px;
+	padding: 0;
+	list-style: none;
+	text-align: left;
+}
+
+.wahou-ob-summary li {
+	position: relative;
+	padding-left: 30px;
+}
+
+.wahou-ob-summary li::before {
+	content: "✓";
+	position: absolute;
+	left: 0;
+	top: 1px;
+	display: grid;
+	place-items: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--ob-success) 15%, transparent);
+	color: var(--ob-success);
+	font-size: 12px;
+	font-weight: 800;
+}
+
+.wahou-ob-done__actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+}
+
+.wahou-ob-tip {
+	margin-top: 28px;
+	padding: 16px;
+	border: 1px dashed color-mix(in srgb, var(--ob-brand) 45%, var(--ob-border));
+	border-radius: 14px;
+	text-align: left;
+}
+
+.wahou-ob-tip p {
+	margin: 4px 0 8px;
+	color: var(--ob-muted);
+	font-size: 14px;
+}
+
+.wahou-ob-tip code {
+	display: block;
+	overflow-x: auto;
+	padding: 8px 10px;
+	border-radius: 8px;
+	background: var(--ob-soft);
+	font-size: 13px;
+	white-space: nowrap;
+}
+
+.wahou-ob-confetti {
+	position: fixed;
+	inset: 0;
+	z-index: 50;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	display: none;
+}
+
+.wahou-ob-confetti.is-active {
+	display: block;
+}
+
+/* Responsive --------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+	.wahou-ob-stepper ol {
+		display: none;
+	}
+
+	.wahou-ob-stepper__compact {
+		display: block;
+	}
+}
+
+@media (max-width: 680px) {
+	.wahou-ob-header {
+		padding: 16px 16px 4px;
+	}
+
+	.wahou-ob-card {
+		padding: 22px 18px;
+		border-radius: 18px;
+	}
+
+	.wahou-ob-grid,
+	.wahou-ob-choices,
+	.wahou-ob-choices--3,
+	.wahou-ob-design,
+	.wahou-ob-pages ul {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.wahou-ob-field--half {
+		grid-column: 1 / -1;
+	}
+
+	.wahou-ob-choices--compact.wahou-ob-choices--3 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.wahou-ob-preview {
+		position: static;
+	}
+
+	.wahou-ob-step:not(.wahou-ob-step--done) .wahou-ob-actions {
+		position: sticky;
+		bottom: 0;
+		z-index: 5;
+		margin: 24px -18px -22px;
+		padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
+		border-radius: 0 0 18px 18px;
+		background: color-mix(in srgb, var(--ob-card) 92%, transparent);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+	}
+
+	.wahou-ob-actions__right {
+		flex: 1;
+		justify-content: flex-end;
+	}
+
+	.wahou-ob-actions .wahou-ob-btn--primary {
+		flex: 1;
+	}
+
+	.wahou-ob-done__actions .wahou-ob-btn {
+		width: 100%;
+	}
+
+	.wahou-ob-toggle .wahou-ob-help {
+		margin-left: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: .01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: .01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

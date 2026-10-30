@@ -94,8 +94,8 @@ $currency = (string) ( $totals['currency'] ?? '' );
 		</tr>
 	<?php endforeach; ?>
 	<tr>
-		<td colspan="2" style="<?php echo esc_attr( Mailer::style( 'total' ) ); ?>"><?php esc_html_e( 'Total', 'wahou-commerce' ); ?></td>
-		<td style="<?php echo esc_attr( Mailer::style( 'total_r' ) ); ?>"><?php echo esc_html( Money::format( (int) ( $totals['total'] ?? 0 ), $currency ) ); ?></td>
+		<td colspan="2" style="<?php echo esc_attr( Mailer::style( 'total' ) ); ?>"><?php esc_html_e( 'Subtotal', 'wahou-commerce' ); ?></td>
+		<td style="<?php echo esc_attr( Mailer::style( 'total_r' ) ); ?>"><?php echo esc_html( Money::format( (int) ( $totals['subtotal'] ?? 0 ) - (int) ( $totals['discount'] ?? 0 ), $currency ) ); ?></td>
 	</tr>
 </table>
 

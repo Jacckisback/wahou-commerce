@@ -18,7 +18,7 @@ $wahou_count  = count( $wahou_images );
 $wahou_name   = $product->name();
 ?>
 <div class="wahou-gallery<?php echo $wahou_count > 1 ? ' wahou-gallery--multi' : ''; ?>" data-wahou-gallery>
-	<?php echo Render::badges( $product ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
+	<?php echo Render::badges( $product, false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
 	<?php if ( ! $wahou_count ) : ?>
 		<div class="wahou-gallery__viewport"><?php echo Render::placeholder( 'wahou-gallery__placeholder' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
 	<?php else : ?>

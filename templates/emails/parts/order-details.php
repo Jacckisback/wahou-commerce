@@ -24,7 +24,7 @@ $mention        = Tax::invoice_mention( $order->tax_mode(), $order->needs_shippi
 <h2 style="<?php echo esc_attr( Mailer::style( 'h2' ) ); ?>">
 	<?php
 	/* translators: 1: order number, 2: order date. */
-	echo esc_html( sprintf( __( 'Order #%1$s – %2$s', 'wahou-commerce' ), $order->number(), $order->date() ) );
+	echo esc_html( sprintf( __( 'Order #%1$s – %2$s', 'wahou-commerce' ), $order->number(), Emails::date( $order->created_at() ) ) );
 	?>
 </h2>
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="<?php echo esc_attr( Mailer::style( 'table' ) ); ?>">

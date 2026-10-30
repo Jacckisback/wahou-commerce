@@ -69,6 +69,11 @@ final class PriceHistory {
 		if ( $changed ) {
 			update_post_meta( $product->id(), self::KEY, $history );
 		}
+		// Sortable "current price" (sale price when on sale, lowest variant price).
+		$active = $product->variants() ? $product->price_range()[0] : $product->price();
+		if ( (int) get_post_meta( $product->id(), '_wahou_active_price', true ) !== $active || '' === get_post_meta( $product->id(), '_wahou_active_price', true ) ) {
+			update_post_meta( $product->id(), '_wahou_active_price', $active );
+		}
 	}
 
 	/**

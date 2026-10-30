@@ -89,6 +89,8 @@ foreach ( $lines as $line ) {
 							<?php
 							if ( $line['image_id'] ) {
 								echo wp_get_attachment_image( (int) $line['image_id'], 'thumbnail', false, array( 'loading' => 'lazy', 'alt' => '', 'decoding' => 'async' ) );
+							} else {
+								echo '<span class="wahou-cart-line__placeholder"></span>';
 							}
 							?>
 						</a>

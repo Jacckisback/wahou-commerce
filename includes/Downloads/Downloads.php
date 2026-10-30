@@ -198,7 +198,7 @@ final class Downloads {
 			'product_id'    => (int) $row['product_id'],
 			'remaining'     => $remaining,
 			'expires'       => $expires,
-			'expires_label' => $expires ? (string) get_date_from_gmt( $expires, (string) get_option( 'date_format' ) ) : '',
+			'expires_label' => $expires ? wahou_date( (string) $expires ) : '',
 			'available'     => ! $expired && ( null === $remaining || $remaining > 0 ),
 			'count'         => (int) $row['download_count'],
 		);

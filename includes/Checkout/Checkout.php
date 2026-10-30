@@ -217,9 +217,6 @@ final class Checkout {
 
 		$gateway_id = sanitize_key( (string) ( $input['payment_method'] ?? '' ) );
 		$gateway    = Gateways::get( $gateway_id );
-		if ( ! $gateway || ! $gateway->is_available() ) {
-			$errors['payment_method'] = __( 'Please choose a payment method.', 'wahou-commerce' );
-		}
 
 		// Refresh cart context with the final details so totals match the order.
 		$tax_address = $needs_shipping ? $shipping : $billing;
@@ -242,6 +239,13 @@ final class Checkout {
 		$totals = $cart->totals();
 		if ( ! empty( $totals['errors']['shipping'] ) ) {
 			$errors['shipping.country'] = (string) $totals['errors']['shipping'];
+		}
+		// Free orders (100 % coupon, lead magnets) need no payment method.
+		$is_free = 0 === (int) $totals['total'] && empty( $totals['errors']['coupon'] );
+		if ( $is_free ) {
+			$gateway_id = 'free';
+		} elseif ( ! $gateway || ! $gateway->is_available() ) {
+			$errors['payment_method'] = __( 'Please choose a payment method.', 'wahou-commerce' );
 		}
 		if ( ! empty( $totals['errors']['coupon'] ) ) {
 			$cart->remove_coupon();
@@ -279,7 +283,7 @@ final class Checkout {
 			return $order;
 		}
 
-		if ( 0 === $order->total() ) {
+		if ( 0 === $order->total() || ! $gateway ) {
 			// Free orders (100 % coupon, free lead magnets) skip payment.
 			$order->payment_complete( 'free' );
 			return array(

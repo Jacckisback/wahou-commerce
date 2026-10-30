@@ -93,6 +93,7 @@ final class Fields {
 				'decimal'  => false !== strpos( $sample, ',' ) ? ',' : '.',
 				'decimals' => Money::decimals(),
 			),
+			'eu'        => Countries::eu(),
 			'maxUpload' => (int) wp_max_upload_size(),
 			'maxUploadHuman' => size_format( wp_max_upload_size() ),
 			'i18n'      => array(
