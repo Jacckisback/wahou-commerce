@@ -145,13 +145,27 @@ Les taux changent : vérifiez-les régulièrement dans **Réglages → TVA** (ch
 - Limitation de débit (checkout, coupons, VIES, connexion magique), champ piège anti-bot.
 - Connexion magique refusée aux comptes d'équipe (éditeurs, admins).
 
+## Tests réalisés (version 1.0.0)
+
+Sur WordPress 7.1.4 / PHP 8.3, thème Twenty Twenty-Five, navigateur mobile (390 px) :
+
+- Parcours complets sans erreur PHP ni JavaScript : fiche produit → variante → tiroir panier → checkout → virement → page de remerciement → paiement validé → facture, téléchargement, e-mails.
+- TVA : France, OSS Allemagne, Canaries (export), Monaco (= France), B2B Irlande avec numéro VIES réel (autoliquidation), commande gratuite par coupon 100 %.
+- Relance de paniers abandonnés (séquence, coupon personnel), webhooks Stripe signés, montants PayPal, connexion des clés.
+- 23 écrans d'administration, assistant de démarrage, import WooCommerce.
+- Performance mesurée : aucune ressource Wahou sur les pages hors boutique, 7 requêtes et CLS 0 sur une fiche produit.
+
+Non testé en réel : paiements Stripe et PayPal en production (nécessitent vos clés et un site en HTTPS) — faites une commande test en mode test avant d'ouvrir.
+
 ## Pour les développeurs
 
 - Surcharge des templates : copiez `templates/xxx.php` dans `votre-theme/wahou-commerce/xxx.php`.
 - API REST `wahou/v1` (panier, checkout, commandes, produits) — voir `includes/Rest/RestApi.php`.
 - Hooks et contrats internes : [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 - WP-CLI : `wp wahou status`, `wp wahou cron`, `wp wahou pages`.
-- Fonctions utiles : `wahou_get_product()`, `wahou_get_order()`, `wahou_cart()`, `wahou_price()`, `wahou_buy_url()`.
+- Fonctions utiles : `wahou_get_product()`, `wahou_get_order()`, `wahou_cart()`, `wahou_price()`, `wahou_buy_url()`, `wahou_date()`.
+- Éditeur de produits classique par défaut (formulaire produit toujours visible) ; Gutenberg : `add_filter( 'wahou_product_block_editor', '__return_true' );`
+- `bin/build.sh` : génère les fichiers minifiés (`*.min.js`, `*.min.css`) et le zip installable dans `dist/`. Avec `SCRIPT_DEBUG`, les sources lisibles sont servies.
 
 ## Feuille de route
 

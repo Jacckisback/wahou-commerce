@@ -27,13 +27,44 @@ final class PostTypes {
 	}
 
 	public static function product_base(): string {
-		$base = Settings::str( 'product_base' );
-		return '' !== $base ? sanitize_title( $base ) : _x( 'product', 'URL slug', 'wahou-commerce' );
+		return self::base( 'product_base', 'product' );
 	}
 
 	public static function category_base(): string {
-		$base = Settings::str( 'category_base' );
-		return '' !== $base ? sanitize_title( $base ) : _x( 'product-category', 'URL slug', 'wahou-commerce' );
+		return self::base( 'category_base', 'product-category' );
+	}
+
+	public static function tag_base(): string {
+		return self::base( 'tag_base', 'product-tag' );
+	}
+
+	/**
+	 * URL base from settings. When empty, the slug translated in the SITE
+	 * language is computed once and stored, so permalinks never change with
+	 * the visitor's language (WPML/Polylang) or an admin's personal locale.
+	 */
+	private static function base( string $key, string $english ): string {
+		$base = sanitize_title( Settings::str( $key ) );
+		if ( '' !== $base ) {
+			return $base;
+		}
+		$switched = determine_locale() !== get_locale() && switch_to_locale( get_locale() );
+		switch ( $english ) {
+			case 'product-category':
+				$base = _x( 'product-category', 'URL slug', 'wahou-commerce' );
+				break;
+			case 'product-tag':
+				$base = _x( 'product-tag', 'URL slug', 'wahou-commerce' );
+				break;
+			default:
+				$base = _x( 'product', 'URL slug', 'wahou-commerce' );
+		}
+		if ( $switched ) {
+			restore_previous_locale();
+		}
+		$base = sanitize_title( $base ) ?: $english;
+		Settings::set( $key, $base );
+		return $base;
 	}
 
 	public static function register(): void {
@@ -140,7 +171,7 @@ final class PostTypes {
 				'show_admin_column' => false,
 				'show_in_rest'      => true,
 				'rewrite'           => array(
-					'slug'       => _x( 'product-tag', 'URL slug', 'wahou-commerce' ),
+					'slug'       => self::tag_base(),
 					'with_front' => false,
 				),
 				'capabilities'      => array(

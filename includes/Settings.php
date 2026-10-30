@@ -61,6 +61,7 @@ final class Settings {
 			'invoice_offset'            => 0,
 			'product_base'              => '',
 			'category_base'             => '',
+			'tag_base'                  => '',
 			'weight_unit'               => 'kg',
 			'dimension_unit'            => 'cm',
 
