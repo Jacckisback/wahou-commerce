@@ -24,6 +24,10 @@ contribution doit les respecter.
 | Factures / avoirs | tables `wahou_invoices`, `wahou_credit_notes` (numérotation continue) |
 | Réglages | option `wahou_settings` (voir `Settings::defaults()`), secrets chiffrés dans `wahou_secrets` |
 
+Méta calculée `_wahou_active_price` : prix courant (soldé ou plus petite variante), tenue à jour par
+`PriceHistory::record()` et utilisée pour le tri par prix. `business_days` : 0 = dimanche … 6 = samedi.
+Le poids est saisi dans l'unité `weight_unit` (`Product::weight()`), `Product::weight_kg()` le convertit.
+
 Méta des fichiers numériques (`_wahou_files`) : `[ { id: 'f_xxx', name: 'Livre.pdf', path: 'a1b2c3/Livre.pdf' } ]`
 (chemin relatif à `Install::private_dir()`) ou `{ id, name, url }` pour un fichier externe.
 
@@ -51,10 +55,14 @@ Méta de commande utiles : `tax_lines`, `shipping_line`, `tax_evidence`, `consen
 - `Recovery\Recovery::stats( string $from_gmt, string $to_gmt ): array` — `abandoned`, `recovered`, `recovered_revenue`, `rate`
 - `Seo\Breadcrumbs::items(): array` — `[ { name, url } ]` pour la requête courante
 - `Compat\Compat::seo_plugin_active(): bool`
+- `wahou_date( $gmt, $format )` : date localisée (mois dans la langue du site)
 - `Gateways\Stripe::connect( string $mode, string $publishable, string $secret )` / `Gateways\PayPal::connect( string $mode, string $client_id, string $secret )` → `array|WP_Error`
 - AJAX admin (nonce `wahou_gateway_connect`, capacité `manage_wahou`) : `wahou_gateway_connect` `{ gateway, mode, public_key, secret }`, `wahou_gateway_disconnect` `{ gateway, mode }`
 
 ## Front-end
+
+Les fichiers minifiés (`*.min.js`, `*.min.css`, générés par `bin/build.sh`) sont servis via
+`Support\Assets::url()` sauf si `SCRIPT_DEBUG` est actif.
 
 Handles : style `wahou` (`assets/css/wahou.css`, composants de base), style `wahou-checkout` (`assets/css/checkout.css`),
 scripts `wahou` (`assets/js/wahou.js`), `wahou-checkout` (`assets/js/checkout.js`, dépend de `wahou`),

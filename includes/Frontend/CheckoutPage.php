@@ -367,12 +367,12 @@ final class CheckoutPage {
 			Frontend::enqueue();
 		}
 		if ( ! wp_style_is( 'wahou-checkout', 'registered' ) ) {
-			wp_register_style( 'wahou-checkout', WAHOU_URL . 'assets/css/checkout.css', wp_style_is( 'wahou', 'registered' ) ? array( 'wahou' ) : array(), WAHOU_VERSION );
+			wp_register_style( 'wahou-checkout', \WahouCommerce\Support\Assets::url( 'css/checkout.css' ), wp_style_is( 'wahou', 'registered' ) ? array( 'wahou' ) : array(), WAHOU_VERSION );
 		}
 		if ( ! wp_script_is( 'wahou-checkout', 'registered' ) ) {
 			wp_register_script(
 				'wahou-checkout',
-				WAHOU_URL . 'assets/js/checkout.js',
+				\WahouCommerce\Support\Assets::url( 'js/checkout.js' ),
 				wp_script_is( 'wahou', 'registered' ) ? array( 'wahou' ) : array(),
 				WAHOU_VERSION,
 				array(

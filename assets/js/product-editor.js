@@ -496,6 +496,11 @@
 				variants: state.variants,
 			} );
 		};
+		// Empty variant prices inherit the product price: show it as placeholder.
+		const basePrice = () => {
+			const field = document.querySelector( 'input[name="wahou_p[price]"]' );
+			return ( field && field.value.trim() ) || root.dataset.basePrice || '';
+		};
 		const parseValues = ( text ) => Array.from( new Set( text.split( ',' ).map( ( value ) => value.trim() ).filter( Boolean ) ) );
 		const keyOf = ( attributes ) => JSON.stringify( Object.keys( attributes || {} ).sort().map( ( key ) => [ key, attributes[ key ] ] ) );
 
@@ -650,10 +655,10 @@
 				} );
 				body.appendChild( el( 'tr', {}, [
 					el( 'td', {}, el( 'span', { class: 'wahou-variant__label', text: label } ) ),
-					el( 'td', {}, moneyInput( variant, 'price', label + ' – ' + t( 'price' ), t( 'samePrice' ) ) ),
+					el( 'td', {}, moneyInput( variant, 'price', label + ' – ' + t( 'price' ), basePrice() ) ),
 					el( 'td', {}, moneyInput( variant, 'sale_price', label + ' – ' + t( 'salePrice' ), '' ) ),
 					el( 'td', {}, textInput( variant, 'sku', label + ' – ' + t( 'sku' ), '', false ) ),
-					el( 'td', {}, textInput( variant, 'stock', label + ' – ' + t( 'stock' ), t( 'notTracked' ), true ) ),
+					el( 'td', {}, textInput( variant, 'stock', label + ' – ' + t( 'stock' ) + ' (' + t( 'notTracked' ) + ')', '—', true ) ),
 					imageCell,
 					el( 'td', {}, remove ),
 				] ) );
@@ -979,6 +984,49 @@
 		} );
 	}
 
+	/**
+	 * The block editor collapses meta boxes into a bottom pane by default.
+	 * Product data is the heart of a product: open the pane unless the
+	 * merchant closed it during this session.
+	 */
+	function openMetaBoxPane() {
+		if ( ! document.body.classList.contains( 'block-editor-page' ) || ! document.getElementById( 'wahou-product-data' ) ) {
+			return;
+		}
+		const key = 'wahouMetaPaneClosed';
+		document.addEventListener( 'click', ( event ) => {
+			const toggle = event.isTrusted && event.target.closest( '.edit-post-meta-boxes-main__presenter button[aria-expanded]' );
+			if ( toggle ) {
+				window.setTimeout( () => {
+					try {
+						if ( toggle.getAttribute( 'aria-expanded' ) === 'false' ) {
+							window.sessionStorage.setItem( key, '1' );
+						} else {
+							window.sessionStorage.removeItem( key );
+						}
+					} catch ( e ) {}
+				}, 0 );
+			}
+		} );
+		let closedByUser = false;
+		try {
+			closedByUser = window.sessionStorage.getItem( key ) === '1';
+		} catch ( e ) {}
+		if ( closedByUser ) {
+			return;
+		}
+		let tries = 0;
+		const timer = window.setInterval( () => {
+			const toggle = document.querySelector( '.edit-post-meta-boxes-main__presenter button[aria-expanded]' );
+			if ( toggle || ++tries > 60 ) {
+				window.clearInterval( timer );
+				if ( toggle && toggle.getAttribute( 'aria-expanded' ) === 'false' ) {
+					toggle.click();
+				}
+			}
+		}, 250 );
+	}
+
 	/* ------------------------------------------------------------------
 	 * Boot.
 	 * ------------------------------------------------------------------ */
@@ -994,6 +1042,7 @@
 		$$( '[data-wahou-coupon]' ).forEach( initCoupon );
 		$$( '[data-wahou-offer]' ).forEach( initOffer );
 		initCounters();
+		openMetaBoxPane();
 		applyShowIf();
 		document.addEventListener( 'change', ( event ) => {
 			if ( event.target.closest && event.target.closest( '.wahou-choice' ) ) {

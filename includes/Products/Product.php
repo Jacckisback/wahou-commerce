@@ -607,8 +607,24 @@ final class Product {
 		return $src ? (string) $src : '';
 	}
 
+	/**
+	 * Weight in the store's weight unit (Settings → weight_unit).
+	 */
 	public function weight(): float {
 		return (float) $this->meta( 'weight', 0 );
+	}
+
+	/**
+	 * Weight converted to kilograms (feeds, schema.org).
+	 */
+	public function weight_kg(): float {
+		$factors = array(
+			'kg' => 1.0,
+			'g'  => 0.001,
+			'lb' => 0.45359237,
+			'oz' => 0.028349523125,
+		);
+		return $this->weight() * ( $factors[ Settings::str( 'weight_unit' ) ] ?? 1.0 );
 	}
 
 	/**

@@ -49,16 +49,16 @@ final class Frontend {
 
 	public static function register_assets(): void {
 		$v = WAHOU_VERSION;
-		wp_register_style( 'wahou', WAHOU_URL . 'assets/css/wahou.css', array(), $v );
-		wp_register_style( 'wahou-checkout', WAHOU_URL . 'assets/css/checkout.css', array( 'wahou' ), $v );
+		wp_register_style( 'wahou', \WahouCommerce\Support\Assets::url( 'css/wahou.css' ), array(), $v );
+		wp_register_style( 'wahou-checkout', \WahouCommerce\Support\Assets::url( 'css/checkout.css' ), array( 'wahou' ), $v );
 		wp_add_inline_style( 'wahou', self::css_variables() );
 
 		$footer = array(
 			'strategy'  => 'defer',
 			'in_footer' => true,
 		);
-		wp_register_script( 'wahou', WAHOU_URL . 'assets/js/wahou.js', array(), $v, $footer );
-		wp_register_script( 'wahou-checkout', WAHOU_URL . 'assets/js/checkout.js', array( 'wahou' ), $v, $footer );
+		wp_register_script( 'wahou', \WahouCommerce\Support\Assets::url( 'js/wahou.js' ), array(), $v, $footer );
+		wp_register_script( 'wahou-checkout', \WahouCommerce\Support\Assets::url( 'js/checkout.js' ), array( 'wahou' ), $v, $footer );
 		wp_register_script(
 			'wahou-blocks',
 			WAHOU_URL . 'assets/js/blocks.js',
@@ -277,8 +277,8 @@ final class Frontend {
 	 */
 	private static function print_lazy_loader(): void {
 		$config = array(
-			'css'  => add_query_arg( 'ver', WAHOU_VERSION, WAHOU_URL . 'assets/css/wahou.css' ),
-			'js'   => add_query_arg( 'ver', WAHOU_VERSION, WAHOU_URL . 'assets/js/wahou.js' ),
+			'css'  => add_query_arg( 'ver', WAHOU_VERSION, \WahouCommerce\Support\Assets::url( 'css/wahou.css' ) ),
+			'js'   => add_query_arg( 'ver', WAHOU_VERSION, \WahouCommerce\Support\Assets::url( 'js/wahou.js' ) ),
 			'vars' => self::css_variables(),
 			'data' => self::data(),
 		);

@@ -192,7 +192,7 @@ final class Stripe extends Gateway {
 		if ( wp_script_is( 'wahou-checkout', 'registered' ) || wp_script_is( 'wahou-checkout', 'enqueued' ) ) {
 			$deps[] = 'wahou-checkout';
 		}
-		wp_enqueue_script( 'wahou-stripe', WAHOU_URL . 'assets/js/gateways/stripe.js', $deps, WAHOU_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
+		wp_enqueue_script( 'wahou-stripe', \WahouCommerce\Support\Assets::url( 'js/gateways/stripe.js' ), $deps, WAHOU_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
 		wp_add_inline_script(
 			'wahou-stripe',
 			'window.wahouStripeConfig = ' . wp_json_encode(

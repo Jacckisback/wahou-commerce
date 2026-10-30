@@ -202,8 +202,8 @@ final class Feed {
 				}
 			}
 		}
-		if ( $product->needs_shipping() && $product->weight() > 0 ) {
-			$out .= self::tag( 'g:shipping_weight', rtrim( rtrim( number_format( $product->weight(), 3, '.', '' ), '0' ), '.' ) . ' kg' );
+		if ( $product->needs_shipping() && $product->weight_kg() > 0 ) {
+			$out .= self::tag( 'g:shipping_weight', rtrim( rtrim( number_format( $product->weight_kg(), 3, '.', '' ), '0' ), '.' ) . ' kg' );
 		}
 		if ( 'bundle' === $product->type() ) {
 			$out .= self::tag( 'g:is_bundle', 'yes' );

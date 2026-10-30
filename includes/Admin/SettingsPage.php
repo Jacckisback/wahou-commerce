@@ -75,7 +75,10 @@ final class SettingsPage {
 			return;
 		}
 		wp_enqueue_style( 'wahou-admin', WAHOU_URL . 'assets/css/admin.css', array(), WAHOU_VERSION );
-		wp_enqueue_media();
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( isset( $_GET['tab'] ) && 'emails' === sanitize_key( wp_unslash( $_GET['tab'] ) ) ) {
+			wp_enqueue_media(); // Logo picker.
+		}
 		wp_enqueue_script( 'wahou-admin-settings', WAHOU_URL . 'assets/js/admin-settings.js', array(), WAHOU_VERSION, array( 'in_footer' => true ) );
 		wp_localize_script( 'wahou-admin-settings', 'wahouAdmin', Fields::script_data() );
 	}

@@ -175,7 +175,7 @@ final class PayPal extends Gateway {
 		}
 		$deps = ( wp_script_is( 'wahou-checkout', 'registered' ) || wp_script_is( 'wahou-checkout', 'enqueued' ) ) ? array( 'wahou-checkout' ) : array();
 		// The PayPal SDK itself is loaded on demand by paypal.js (lazy loading).
-		wp_enqueue_script( 'wahou-paypal', WAHOU_URL . 'assets/js/gateways/paypal.js', $deps, WAHOU_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
+		wp_enqueue_script( 'wahou-paypal', \WahouCommerce\Support\Assets::url( 'js/gateways/paypal.js' ), $deps, WAHOU_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
 	}
 
 	/* ------------------------------------------------------------------

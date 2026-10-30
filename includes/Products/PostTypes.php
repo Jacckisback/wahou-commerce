@@ -75,7 +75,7 @@ final class PostTypes {
 				'capability_type'     => $caps,
 				'map_meta_cap'        => true,
 				'menu_icon'           => 'dashicons-cart',
-				'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'page-attributes', 'custom-fields' ),
+				'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'page-attributes' ),
 				'rewrite'             => array(
 					'slug'       => self::product_base(),
 					'with_front' => false,
@@ -206,11 +206,17 @@ final class PostTypes {
 	}
 
 	/**
-	 * Coupons and offers use the classic screen (simple forms, faster).
+	 * Coupons and offers use the classic screen (simple forms, faster). Products
+	 * too by default, so the product data form stays visible next to the
+	 * description, like most e-commerce back offices; the block editor can be
+	 * re-enabled with the wahou_product_block_editor filter.
 	 */
 	public static function block_editor( bool $use, string $post_type ): bool {
 		if ( in_array( $post_type, array( self::COUPON, self::OFFER ), true ) ) {
 			return false;
+		}
+		if ( self::PRODUCT === $post_type ) {
+			return (bool) apply_filters( 'wahou_product_block_editor', false );
 		}
 		return $use;
 	}

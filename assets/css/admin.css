@@ -409,8 +409,15 @@
 	background: var(--wahou-a-bg);
 }
 
-.wahou-input--number {
+.wahou-input--number,
+.wahou-admin .wahou-input.wahou-input--number,
+.wahou-pd .wahou-input.wahou-input--number,
+.wahou-editor .wahou-input.wahou-input--number {
 	max-width: 180px;
+}
+
+.wahou-input-group .wahou-input.wahou-input--number {
+	max-width: none;
 }
 
 .wahou-textarea {

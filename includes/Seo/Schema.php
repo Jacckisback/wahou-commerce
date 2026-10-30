@@ -148,10 +148,10 @@ final class Schema {
 		if ( $categories ) {
 			$data['category'] = wp_strip_all_tags( $categories[0]->name );
 		}
-		if ( $product->weight() > 0 ) {
+		if ( $product->weight_kg() > 0 ) {
 			$data['weight'] = array(
 				'@type'    => 'QuantitativeValue',
-				'value'    => $product->weight(),
+				'value'    => $product->weight_kg(),
 				'unitCode' => 'KGM',
 			);
 		}

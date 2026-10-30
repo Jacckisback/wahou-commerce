@@ -659,8 +659,8 @@ final class Geo {
 				$specs[ self::escape_md( $name ) ] = implode( ', ', $values );
 			}
 		}
-		if ( $product->weight() > 0 ) {
-			$specs[ __( 'Weight', 'wahou-commerce' ) ] = number_format_i18n( $product->weight(), 3 ) . ' kg';
+		if ( $product->weight_kg() > 0 ) {
+			$specs[ __( 'Weight', 'wahou-commerce' ) ] = number_format_i18n( $product->weight_kg(), 3 ) . ' kg';
 		}
 		$d = $product->dimensions();
 		if ( $d['length'] > 0 || $d['width'] > 0 || $d['height'] > 0 ) {

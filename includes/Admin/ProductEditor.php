@@ -446,7 +446,8 @@ final class ProductEditor {
 			'variants'   => $variants,
 		);
 
-		echo '<div class="wahou-variants" data-wahou-variants>';
+		$base_price = $product ? $product->meta( 'price', '' ) : '';
+		echo '<div class="wahou-variants" data-wahou-variants data-base-price="' . esc_attr( '' === $base_price || null === $base_price ? '' : Money::to_input( (int) $base_price ) ) . '">';
 		echo '<input type="hidden" name="wahou_p[variations]" value="' . esc_attr( (string) wp_json_encode( $data ) ) . '" data-variations-input>';
 		echo '<p class="wahou-field__help">' . esc_html__( '1. Add your options (e.g. Size: S, M, L). 2. Click "Generate variants". 3. Set a specific price, stock or image only where needed – empty fields use the product values.', 'wahou-commerce' ) . '</p>';
 		echo '<div class="wahou-variants__attributes" data-attributes></div>';
@@ -1218,8 +1219,9 @@ final class ProductEditor {
 		require_once ABSPATH . 'wp-admin/includes/file.php';
 		Install::create_private_dirs();
 		$folder = strtolower( wp_generate_password( 16, false ) );
-		$filter = static function ( array $dirs ) use ( $folder ): array {
-			$base            = Install::private_dir();
+		// Resolved before the filter is added: calling wp_upload_dir() inside it would recurse.
+		$base   = Install::private_dir();
+		$filter = static function ( array $dirs ) use ( $folder, $base ): array {
 			$dirs['path']    = $base . '/' . $folder;
 			$dirs['url']     = '';
 			$dirs['subdir']  = '/' . $folder;
@@ -1249,7 +1251,7 @@ final class ProductEditor {
 			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
 			file_put_contents( $dir . '/index.php', "<?php\n// Silence is golden.\n" );
 		}
-		$relative = ltrim( str_replace( '\\', '/', substr( $absolute, strlen( Install::private_dir() ) ) ), '/' );
+		$relative = ltrim( str_replace( '\\', '/', substr( $absolute, strlen( $base ) ) ), '/' );
 
 		wp_send_json_success(
 			array(
