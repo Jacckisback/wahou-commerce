@@ -175,13 +175,13 @@ final class Order {
 
 	public static function label( string $status ): string {
 		$labels = array(
-			'pending'    => __( 'Pending payment', 'wahou-commerce' ),
-			'on-hold'    => __( 'On hold', 'wahou-commerce' ),
-			'processing' => __( 'Processing', 'wahou-commerce' ),
-			'completed'  => __( 'Completed', 'wahou-commerce' ),
-			'cancelled'  => __( 'Cancelled', 'wahou-commerce' ),
-			'refunded'   => __( 'Refunded', 'wahou-commerce' ),
-			'failed'     => __( 'Failed', 'wahou-commerce' ),
+			'pending'    => _x( 'Pending payment', 'order status', 'wahou-commerce' ),
+			'on-hold'    => _x( 'On hold', 'order status', 'wahou-commerce' ),
+			'processing' => _x( 'Processing', 'order status', 'wahou-commerce' ),
+			'completed'  => _x( 'Completed', 'order status', 'wahou-commerce' ),
+			'cancelled'  => _x( 'Cancelled', 'order status', 'wahou-commerce' ),
+			'refunded'   => _x( 'Refunded', 'order status', 'wahou-commerce' ),
+			'failed'     => _x( 'Failed', 'order status', 'wahou-commerce' ),
 		);
 		return $labels[ $status ] ?? $status;
 	}

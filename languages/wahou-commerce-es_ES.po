@@ -2497,7 +2497,6 @@ msgstr "IVA incl. %1$s sobre %2$s"
 
 #: includes/Admin/OrdersPage.php:511
 #: includes/Admin/OrdersPage.php:1226
-#: includes/Orders/Order.php:183
 #: templates/checkout/order-details.php:107
 #: templates/emails/parts/order-details.php:131
 msgid "Refunded"
@@ -6305,26 +6304,37 @@ msgid "Document not available"
 msgstr "Documento no disponible"
 
 #: includes/Orders/Order.php:178
+msgctxt "order status"
 msgid "Pending payment"
 msgstr "Pendiente de pago"
 
 #: includes/Orders/Order.php:179
+msgctxt "order status"
 msgid "On hold"
 msgstr "En espera"
 
 #: includes/Orders/Order.php:180
+msgctxt "order status"
 msgid "Processing"
 msgstr "Procesando"
 
 #: includes/Orders/Order.php:181
+msgctxt "order status"
 msgid "Completed"
 msgstr "Completado"
 
 #: includes/Orders/Order.php:182
+msgctxt "order status"
 msgid "Cancelled"
 msgstr "Cancelado"
 
+#: includes/Orders/Order.php:183
+msgctxt "order status"
+msgid "Refunded"
+msgstr "Reembolsado"
+
 #: includes/Orders/Order.php:184
+msgctxt "order status"
 msgid "Failed"
 msgstr "Fallido"
 
