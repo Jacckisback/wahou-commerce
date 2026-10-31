@@ -320,7 +320,7 @@ Les assistants IA lisent mal le JavaScript : chez Wahou Commerce, **tout le cont
 <tr>
 <td valign="top">
 
-Français installé à Madrid depuis 14 ans, je suis entrepreneur indépendant. Éditeur avec les **Éditions Olibook** (environ 200 livres publiés en six langues, dont la collection des « Bibles » sur l'intelligence artificielle, les cocktails ou le jardinage), fondateur de **[GustinAI](https://gustinai.com)** (formations IA pour les entreprises en France et en Espagne) et de **[DelfOnline](https://delfonline.es)** (préparation aux examens DELF, DALF et TCF).
+Français installé à Madrid depuis 14 ans et trilingue (français, espagnol, anglais), je suis entrepreneur indépendant et fondateur de **[GustinAI](https://gustinai.com)** (formations IA pour les entreprises en France et en Espagne).
 
 J'ai créé Wahou Commerce pour mes propres besoins : **vendre en direct, partout en Europe, sans abonnement ni commission, et sans y passer mes soirées.**
 
@@ -333,7 +333,7 @@ J'ai créé Wahou Commerce pour mes propres besoins : **vendre en direct, partou
 - 🌍 **Europe multilingue** : pensé dès le départ pour la France, l'Espagne et toute l'UE.
 - 🔓 **Indépendance** : vos clients, vos données, votre boutique, en logiciel libre.
 
-[🌐 gustinai.com](https://gustinai.com) · [📚 delfonline.es](https://delfonline.es) · [💻 GitHub @Jacckisback](https://github.com/Jacckisback)
+[🌐 gustinai.com](https://gustinai.com) · [💻 GitHub @Jacckisback](https://github.com/Jacckisback)
 
 </td>
 </tr>

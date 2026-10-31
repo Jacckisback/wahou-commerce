@@ -320,7 +320,7 @@ KI-Assistenten tun sich mit JavaScript schwer. Bei Wahou Commerce wird deshalb *
 <tr>
 <td valign="top">
 
-Ich bin Franzose, lebe seit 14 Jahren in Madrid und bin selbstständiger Unternehmer. Als Verleger habe ich mit den **Éditions Olibook** rund 200 Bücher in sechs Sprachen herausgebracht, darunter die „Bibel“-Reihe, etwa zu künstlicher Intelligenz, Cocktails oder Gartenarbeit. Außerdem bin ich Gründer von **[GustinAI](https://gustinai.com)** (KI-Schulungen für Unternehmen in Frankreich und Spanien) und **[DelfOnline](https://delfonline.es)** (Vorbereitung auf die Prüfungen DELF, DALF und TCF).
+Ich bin Franzose, lebe seit 14 Jahren in Madrid und spreche Französisch, Spanisch und Englisch. Als selbstständiger Unternehmer habe ich **[GustinAI](https://gustinai.com)** gegründet (KI-Schulungen für Unternehmen in Frankreich und Spanien).
 
 Wahou Commerce habe ich aus eigenem Bedarf entwickelt: **direkt verkaufen, überall in Europa, ohne Abo und ohne Provision – und ohne meine Abende dafür zu opfern.**
 
@@ -333,7 +333,7 @@ Wahou Commerce habe ich aus eigenem Bedarf entwickelt: **direkt verkaufen, über
 - 🌍 **Mehrsprachiges Europa**: von Anfang an für Frankreich, Spanien und die gesamte EU gedacht.
 - 🔓 **Unabhängigkeit**: Ihre Kunden, Ihre Daten, Ihr Shop – als freie Software.
 
-[🌐 gustinai.com](https://gustinai.com) · [📚 delfonline.es](https://delfonline.es) · [💻 GitHub @Jacckisback](https://github.com/Jacckisback)
+[🌐 gustinai.com](https://gustinai.com) · [💻 GitHub @Jacckisback](https://github.com/Jacckisback)
 
 </td>
 </tr>
