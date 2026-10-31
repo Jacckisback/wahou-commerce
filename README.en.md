@@ -320,7 +320,7 @@ AI assistants struggle to read JavaScript. With Wahou Commerce, **all content is
 <tr>
 <td valign="top">
 
-I'm a French independent entrepreneur, and Madrid has been my home for 14 years. As a publisher with **Éditions Olibook**, I've released around 200 books in six languages, including the “Bible” series on topics such as artificial intelligence, cocktails and gardening. I'm also the founder of **[GustinAI](https://gustinai.com)** (AI training for businesses in France and Spain) and **[DelfOnline](https://delfonline.es)** (preparation for the DELF, DALF and TCF French-language exams).
+I'm a French independent entrepreneur, and Madrid has been my home for 14 years. I speak French, Spanish and English, and I'm the founder of **[GustinAI](https://gustinai.com)** (AI training for businesses in France and Spain).
 
 I built Wahou Commerce for my own needs: **to sell direct, anywhere in Europe, with no subscription or commission, and without giving up my evenings.**
 
@@ -333,7 +333,7 @@ I built Wahou Commerce for my own needs: **to sell direct, anywhere in Europe, w
 - 🌍 **Multilingual Europe**: designed from day one for France, Spain and the entire EU.
 - 🔓 **Independence**: your customers, your data, your store, powered by free software.
 
-[🌐 gustinai.com](https://gustinai.com) · [📚 delfonline.es](https://delfonline.es) · [💻 GitHub @Jacckisback](https://github.com/Jacckisback)
+[🌐 gustinai.com](https://gustinai.com) · [💻 GitHub @Jacckisback](https://github.com/Jacckisback)
 
 </td>
 </tr>

@@ -320,7 +320,7 @@ AI アシスタントは JavaScript の読み取りが苦手です。そこで W
 <tr>
 <td valign="top">
 
-私、Thierry Gustin（ティエリー・ギュスタン）は、マドリードに暮らして14年になるフランス人で、独立した起業家として活動しています。出版社 **Éditions Olibook** では、6か国語で約200冊の本を刊行してきました（人工知能、カクテル、ガーデニングなどをテーマにした「バイブル」シリーズもそのひとつです）。また、[**GustinAI**](https://gustinai.com)（フランスとスペインの企業向け AI 研修）と [**DelfOnline**](https://delfonline.es)（フランス語試験 DELF・DALF・TCF の対策）の創業者でもあります。
+私、Thierry Gustin（ティエリー・ギュスタン）は、マドリードに暮らして14年になるフランス人で、独立した起業家として活動しています。フランス語・スペイン語・英語の3か国語を話し、[**GustinAI**](https://gustinai.com)（フランスとスペインの企業向け AI 研修）を創業しました。
 
 Wahou Commerce は、もともと私自身のために作ったものです。**ヨーロッパ全域で、月額料金も手数料もなしに直接販売したい。しかも、そのために夜の時間を削ることなく。**
 
@@ -333,7 +333,7 @@ Wahou Commerce は、もともと私自身のために作ったものです。**
 - 🌍 **多言語のヨーロッパ**：最初からフランス、スペイン、そして EU 全体のために設計しています。
 - 🔓 **独立性**：顧客も、データも、ストアも、すべてあなたのもの。自由ソフトウェアとして提供しています。
 
-[🌐 gustinai.com](https://gustinai.com) · [📚 delfonline.es](https://delfonline.es) · [💻 GitHub @Jacckisback](https://github.com/Jacckisback)
+[🌐 gustinai.com](https://gustinai.com) · [💻 GitHub @Jacckisback](https://github.com/Jacckisback)
 
 </td>
 </tr>
